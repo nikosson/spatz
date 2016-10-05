@@ -1,0 +1,11 @@
+.question-view-title {
+
+}
+
+.bullet-list {
+    padding: 0;
+}
+
+.bullet-list li {
+    display: inline-block;
+}
