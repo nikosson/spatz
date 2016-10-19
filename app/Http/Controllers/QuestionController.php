@@ -2,29 +2,33 @@
 
 namespace App\Http\Controllers;
 
+use App\Answer;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Question;
+use App\Channel;
 
 class QuestionController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('show');
     }
 
     public function askForm()
     {
-        return view('question.ask');
+        $channelsList = Channel::all();
+        return view('question.ask', compact('channelsList'));
     }
 
     public function ask(Request $request)
     {
         $this->validate($request, [
             'title' => 'required',
-            'body' => 'required'
+            'body' => 'required',
         ]);
+
 
         $question = $request->user()->questions()->create($request->all());
 
@@ -43,6 +47,17 @@ class QuestionController extends Controller
         $question->increment('views');
 
         return view('question.show', compact('question'));
+    }
+
+    public function answer(Request $request)
+    {
+        $this->validate($request, [
+           'body' => 'required'
+        ]);
+
+        Answer::create($request->all());
+
+        return back();
     }
 
 }

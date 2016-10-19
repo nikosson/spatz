@@ -7,3 +7,37 @@
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+.question-view-title {
+
+}
+
+.ask-form-row {
+  margin-bottom: 150px;
+}
+
+.body {
+  background-color: #424b5f !important;
+}
+
+.bullet-list {
+  padding: 0;
+
+  li {
+    display: inline-block;
+  }
+}
+
+.answers-block {
+  display: inline-block;
+  font-size: 20px;
+  margin-top: 30px;
+}
+
+.question-avatar {
+  height: 50px;
+}
+
+.h2 {               /*TODO redesign it*/
+  font-weight: 600;
+}

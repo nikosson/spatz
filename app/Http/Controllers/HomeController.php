@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $questions = Question::all();
-        return view('welcome', compact('questions'));
+        $questions = Question::withCount('answers')->orderBy('created_at', 'desc')->get();
+        return view('index', compact('questions'));
     }
 }

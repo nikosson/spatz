@@ -19,3 +19,4 @@ Route::get('/', 'HomeController@index');
 Route::get('question/ask', 'QuestionController@askForm');
 Route::post('question/ask', 'QuestionController@ask');
 Route::get('question/{id}', 'QuestionController@show');
+Route::post('question/answer', 'QuestionController@answer');

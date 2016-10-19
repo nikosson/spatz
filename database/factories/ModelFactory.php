@@ -11,6 +11,8 @@
 |
 */
 
+use App\User;
+
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     static $password;
 
@@ -28,6 +30,8 @@ $factory->define(App\Question::class, function (Faker\Generator $faker) {
     return [
         'title' => $faker->sentence,
         'body' => $faker->paragraph(20),
-        'user_id' => auth()->user()->getAuthIdentifier(),
+        'user_id' => factory(User::class)->create()->id,
+        'channel_id' => mt_rand(1,2),
+        'views' => 0
     ];
 });
