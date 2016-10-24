@@ -6,7 +6,7 @@
 
 @section('content')
 
-    @include('question.ask-form')
+    @include('question.edit-form')
 
 @endsection
 

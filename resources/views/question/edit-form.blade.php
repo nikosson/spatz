@@ -2,7 +2,7 @@
     <div class="row ask-form-row">
 
         <div class="col-md-10 col-md-offset-1">
-            <form method="POST" action="/question/ask" class="col-md-10 col-md-offset-1">
+            <form method="POST" action="/question/edit/{{ $question->id }}" class="col-md-10 col-md-offset-1">
                 {{ csrf_field() }}
 
                 <div class="form-group">
@@ -10,7 +10,7 @@
                     <input type="text"
                            class="form-control"
                            name="title"
-                           value="{{ old('title') }}"
+                           value="{{ $question->title }}"
                            placeholder="Title of the question..."
                            required>
 
@@ -25,7 +25,7 @@
                               id="myTextarea"
                               rows="10"
                               required>
-                        {{ old('body') }}
+                        {{ $question->body }}
                     </textarea>
 
                     {!! $errors->first('body', '<span class="help-block">:message</span>') !!}
@@ -35,7 +35,7 @@
                     <label for="channel_id">Choose a channel or channels for your question</label>
 
                     <select class="selectpicker" name="channel_id">
-                        <option selected disabled>Pick a channel...</option>
+                        <option value="{{ $question->channel->id }}" selected>{{ $question->channel->title }}</option>
 
                         @foreach($channelsList as $channel)
                             <option value="{{ $channel->id }}">{{ $channel->title }}</option>
@@ -45,7 +45,7 @@
                     {!! $errors->first('channel_id', '<span class="help-block">:message</span>') !!}
                 </div>
 
-                <button type="submit" class="btn btn-default">Ask a question</button>
+                <button type="submit" class="btn btn-default">Save changes</button>
             </form>
         </div>
     </div>

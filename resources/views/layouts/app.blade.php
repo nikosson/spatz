@@ -13,6 +13,8 @@
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
 
+    @yield('styles')
+
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
@@ -83,9 +85,9 @@
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/css/bootstrap-select.min.css">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/js/bootstrap-select.min.js"></script>
+    @yield('scripts')
+    <!-- Latest compiled and minified CSS -->
+
 </body>
 </html>
