@@ -5,6 +5,8 @@
             <form method="POST" action="/question/ask" class="col-md-10 col-md-offset-1">
                 {{ csrf_field() }}
 
+                @include('errors')
+
                 <div class="form-group">
                     <label for="title">Title of your question</label>
                     <input type="text"
@@ -13,8 +15,6 @@
                            value="{{ old('title') }}"
                            placeholder="Title of the question..."
                            required>
-
-                    {!! $errors->first('title', '<span class="help-block">:message</span>') !!}
                 </div>
 
                 <div class="form-group">
@@ -27,8 +27,6 @@
                               required>
                         {{ old('body') }}
                     </textarea>
-
-                    {!! $errors->first('body', '<span class="help-block">:message</span>') !!}
                 </div>
 
                 <div class="form-group">

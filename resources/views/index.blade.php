@@ -4,6 +4,15 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
+
+                @if (session()->has('flash_notification.message'))
+                    <div class="alert alert-{{ session('flash_notification.level') }}">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+
+                        {!! session('flash_notification.message') !!}
+                    </div>
+                @endif
+
                 @foreach($questions as $question)
                     <div class="panel panel-default">
                         <div class="panel-body">
@@ -39,4 +48,11 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <!--Flash message alert-->
+    <script>
+        $('div.alert').not('.alert-important, .alert-warning').delay(3000).fadeOut(350);
+    </script>
 @endsection

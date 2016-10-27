@@ -39,20 +39,24 @@
                                 <img src="/img/kappa.png_large" alt="" class="question-avatar">
                             </a>
                         </li>
-                        <li>
-                            <a href="{{ url('question/edit', $question->id) }}" class="btn btn-default">
-                                Edit
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#"
-                               data-href="{{ url('question/delete', $question->id) }}"
-                               data-toggle="modal"
-                               data-target="#confirm-delete"
-                               class="btn btn-danger">
-                                Delete
-                            </a>
-                        </li>
+
+
+                        @if($ownerExists)
+                            <li>
+                                <a href="{{ url('question/edit', $question->id) }}" class="btn btn-default">
+                                    Edit
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                   data-href="{{ url('question/delete', $question->id) }}"
+                                   data-toggle="modal"
+                                   data-target="#confirm-delete"
+                                   class="btn btn-danger">
+                                    Delete
+                                </a>
+                            </li>
+                        @endif
 
                         <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
@@ -82,7 +86,7 @@
                         {!! $answer->body !!}
                         <hr>
                         <p>
-                            Answered by <a href="#">{{ $answer->getUser()->name }} </a>
+                            Answered by <a href="#">{{ $answer->user->name }} </a>
                             {{ $answer->created_at->diffForHumans() }}
                             <a href="#">
                                 <img src="/img/kappa.png_large" alt="" class="question-avatar">
@@ -145,6 +149,7 @@
         });
     </script>
 
+    <!--Flash message alert-->
     <script>
         $('div.alert').not('.alert-important, .alert-warning').delay(3000).fadeOut(350);
     </script>

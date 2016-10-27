@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class Answer extends Model
 {
@@ -13,8 +14,13 @@ class Answer extends Model
         return $this->belongsTo(Question::class);
     }
 
-    public function getUser()
+    public function user()
     {
-        return $this->question->user;
+        return $this->belongsTo(User::class);
+    }
+
+    public static function addAnswer(Request $request)
+    {
+        return $request->user()->answers()->create($request->all());
     }
 }

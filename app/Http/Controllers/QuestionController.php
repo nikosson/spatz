@@ -3,14 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Answer;
-use Illuminate\Http\Request;
-
-use App\Http\Requests;
+use App\Http\Requests\AnswerRequest;
+use App\Http\Requests\QuestionRequest;
 use App\Question;
 use App\Channel;
+use App\Http\Controllers\Traits\AuthorizesUsers;
 
 class QuestionController extends Controller
 {
+
+    use AuthorizesUsers;
+
     public function __construct()
     {
         $this->middleware('auth')->except('show');
@@ -20,18 +23,13 @@ class QuestionController extends Controller
     public function askForm()
     {
         $channelsList = Channel::all();
+
         return view('question.ask', compact('channelsList'));
     }
 
-    public function ask(Request $request)
+    public function ask(QuestionRequest $request)
     {
-        $this->validate($request, [
-            'title' => 'required',
-            'body' => 'required',
-        ]);
-
-
-        $question = $request->user()->questions()->create($request->all());
+        $question = Question::ask($request);
 
         if ($question) {
             flash("You've successfully asked a question!", 'success');
@@ -44,40 +42,44 @@ class QuestionController extends Controller
 
     public function show($id)
     {
-        $question = Question::where('id', $id)->first();
+        $question = Question::find('id', $id);
         $question->increment('views');
 
-        return view('question.show', compact('question'));
+        $ownerExists = $this->userCreatedQuestion($id) ? true : false;
+
+        return view('question.show', compact('question', 'creator_exists', 'ownerExists'));
     }
 
-    public function answer(Request $request)
+    public function answer(AnswerRequest $request)
     {
-        $this->validate($request, [
-            'body' => 'required'
-        ]);
-
-        Answer::create($request->all());
+        Answer::addAnswer($request);
 
         return back();
     }
 
     public function editForm($id)
     {
-        $question = Question::where('id', $id)->first();
+        if(! $this->userCreatedQuestion($id)) {
+            return $this->unauthorized();
+        }
+
+        $question = Question::find('id', $id);
         $channelsList = Channel::all()->except($question->channel->id);
 
         return view('question.edit', compact('question', 'channelsList'));
     }
 
-    public function edit(Request $request, $id)
+    public function edit(QuestionRequest $request, $id)
     {
-        $question = Question::where('id', $id)->first();
+        if(! $this->userCreatedQuestion($id)) {
+            return $this->unauthorized($request);
+        }
 
-        $question->title = $request->title;
-        $question->body = $request->body;
-        $question->channel_id = $request->channel_id;
+        $question = Question::find('id', $id)->edit($request);
 
-        $question->save();
+        if ($question) {
+            flash("You've successfully edited your question!", 'success');
+        }
 
         return redirect()->action(
             'QuestionController@show', ['id' => $question->id]
@@ -86,9 +88,15 @@ class QuestionController extends Controller
 
     public function delete($id)
     {
-        $question = Question::where('id', $id)->first();
+        if(! $this->userCreatedQuestion($id)) {
+            return $this->unauthorized();
+        }
 
-        $question->delete();
+        $question = Question::find('id', $id);
+
+        if($question->delete()) {
+            flash("You've successfully deleted your question!", 'success');
+        }
 
         return redirect()->action('HomeController@index');
     }

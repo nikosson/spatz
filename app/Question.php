@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Http\Requests\QuestionRequest;
 use Illuminate\Database\Eloquent\Model;
 
 class Question extends Model
@@ -22,4 +23,26 @@ class Question extends Model
     {
         return $this->hasMany(Answer::class, 'question_id');
     }
+
+    public static function find($rule, $id)
+    {
+        return Question::where($rule, $id)->first();
+    }
+
+    public static function ask(QuestionRequest $request)
+    {
+        return $request->user()->questions()->create($request->all());
+    }
+
+    public function edit(QuestionRequest $request)
+    {
+        $this->update([
+            'title'      => $request->title,
+            'body'       => $request->body,
+            'channel_id' => $request->channel_id
+        ]);
+
+        return $this;
+    }
+
 }

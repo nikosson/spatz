@@ -5,6 +5,8 @@
             <form method="POST" action="/question/edit/{{ $question->id }}" class="col-md-10 col-md-offset-1">
                 {{ csrf_field() }}
 
+                @include('errors')
+
                 <div class="form-group">
                     <label for="title">Title of your question</label>
                     <input type="text"
@@ -13,8 +15,6 @@
                            value="{{ $question->title }}"
                            placeholder="Title of the question..."
                            required>
-
-                    {!! $errors->first('title', '<span class="help-block">:message</span>') !!}
                 </div>
 
                 <div class="form-group">
@@ -27,8 +27,6 @@
                               required>
                         {{ $question->body }}
                     </textarea>
-
-                    {!! $errors->first('body', '<span class="help-block">:message</span>') !!}
                 </div>
 
                 <div class="form-group">
@@ -42,7 +40,6 @@
                         @endforeach
                     </select>
 
-                    {!! $errors->first('channel_id', '<span class="help-block">:message</span>') !!}
                 </div>
 
                 <button type="submit" class="btn btn-default">Save changes</button>
