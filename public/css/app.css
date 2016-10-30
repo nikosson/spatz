@@ -5797,4 +5797,11 @@ button.close {
   margin-bottom: 15px;
   margin-left: 249px; }
 
+.fa-check {
+  color: #008000; }
+
+.approved-answer-button {
+  background-color: transparent;
+  color: #3097D1; }
+
 /*# sourceMappingURL=app.css.map */

@@ -14,10 +14,17 @@ class CreateAnswersTable extends Migration
     public function up()
     {
         Schema::create('answers', function (Blueprint $table) {
+            $table->engine = 'InnoDb';
             $table->increments('id');
             $table->string('body');
-            $table->string('question_id');
+            $table->integer('question_id')->unsigned();
+            $table->foreign('question_id')
+                ->references('id')
+                ->on('questions')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->string('user_id');
+            $table->string('approved')->default(false);
             $table->timestamps();
         });
     }

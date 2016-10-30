@@ -40,7 +40,6 @@
                         @endforeach
                     </select>
 
-                    {!! $errors->first('channel_id', '<span class="help-block">:message</span>') !!}
                 </div>
 
                 <button type="submit" class="btn btn-default">Ask a question</button>

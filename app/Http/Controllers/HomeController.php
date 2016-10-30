@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $questions = Question::withCount('answers')->orderBy('created_at', 'desc')->get();
+        $questions = Question::withCount('answers')->orderBy('created_at', 'desc')->paginate(10);
         return view('index', compact('questions'));
     }
 }

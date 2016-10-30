@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Answer;
-use App\Http\Requests\AnswerRequest;
 use App\Http\Requests\QuestionRequest;
 use App\Question;
 use App\Channel;
@@ -43,18 +42,12 @@ class QuestionController extends Controller
     public function show($id)
     {
         $question = Question::find('id', $id);
+        $answers = Answer::where('question_id', $id)->orderBy('approved', 'desc')->get();
         $question->increment('views');
 
         $ownerExists = $this->userCreatedQuestion($id) ? true : false;
 
-        return view('question.show', compact('question', 'creator_exists', 'ownerExists'));
-    }
-
-    public function answer(AnswerRequest $request)
-    {
-        Answer::addAnswer($request);
-
-        return back();
+        return view('question.show', compact('question', 'ownerExists', 'answers'));
     }
 
     public function editForm($id)
@@ -100,5 +93,7 @@ class QuestionController extends Controller
 
         return redirect()->action('HomeController@index');
     }
+
+
 
 }

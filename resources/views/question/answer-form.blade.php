@@ -1,7 +1,7 @@
-
 <form method="POST" action="/question/answer">
     {{ csrf_field() }}
 
+    @include('errors')
 
     <div class="form-group">
         <label for="body">Your answer to this question</label>
@@ -14,7 +14,6 @@
             {{ old('body') }}
         </textarea>
 
-        {!! $errors->first('body', '<span class="help-block">:message</span>') !!}
     </div>
 
     <input name="question_id" type="hidden" value="{{ $question->id }}">

@@ -23,4 +23,38 @@ class Answer extends Model
     {
         return $request->user()->answers()->create($request->all());
     }
+
+    public static function find($rule, $id)
+    {
+        return Answer::where($rule, $id)->first();
+    }
+
+    public function approve()
+    {
+        $this->approved = true;
+        $this->save();
+
+        return $this;
+    }
+
+    public function unApprove()
+    {
+        $this->approved = false;
+        $this->save();
+
+        return $this;
+    }
+
+    public function mark()
+    {
+        if(!$this->approved) {
+            $this->approve();
+        } else {
+            $this->unApprove();
+        }
+
+        return $this;
+    }
+
+
 }

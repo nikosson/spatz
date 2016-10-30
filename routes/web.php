@@ -15,13 +15,23 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index');
 
+//QuestionController Routes
+
 Route::get('question/ask', 'QuestionController@askForm');
 Route::post('question/ask', 'QuestionController@ask');
 
 Route::get('question/{id}', 'QuestionController@show');
-Route::post('question/answer', 'QuestionController@answer');
 
 Route::get('question/edit/{id}', 'QuestionController@editForm');
 Route::post('question/edit/{id}', 'QuestionController@edit');
 
 Route::get('question/delete/{id}', 'QuestionController@delete');
+
+
+//AnswerController Routes
+Route::post('question/answer', 'AnswerController@answer');
+
+Route::post('answer/mark/{id}', 'AnswerController@markAnswer');
+
+
+

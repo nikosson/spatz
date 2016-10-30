@@ -57,69 +57,82 @@
                                 </a>
                             </li>
                         @endif
-
-                        <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        Delete this question?
-                                    </div>
-                                    <div class="modal-body">
-                                        Do you really want to delete <b>"{{ $question->title }}"</b> question ?
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                                        <a class="btn btn-danger btn-ok">Delete</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </ul>
 
 
                 </div>
             </div>
 
-            @foreach($question->answers as $answer)
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        {!! $answer->body !!}
-                        <hr>
-                        <p>
-                            Answered by <a href="#">{{ $answer->user->name }} </a>
-                            {{ $answer->created_at->diffForHumans() }}
-                            <a href="#">
-                                <img src="/img/kappa.png_large" alt="" class="question-avatar">
-                            </a>
-                        </p>
+            @include('question.answers')
 
-                    </div>
+            <hr>
+
+            @if(auth()->check())
+
+                @include('question.answer-form')
+
+            @else
+
+                <div class="alert alert-warning">
+                    <p>
+                        <a href="{{ url('login') }}">Sign in</a> in order to answer a question
+                    </p>
                 </div>
-            @endforeach
 
-                <hr>
-
-    @if(auth()->check())
-
-        @include('question.answer-form')
-
-    @else
-
-        <div class="alert alert-warning">
-            <p>
-                <a href="{{ url('login') }}">Sign in</a> in order to answer a question
-            </p>
-        </div>
-
-    @endif
+            @endif
 
         </div>
     </div>
 </div>
-
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                Delete this question?
+            </div>
+            <div class="modal-body">
+                Do you really want to delete <b>"{{ $question->title }}"</b> question ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-danger btn-ok">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
 
 @section('scripts')
+
+
+    <script>
+        function sendAjax(e) {
+            e.preventDefault();
+            var self = $(this);
+            var icon = $('.fa.fa-check');
+
+            $.ajax({
+                url: self.attr('href'),
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function (data) {
+                    if(data.approved) {
+                        self.text('Approved');
+                    } else {
+                        self.text('Mark as answer');
+                    }
+
+                    icon.fadeToggle('normal', function() {
+                        self.toggleClass('approved-answer-button');
+                    });
+
+                }
+            });
+        }
+        $('.btn-primary').on('click', sendAjax)
+    </script>
 
     <!--Modal window script-->
     <script>
@@ -129,6 +142,7 @@
     </script>
 
     <script type="text/javascript" src='//cdn.tinymce.com/4/tinymce.min.js'></script>
+    <script src="https://use.fontawesome.com/0b347342a5.js"></script>
 
     <script src="/js/prism.js"></script>
 
@@ -151,7 +165,7 @@
 
     <!--Flash message alert-->
     <script>
-        $('div.alert').not('.alert-important, .alert-warning').delay(3000).fadeOut(350);
+        $('div.alert').not('.alert-important, .alert-warning, .alert-danger').delay(3000).fadeOut(350);
     </script>
 
 @endsection
