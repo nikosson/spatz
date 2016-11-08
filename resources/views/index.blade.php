@@ -24,7 +24,7 @@
                                             {{ $question->channel->title }}
                                         </a>
 
-                                        <a href="/question/{{ $question->id }}">
+                                        <a href="{{ url('question', $question->id) }}">
                                             <h3 class="question-view-title">{{ $question->title }}</h3>
                                         </a>
 
@@ -36,7 +36,7 @@
                                         </small>
                                     </div>
 
-                                    <div class="col-md-2 answers-block">
+                                    <div class="col-md-2 answer-block mt-25">
                                             <span>{{ $question->answers_count }} answers</span>
                                     </div>
                                 </div>

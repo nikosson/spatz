@@ -24,11 +24,6 @@ class Question extends Model
         return $this->hasMany(Answer::class, 'question_id');
     }
 
-    public static function find($rule, $id)
-    {
-        return Question::where($rule, $id)->first();
-    }
-
     public static function ask(QuestionRequest $request)
     {
         return $request->user()->questions()->create($request->all());

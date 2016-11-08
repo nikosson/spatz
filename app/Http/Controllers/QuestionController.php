@@ -39,36 +39,34 @@ class QuestionController extends Controller
         );
     }
 
-    public function show($id)
+    public function show(Question $question)
     {
-        $question = Question::find('id', $id);
-        $answers = Answer::where('question_id', $id)->orderBy('approved', 'desc')->get();
+        $answers = Answer::where('question_id', $question->id)->orderBy('approved', 'desc')->get();
         $question->increment('views');
 
-        $ownerExists = $this->userCreatedQuestion($id) ? true : false;
+        $ownerExists = $this->userCreatedQuestion($question) ? true : false;
 
         return view('question.show', compact('question', 'ownerExists', 'answers'));
     }
 
-    public function editForm($id)
+    public function edit(Question $question)
     {
-        if(! $this->userCreatedQuestion($id)) {
+        if(! $this->userCreatedQuestion($question)) {
             return $this->unauthorized();
         }
 
-        $question = Question::find('id', $id);
         $channelsList = Channel::all()->except($question->channel->id);
 
         return view('question.edit', compact('question', 'channelsList'));
     }
 
-    public function edit(QuestionRequest $request, $id)
+    public function update(Question $question, QuestionRequest $request)
     {
-        if(! $this->userCreatedQuestion($id)) {
+        if(! $this->userCreatedQuestion($question)) {
             return $this->unauthorized($request);
         }
 
-        $question = Question::find('id', $id)->edit($request);
+        $question->edit($request);
 
         if ($question) {
             flash("You've successfully edited your question!", 'success');
@@ -79,13 +77,11 @@ class QuestionController extends Controller
         );
     }
 
-    public function delete($id)
+    public function delete(Question $question)
     {
-        if(! $this->userCreatedQuestion($id)) {
+        if(! $this->userCreatedQuestion($question)) {
             return $this->unauthorized();
         }
-
-        $question = Question::find('id', $id);
 
         if($question->delete()) {
             flash("You've successfully deleted your question!", 'success');

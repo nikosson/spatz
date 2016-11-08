@@ -42,10 +42,11 @@
                     </ul>
 
                     @if($ownerExists)
-                        <a href="{{ url('question/edit', $question->id) }}" class="btn btn-default mr-5">
+                        <a href="{{ route('question_edit', ['id' => $question->id]) }}" class="btn btn-default mr-5">
                             Edit
                         </a>
 
+                        <!--
                         <a href="#"
                            data-href="{{ url('question/delete', $question->id) }}"
                            data-toggle="modal"
@@ -53,6 +54,15 @@
                            class="btn btn-danger">
                             Delete
                         </a>
+                        -->
+
+                        <form action="{{ url('question', $question->id) }}" method="POST">
+                            <button type="submit" class="btn btn-danger">
+                                Delete
+                            </button>
+                            {{ method_field('DELETE') }}
+                            {{ csrf_field() }}
+                        </form>
                     @endif
                 </div>
             </div>
@@ -117,9 +127,11 @@
         });
     </script>
 
-    <script type="text/javascript" src='//cdn.tinymce.com/4/tinymce.min.js'></script>
     <script src="https://use.fontawesome.com/0b347342a5.js"></script>
 
+    <!--<script type="text/javascript" src='//cdn.tinymce.com/4/tinymce.min.js'></script>-->
+
+    <script src="/js/tinymce/tinymce.min.js"></script>
     <script src="/js/prism.js"></script>
 
     <script type="text/javascript">

@@ -8,17 +8,17 @@ use Illuminate\Http\Request;
 trait AuthorizesUsers
 {
 
-    protected function userCreatedQuestion($id)
+    protected function userCreatedQuestion(Question $question)
     {
         return Question::where([
-            'id' => $id,
+            'id' => $question->id,
             'user_id' => \Auth::id(),
         ])->exists();
     }
 
     protected function unauthorized(Request $request = null)
     {
-        return view('errors.503');
+        return view('errors.403');
     }
 
 }

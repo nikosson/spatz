@@ -87,7 +87,6 @@
     <script src="/js/app.js"></script>
 
     @yield('scripts')
-    <!-- Latest compiled and minified CSS -->
 
 </body>
 </html>

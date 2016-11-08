@@ -2,8 +2,9 @@
     <div class="row ask-form-row">
 
         <div class="col-md-10 col-md-offset-1">
-            <form method="POST" action="/question/edit/{{ $question->id }}" class="col-md-10 col-md-offset-1">
+            <form method="POST" action="{{ url('question/', $question->id) }}" class="col-md-10 col-md-offset-1">
                 {{ csrf_field() }}
+                {{ method_field('PATCH') }}
 
                 @include('errors')
 

@@ -1,4 +1,4 @@
-<form method="POST" action="/question/answer">
+<form method="POST" action="/question/answer" class="mb-50">
     {{ csrf_field() }}
 
     @include('errors')

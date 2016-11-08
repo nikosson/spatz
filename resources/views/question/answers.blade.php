@@ -12,11 +12,11 @@
 
                 <p>
                     @if(!$answer->approved)
-                        <a href="{{ url('answer/mark', $answer->id) }}" class="btn btn-primary">
+                        <a href="{{ route('answer_mark', ['id' => $answer->id]) }}" class="btn btn-primary">
                             Mark as answer
                         </a>
                     @else
-                        <a href="{{ url('answer/mark', $answer->id) }}" class="btn btn-primary btn-answer-approved">
+                        <a href="{{ route('answer_mark', ['id' => $answer->id]) }}" class="btn btn-primary btn-answer-approved">
                             Approved
                         </a>
                     @endif

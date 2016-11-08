@@ -15,23 +15,17 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index');
 
-//QuestionController Routes
-
+//Question
 Route::get('question/ask', 'QuestionController@askForm');
 Route::post('question/ask', 'QuestionController@ask');
+Route::get('question/{question}', 'QuestionController@show');
+Route::get('question/{question}/edit', 'QuestionController@edit')->name('question_edit');
+Route::patch('question/{question}', 'QuestionController@update');
+Route::delete('question/{question}', 'QuestionController@delete');
 
-Route::get('question/{id}', 'QuestionController@show');
-
-Route::get('question/edit/{id}', 'QuestionController@editForm');
-Route::post('question/edit/{id}', 'QuestionController@edit');
-
-Route::get('question/delete/{id}', 'QuestionController@delete');
-
-
-//AnswerController Routes
+//Answer
 Route::post('question/answer', 'AnswerController@answer');
-
-Route::post('answer/mark/{id}', 'AnswerController@markAnswer');
+Route::post('answer/{answer}/mark', 'AnswerController@markAnswer')->name('answer_mark');
 
 
 

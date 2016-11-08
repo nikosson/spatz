@@ -24,11 +24,6 @@ class Answer extends Model
         return $request->user()->answers()->create($request->all());
     }
 
-    public static function find($rule, $id)
-    {
-        return Answer::where($rule, $id)->first();
-    }
-
     public function approve()
     {
         $this->approved = true;
@@ -55,6 +50,4 @@ class Answer extends Model
 
         return $this;
     }
-
-
 }

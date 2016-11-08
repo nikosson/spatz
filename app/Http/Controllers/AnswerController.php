@@ -20,9 +20,9 @@ class AnswerController extends Controller
         return back();
     }
 
-    public function markAnswer($id)
+    public function markAnswer(Answer $answer)
     {
-        $answer = Answer::find('id', $id)->mark();
+        $answer->mark();
 
         return response()->json(['approved' => $answer->approved]);
 
