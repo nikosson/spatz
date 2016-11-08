@@ -11,8 +11,15 @@
                 </a>
 
                 <p>
-                    <a href="{{ url('answer/mark', $answer->id) }}" class="btn btn-primary">Mark as answer</a>
-                    <i class="fa fa-check fa-2x" aria-hidden="true"></i>
+                    @if(!$answer->approved)
+                        <a href="{{ url('answer/mark', $answer->id) }}" class="btn btn-primary">
+                            Mark as answer
+                        </a>
+                    @else
+                        <a href="{{ url('answer/mark', $answer->id) }}" class="btn btn-primary btn-answer-approved">
+                            Approved
+                        </a>
+                    @endif
                 </p>
 
         </div>

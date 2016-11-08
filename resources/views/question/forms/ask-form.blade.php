@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="row ask-form-row">
+    <div class="row mb-150">
 
         <div class="col-md-10 col-md-offset-1">
             <form method="POST" action="/question/ask" class="col-md-10 col-md-offset-1">
