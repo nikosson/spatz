@@ -14,3 +14,22 @@
         </div>
     </div>
 </div>
+
+
+
+{{--<!--Modal window script-->--}}
+{{--<script>--}}
+    {{--$('#confirm-delete').on('show.bs.modal', function(e) {--}}
+        {{--$(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));--}}
+    {{--});--}}
+{{--</script>--}}
+
+<!--
+<a href="#"
+   data-href="{{ url('question/delete', $question->id) }}"
+   data-toggle="modal"
+   data-target="#confirm-delete"
+   class="btn btn-danger">
+    Delete
+</a>
+-->

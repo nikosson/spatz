@@ -1,9 +1,5 @@
 @extends('layouts.app')
 
-@section('styles')
-    <link href="/css/prism.css" rel="stylesheet">
-@endsection
-
 @section('content')
 
 <div class="container">
@@ -11,7 +7,7 @@
         <div class="col-md-8 col-md-offset-2">
 
             @if (session()->has('flash_notification.message'))
-                <div class="alert alert-{{ session('flash_notification.level') }}">
+                <div class="alert alert-{{ session('flash_notification.level') }}" id="flash-alert">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 
                     {!! session('flash_notification.message') !!}
@@ -46,16 +42,6 @@
                             Edit
                         </a>
 
-                        <!--
-                        <a href="#"
-                           data-href="{{ url('question/delete', $question->id) }}"
-                           data-toggle="modal"
-                           data-target="#confirm-delete"
-                           class="btn btn-danger">
-                            Delete
-                        </a>
-                        -->
-
                         <form action="{{ url('question', $question->id) }}" method="POST">
                             <button type="submit" class="btn btn-danger">
                                 Delete
@@ -88,73 +74,11 @@
     </div>
 </div>
 
-@include("question.helpers.modal-delete")
-
 @endsection
 
 @section('scripts')
 
-
-    <script>
-        function sendAjax(e) {
-            e.preventDefault();
-            var self = $(this);
-
-            $.ajax({
-                url: self.attr('href'),
-                method: 'POST',
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                success: function (data) {
-                    if(data.approved) {
-                        self.text('Approved');
-                    } else {
-                        self.text('Mark as answer');
-                    }
-                    self.toggleClass('btn-answer-approved');
-
-                }
-            });
-        }
-        $('.btn-primary').on('click', sendAjax)
-    </script>
-
-    <!--Modal window script-->
-    <script>
-        $('#confirm-delete').on('show.bs.modal', function(e) {
-            $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
-        });
-    </script>
-
-    <script src="https://use.fontawesome.com/0b347342a5.js"></script>
-
-    <!--<script type="text/javascript" src='//cdn.tinymce.com/4/tinymce.min.js'></script>-->
-
-    <script src="/js/tinymce/tinymce.min.js"></script>
-    <script src="/js/prism.js"></script>
-
-    <script type="text/javascript">
-        tinymce.init({
-            selector: '#myTextarea',
-            theme: 'modern',
-            menubar: 'false',
-            width: '100%',
-            height: 300,
-            plugins: [
-                'codesample advlist autoresize autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
-                'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
-                'save table contextmenu directionality emoticons template paste textcolor'
-            ],
-            content_css: 'css/content.css',
-            toolbar: 'codesample insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons'
-        });
-    </script>
-
-    <!--Flash message alert-->
-    <script>
-        $('div.alert').not('.alert-important, .alert-warning, .alert-danger').delay(3000).fadeOut(350);
-    </script>
+    <script src="/assets/tinymce/tinymce.min.js"></script>
 
 @endsection
 

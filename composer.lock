@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3aed5be3644d6544038a95a4db24b7ba",
-    "content-hash": "de301867ef8c85987963ab02bedb2688",
+    "hash": "c8fcd40150c5d393d3e59484deb75da6",
+    "content-hash": "20de50515ffcb58680911692092ae8a6",
     "packages": [
         {
             "name": "anhskohbo/no-captcha",
@@ -51,45 +51,6 @@
                 "recaptcha"
             ],
             "time": "2016-08-24 16:35:03"
-        },
-        {
-            "name": "bootstrap-select/bootstrap-select",
-            "version": "1.11.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/silviomoreto/bootstrap-select.git",
-                "reference": "10a49e6be0f2a9c0595c2830749581b427f91a0e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/silviomoreto/bootstrap-select/zipball/10a49e6be0f2a9c0595c2830749581b427f91a0e",
-                "reference": "10a49e6be0f2a9c0595c2830749581b427f91a0e",
-                "shasum": ""
-            },
-            "suggest": {
-                "components/jquery": ">=1.8",
-                "twbs/bootstrap": "~3.0.0"
-            },
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Silvio Moreto",
-                    "homepage": "https://github.com/silviomoreto"
-                }
-            ],
-            "description": "A custom <select> for Bootstrap using button dropdown as replacement",
-            "homepage": "http://silviomoreto.github.io/bootstrap-select",
-            "keywords": [
-                "bootstrap",
-                "form",
-                "replacement",
-                "select"
-            ],
-            "time": "2016-09-10 00:05:52"
         },
         {
             "name": "classpreloader/classpreloader",

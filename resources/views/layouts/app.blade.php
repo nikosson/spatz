@@ -87,6 +87,7 @@
     <script src="/js/app.js"></script>
 
     @yield('scripts')
+    <script src="/js/all.js"></script>
 
 </body>
 </html>

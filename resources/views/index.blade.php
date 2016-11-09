@@ -6,7 +6,7 @@
             <div class="col-md-8 col-md-offset-2">
 
                 @if (session()->has('flash_notification.message'))
-                    <div class="alert alert-{{ session('flash_notification.level') }}">
+                    <div class="alert alert-{{ session('flash_notification.level') }}" id="flash-alert">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 
                         {!! session('flash_notification.message') !!}
@@ -53,6 +53,7 @@
 @endsection
 
 @section('scripts')
+
     <!--Flash message alert-->
     <script>
         $('div.alert').not('.alert-important, .alert-warning').delay(3000).fadeOut(350);

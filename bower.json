@@ -1,0 +1,17 @@
+{
+  "name": "spatz",
+  "description": "QaA pet project",
+  "main": "",
+  "authors": [
+    "nikosson"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/nikosson/Spatz",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
