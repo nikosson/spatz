@@ -14,12 +14,13 @@ require('laravel-elixir-vue');
  */
 
 var bowerScripts = [
-    './bower_components/bootstrap-select/js/bootstrap-select.js',
+    './bower_components/jquery/dist/jquery.min.js',
+    './bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js',
+    './bower_components/bootstrap-select/js/bootstrap-select.js'
 ];
 
 elixir(mix => {
     mix.sass('app.sass')
-       .webpack('app.js')
        .scripts(bowerScripts.concat([
            'libs/prism.js',
            'libs/tinymce_config.js',

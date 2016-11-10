@@ -11,21 +11,13 @@
                 </a>
 
                 <p>
-                    @if(!$answer->approved)
-                        <a href="{{ route('answer_mark', ['id' => $answer->id]) }}"
-                           class="btn btn-primary"
-                           id="btn-mark_question"
-                        >
+                    <a href="{{ route('answer_mark', ['id' => $answer->id]) }}" class="btn btn-primary btn-mark_answer">
+                        @if(!$answer->approved)
                             Mark as answer
-                        </a>
-                    @else
-                        <a href="{{ route('answer_mark', ['id' => $answer->id]) }}"
-                           class="btn btn-primary btn-answer-approved"
-                           id="btn-mark_question"
-                        >
+                        @else
                             Approved
-                        </a>
-                    @endif
+                        @endif
+                    </a>
                 </p>
 
         </div>

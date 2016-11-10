@@ -83,11 +83,10 @@
 
     @yield('content')
 
-    <!-- Scripts -->
-    <script src="/js/app.js"></script>
+    <script src="/assets/tinymce/tinymce.min.js"></script>
+    <script src="/js/all.js"></script>
 
     @yield('scripts')
-    <script src="/js/all.js"></script>
 
 </body>
 </html>

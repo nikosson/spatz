@@ -6532,6 +6532,9 @@ select.selectpicker {
   height: 50px;
   margin-right: 50px; }
 
+.form-inline_block {
+  display: inline-block; }
+
 .answer-block {
   font-size: 20px; }
 

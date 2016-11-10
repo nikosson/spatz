@@ -19,4 +19,4 @@ function sendAjax(e) {
         }
     });
 }
-$('#btn-mark_question').on('click', sendAjax)
+$('.btn-mark_answer').on('click', sendAjax)

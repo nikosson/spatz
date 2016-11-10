@@ -38,11 +38,11 @@
                     </ul>
 
                     @if($ownerExists)
-                        <a href="{{ route('question_edit', ['id' => $question->id]) }}" class="btn btn-default mr-5">
+                        <a href="{{ route('question_edit', ['id' => $question->id]) }}" class="btn btn-default">
                             Edit
                         </a>
 
-                        <form action="{{ url('question', $question->id) }}" method="POST">
+                        <form action="{{ url('question', $question->id) }}" method="POST" class="form-inline_block">
                             <button type="submit" class="btn btn-danger">
                                 Delete
                             </button>
@@ -76,9 +76,4 @@
 
 @endsection
 
-@section('scripts')
-
-    <script src="/assets/tinymce/tinymce.min.js"></script>
-
-@endsection
 

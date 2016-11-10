@@ -6,8 +6,3 @@
 
 @endsection
 
-@section('scripts')
-
-    <script src="/assets/tinymce/tinymce.min.js"></script>
-
-@endsection
