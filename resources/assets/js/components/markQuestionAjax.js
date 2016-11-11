@@ -14,7 +14,7 @@ function sendAjax(e) {
             } else {
                 self.text('Mark as answer');
             }
-            self.toggleClass('btn-answer-approved');
+            self.toggleClass('btn-marked_answer');
 
         }
     });

@@ -13,9 +13,9 @@
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index');
-
 //Question
+Route::get('/', 'QuestionController@index');
+Route::get('channel/{channel}', 'QuestionController@showByChannel');
 Route::get('question/ask', 'QuestionController@askForm');
 Route::post('question/ask', 'QuestionController@ask');
 Route::get('question/{question}', 'QuestionController@show');

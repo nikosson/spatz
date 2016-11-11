@@ -2846,40 +2846,48 @@ fieldset[disabled] a.btn {
     color: #fff;
     background-color: #636b6f; }
 
-.btn-primary {
+.btn-primary, .btn-mark_answer {
   color: #fff;
   background-color: #3097D1;
   border-color: #2a88bd; }
-  .btn-primary:focus, .btn-primary.focus {
+  .btn-primary:focus, .btn-mark_answer:focus, .btn-primary.focus, .focus.btn-mark_answer {
     color: #fff;
     background-color: #2579a9;
     border-color: #133d55; }
-  .btn-primary:hover {
+  .btn-primary:hover, .btn-mark_answer:hover {
     color: #fff;
     background-color: #2579a9;
     border-color: #1f648b; }
-  .btn-primary:active, .btn-primary.active,
-  .open > .btn-primary.dropdown-toggle {
+  .btn-primary:active, .btn-mark_answer:active, .btn-primary.active, .active.btn-mark_answer,
+  .open > .btn-primary.dropdown-toggle,
+  .open > .dropdown-toggle.btn-mark_answer {
     color: #fff;
     background-color: #2579a9;
     border-color: #1f648b; }
-    .btn-primary:active:hover, .btn-primary:active:focus, .btn-primary:active.focus, .btn-primary.active:hover, .btn-primary.active:focus, .btn-primary.active.focus,
+    .btn-primary:active:hover, .btn-mark_answer:active:hover, .btn-primary:active:focus, .btn-mark_answer:active:focus, .btn-primary:active.focus, .btn-mark_answer:active.focus, .btn-primary.active:hover, .active.btn-mark_answer:hover, .btn-primary.active:focus, .active.btn-mark_answer:focus, .btn-primary.active.focus, .active.focus.btn-mark_answer,
     .open > .btn-primary.dropdown-toggle:hover,
+    .open > .dropdown-toggle.btn-mark_answer:hover,
     .open > .btn-primary.dropdown-toggle:focus,
-    .open > .btn-primary.dropdown-toggle.focus {
+    .open > .dropdown-toggle.btn-mark_answer:focus,
+    .open > .btn-primary.dropdown-toggle.focus,
+    .open > .dropdown-toggle.focus.btn-mark_answer {
       color: #fff;
       background-color: #1f648b;
       border-color: #133d55; }
-  .btn-primary:active, .btn-primary.active,
-  .open > .btn-primary.dropdown-toggle {
+  .btn-primary:active, .btn-mark_answer:active, .btn-primary.active, .active.btn-mark_answer,
+  .open > .btn-primary.dropdown-toggle,
+  .open > .dropdown-toggle.btn-mark_answer {
     background-image: none; }
-  .btn-primary.disabled:hover, .btn-primary.disabled:focus, .btn-primary.disabled.focus, .btn-primary[disabled]:hover, .btn-primary[disabled]:focus, .btn-primary[disabled].focus,
+  .btn-primary.disabled:hover, .disabled.btn-mark_answer:hover, .btn-primary.disabled:focus, .disabled.btn-mark_answer:focus, .btn-primary.disabled.focus, .disabled.focus.btn-mark_answer, .btn-primary[disabled]:hover, [disabled].btn-mark_answer:hover, .btn-primary[disabled]:focus, [disabled].btn-mark_answer:focus, .btn-primary[disabled].focus, [disabled].focus.btn-mark_answer,
   fieldset[disabled] .btn-primary:hover,
+  fieldset[disabled] .btn-mark_answer:hover,
   fieldset[disabled] .btn-primary:focus,
-  fieldset[disabled] .btn-primary.focus {
+  fieldset[disabled] .btn-mark_answer:focus,
+  fieldset[disabled] .btn-primary.focus,
+  fieldset[disabled] .focus.btn-mark_answer {
     background-color: #3097D1;
     border-color: #2a88bd; }
-  .btn-primary .badge {
+  .btn-primary .badge, .btn-mark_answer .badge {
     color: #3097D1;
     background-color: #fff; }
 
@@ -4257,16 +4265,16 @@ a.badge:hover, a.badge:focus {
   cursor: pointer; }
 
 .jumbotron {
-  padding-top: 30px;
-  padding-bottom: 30px;
-  margin-bottom: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
   color: inherit;
   background-color: #eeeeee; }
   .jumbotron h1,
   .jumbotron .h1 {
     color: inherit; }
   .jumbotron p {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     font-size: 21px;
     font-weight: 200; }
   .jumbotron > hr {
@@ -4280,12 +4288,12 @@ a.badge:hover, a.badge:focus {
     max-width: 100%; }
   @media screen and (min-width: 768px) {
     .jumbotron {
-      padding-top: 48px;
-      padding-bottom: 48px; }
+      padding-top: 32px;
+      padding-bottom: 32px; }
       .container .jumbotron,
       .container-fluid .jumbotron {
-        padding-left: 60px;
-        padding-right: 60px; }
+        padding-left: 40px;
+        padding-right: 40px; }
       .jumbotron h1,
       .jumbotron .h1 {
         font-size: 63px; } }
@@ -5766,7 +5774,7 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
-/* http://prismjs.com/download.html?themes=prism&languages=markup+clike+aspnet+c+csharp+cpp+ruby+go+java+objectivec+php+python+r+swift&plugins=line-highlight+line-numbers+file-highlight+show-language */
+/* http://prismjs.com/download.html?themes=prism&languages=markup+css+clike+javascript&plugins=line-highlight+toolbar+highlight-keywords+command-line+show-language */
 /**
  * prism.js default theme for JavaScript, CSS and HTML
  * Based on dabblet (http://dabblet.com)
@@ -5922,63 +5930,86 @@ pre[data-line] {
   top: auto;
   bottom: .4em; }
 
-pre.line-numbers {
-  position: relative;
-  padding-left: 3.8em;
-  counter-reset: linenumber; }
-
-pre.line-numbers > code {
+pre.code-toolbar {
   position: relative; }
 
-.line-numbers .line-numbers-rows {
+pre.code-toolbar > .toolbar {
   position: absolute;
-  pointer-events: none;
-  top: 0;
-  font-size: 100%;
-  left: -3.8em;
-  width: 3em;
-  /* works for line-numbers below 1000 lines */
-  letter-spacing: -1px;
+  top: .3em;
+  right: .2em;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0; }
+
+pre.code-toolbar:hover > .toolbar {
+  opacity: 1; }
+
+pre.code-toolbar > .toolbar .toolbar-item {
+  display: inline-block; }
+
+pre.code-toolbar > .toolbar a {
+  cursor: pointer; }
+
+pre.code-toolbar > .toolbar button {
+  background: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  overflow: visible;
+  padding: 0;
+  -webkit-user-select: none;
+  /* for button */
+  -moz-user-select: none;
+  -ms-user-select: none; }
+
+pre.code-toolbar > .toolbar a,
+pre.code-toolbar > .toolbar button,
+pre.code-toolbar > .toolbar span {
+  color: #bbb;
+  font-size: .8em;
+  padding: 0 .5em;
+  background: #f5f2f0;
+  background: rgba(224, 224, 224, 0.2);
+  box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.2);
+  border-radius: .5em; }
+
+pre.code-toolbar > .toolbar a:hover,
+pre.code-toolbar > .toolbar a:focus,
+pre.code-toolbar > .toolbar button:hover,
+pre.code-toolbar > .toolbar button:focus,
+pre.code-toolbar > .toolbar span:hover,
+pre.code-toolbar > .toolbar span:focus {
+  color: inherit;
+  text-decoration: none; }
+
+.command-line-prompt {
   border-right: 1px solid #999;
+  display: block;
+  float: left;
+  font-size: 100%;
+  letter-spacing: -1px;
+  margin-right: 1em;
+  pointer-events: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none; }
 
-.line-numbers-rows > span {
-  pointer-events: none;
-  display: block;
-  counter-increment: linenumber; }
-
-.line-numbers-rows > span:before {
-  content: counter(linenumber);
+.command-line-prompt > span:before {
   color: #999;
+  content: ' ';
   display: block;
-  padding-right: 0.8em;
-  text-align: right; }
+  padding-right: 0.8em; }
 
-div.prism-show-language {
-  position: relative; }
+.command-line-prompt > span[data-user]:before {
+  content: "[" attr(data-user) "@" attr(data-host) "] $"; }
 
-div.prism-show-language > div.prism-show-language-label {
-  color: black;
-  background-color: #CFCFCF;
-  display: inline-block;
-  position: absolute;
-  bottom: auto;
-  left: auto;
-  top: 0;
-  right: 0;
-  width: auto;
-  height: auto;
-  font-size: 0.9em;
-  border-radius: 0 0 0 5px;
-  padding: 0 0.5em;
-  text-shadow: none;
-  z-index: 1;
-  box-shadow: none;
-  -webkit-transform: none;
-  transform: none; }
+.command-line-prompt > span[data-user="root"]:before {
+  content: "[" attr(data-user) "@" attr(data-host) "] #"; }
+
+.command-line-prompt > span[data-prompt]:before {
+  content: attr(data-prompt); }
 
 select.bs-select-hidden,
 select.selectpicker {
@@ -6517,10 +6548,10 @@ select.selectpicker {
   .inline-list li {
     display: inline-block; }
 
-.btn-answer-approved {
+.btn-marked_answer {
   background-color: transparent;
   color: #3097D1; }
-  .btn-answer-approved:focus {
+  .btn-marked_answer:focus {
     background-color: transparent;
     color: #3097D1; }
 

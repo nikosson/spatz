@@ -5,6 +5,12 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
 
+                <div class="jumbotron">
+                    <h1>{{ $channel->title }}</h1>
+                    <p>{{ $channel->info }}</p>
+                    <p><a class="btn btn-primary btn-lg" href="{{ $channel->url }}" role="button">Learn more</a></p>
+                </div>
+
                 @if (session()->has('flash_notification.message'))
                     <div class="alert alert-{{ session('flash_notification.level') }}" id="flash-alert">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -40,7 +46,7 @@
                                     </div>
 
                                     <div class="col-md-2 answer-block mt-25">
-                                            <span>{{ $question->answers_count }} answers</span>
+                                        <span>{{ $question->answers_count }} answers</span>
                                     </div>
                                 </div>
                             </div>

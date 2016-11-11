@@ -17,7 +17,7 @@ class CreateQuestionsTable extends Migration
             $table->engine = 'InnoDb';
             $table->increments('id');
             $table->string('title');
-            $table->string('body');
+            $table->text('body');
             $table->integer('channel_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->integer('views')->default(0);

@@ -19,6 +19,12 @@ class QuestionController extends Controller
 
     }
 
+    public function index()
+    {
+        $questions = Question::withCount('answers')->orderBy('created_at', 'desc')->paginate(10);
+        return view('index', compact('questions'));
+    }
+
     public function askForm()
     {
         $channelsList = Channel::all();
@@ -90,6 +96,11 @@ class QuestionController extends Controller
         return redirect()->action('HomeController@index');
     }
 
+    public function showByChannel(Channel $channel)
+    {
+        $questions = Question::withCount('answers')->where('channel_id', $channel->id)->paginate(10);
 
+        return view('question.allByChannel', compact('questions', 'channel'));
+    }
 
 }

@@ -11,6 +11,7 @@
 |
 */
 
+use App\Channel;
 use App\User;
 
 $factory->define(App\User::class, function (Faker\Generator $faker) {
@@ -26,12 +27,13 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Question::class, function (Faker\Generator $faker) {
     static $password;
+    $channelCounter = Channel::count();
 
     return [
         'title' => $faker->sentence,
         'body' => $faker->paragraph(20),
         'user_id' => factory(User::class)->create()->id,
-        'channel_id' => mt_rand(1,2),
+        'channel_id' => mt_rand(1,$channelCounter),
         'views' => 0
     ];
 });
