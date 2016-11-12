@@ -17,7 +17,10 @@
             <div class="panel panel-default">
                 <div class="panel-body">
 
-                    <a class="label label-default" style="background-color: {{ $question->channel->color }};">
+                    <a href="{{ url('channel', $question->channel->slug) }}"
+                       class="label label-default"
+                       style="background-color: {{ $question->channel->color }};"
+                    >
                         {{ $question->channel->title }}
                     </a>
 

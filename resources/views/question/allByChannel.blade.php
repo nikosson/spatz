@@ -8,7 +8,15 @@
                 <div class="jumbotron">
                     <h1>{{ $channel->title }}</h1>
                     <p>{{ $channel->info }}</p>
-                    <p><a class="btn btn-primary btn-lg" href="{{ $channel->url }}" role="button">Learn more</a></p>
+                    <p>
+                        <a class="btn btn-primary btn-lg"
+                           href="{{ $channel->url }}"
+                           role="button"
+                           target="_blank"
+                        >
+                            Learn more
+                        </a>
+                    </p>
                 </div>
 
                 @if (session()->has('flash_notification.message'))

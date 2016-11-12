@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Events\QuestionWasAnswered;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,9 @@ class Answer extends Model
 
     public static function addAnswer(Request $request)
     {
-        return $request->user()->answers()->create($request->all());
+        $answer = $request->user()->answers()->create($request->all());
+        event(new QuestionWasAnswered($answer));
+        return $answer;
     }
 
     public function approve()
@@ -49,5 +52,10 @@ class Answer extends Model
         }
 
         return $this;
+    }
+
+    public function getQuestionerEmail()
+    {
+        return $this->question->user->email;
     }
 }
