@@ -17,11 +17,11 @@ Auth::routes();
 Route::get('/', 'QuestionController@index');
 Route::get('channel/{channel}', 'QuestionController@showByChannel');
 Route::get('question/ask', 'QuestionController@askForm');
-Route::post('question/ask', 'QuestionController@ask');
+Route::post('question/store', 'QuestionController@ask');
 Route::get('question/{question}', 'QuestionController@show');
 Route::get('question/{question}/edit', 'QuestionController@edit')->name('question_edit');
 Route::patch('question/{question}', 'QuestionController@update');
-Route::delete('question/{question}', 'QuestionController@delete');
+Route::delete('question/{question}', 'QuestionController@destroy');
 
 //Answer
 Route::post('question/answer', 'AnswerController@answer');

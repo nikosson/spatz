@@ -13,6 +13,12 @@ class AnswerController extends Controller
 
     }
 
+    /**
+     * Create an answer for specified question
+     *
+     * @param AnswerRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function answer(AnswerRequest $request)
     {
         Answer::addAnswer($request);
@@ -20,6 +26,12 @@ class AnswerController extends Controller
         return back();
     }
 
+    /**
+     * Mark an answer for specified question
+     *
+     * @param Answer $answer
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function markAnswer(Answer $answer)
     {
         $answer->mark();
