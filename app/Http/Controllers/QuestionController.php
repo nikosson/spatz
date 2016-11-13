@@ -50,7 +50,7 @@ class QuestionController extends Controller
      */
     public function store(QuestionRequest $request)
     {
-        $question = Question::create($request);
+        $question = Question::ask($request);
 
         if ($question) {
             flash("You've successfully asked a question!", 'success');

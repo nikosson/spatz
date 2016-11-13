@@ -45,7 +45,7 @@ class Question extends Model
      * @param QuestionRequest $request
      * @return Question
      */
-    public static function create(QuestionRequest $request)
+    public static function ask(QuestionRequest $request)
     {
         return $request->user()->questions()->create($request->all());
     }
