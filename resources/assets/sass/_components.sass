@@ -3,8 +3,16 @@
 .inline-list
   padding: 0
 
-  li
+  &__item
     display: inline-block
+
+    &--bordered
+      border-right: 1px solid grey
+      margin: 15px 0px
+
+
+  &--centered
+    text-align: center
 
 //Buttons
 
@@ -18,4 +26,30 @@
   &:focus
     background-color: transparent
     color: $brand-primary
+
+// Menu's
+
+.bordered-menu
+  border-top: 1px solid grey
+  border-bottom: 1px solid grey
+  font-size: 25px
+  padding: 0
+
+  &__item
+    display: inline-block
+
+    a
+      text-decoration: none
+      color: inherit
+
+      &:hover
+        color: black
+
+    &:hover
+      border-bottom: 1.5px solid #000
+
+    &--active
+      border-bottom: 1.5px solid #000
+      font-weight: 700
+
 

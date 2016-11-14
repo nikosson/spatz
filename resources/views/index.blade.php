@@ -32,15 +32,15 @@
                                         </a>
 
                                         <small>
-                                            Asked {{ $question->updated_at->diffForHumans() }}
-                                            by <a href="">
+                                            Asked {{ $question->created_at->diffForHumans() }}
+                                            by <a href="{{ route('user_info', str_replace(' ', '-', $question->user->name)) }}">
                                                 {{ $question->user->name }}
                                             </a>
                                         </small>
                                     </div>
 
                                     <div class="col-md-2 answer-block mt-25">
-                                            <span>{{ $question->answers_count }} answers</span>
+                                        <span>{{ $question->answers_count }} answers</span>
                                     </div>
                                 </div>
                             </div>

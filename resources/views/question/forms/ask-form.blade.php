@@ -2,7 +2,7 @@
     <div class="row mb-150">
 
         <div class="col-md-10 col-md-offset-1">
-            <form method="POST" action="/question/ask" class="col-md-10 col-md-offset-1">
+            <form method="POST" action="/question/store" class="col-md-10 col-md-offset-1">
                 {{ csrf_field() }}
 
                 @include('errors')

@@ -30,9 +30,9 @@
                     <hr>
 
                     <ul class="inline-list">
-                        <li>Question asked {{ $question->created_at->diffForHumans() }} &#8226</li>
-                        <li>{{ $question->views }} views &#8226</li>
-                        <li>
+                        <li class="inline-list__item">Question asked {{ $question->created_at->diffForHumans() }} &#8226</li>
+                        <li class="inline-list__item">{{ $question->views }} views &#8226</li>
+                        <li class="inline-list__item">
                             Asked by <a href="#">{{ $question->user->name }}</a>
                             <a href="#">
                                 <img src="/img/kappa.png_large" alt="" class="question-avatar">
