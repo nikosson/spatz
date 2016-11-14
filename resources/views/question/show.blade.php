@@ -33,7 +33,11 @@
                         <li>Question asked {{ $question->created_at->diffForHumans() }} &#8226</li>
                         <li>{{ $question->views }} views &#8226</li>
                         <li>
-                            Asked by <a href="#">{{ $question->user->name }}</a>
+                            Asked by
+                            <a href="{{ route('user_info', str_replace(' ', '-', $question->user->name)) }}">
+                                {{ $question->user->name }}
+                            </a>
+
                             <a href="#">
                                 <img src="/img/kappa.png_large" alt="" class="question-avatar">
                             </a>
@@ -45,13 +49,10 @@
                             Edit
                         </a>
 
-                        <form action="{{ url('question', $question->id) }}" method="POST" class="form-inline_block">
-                            <button type="submit" class="btn btn-danger">
-                                Delete
-                            </button>
-                            {{ method_field('DELETE') }}
-                            {{ csrf_field() }}
-                        </form>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
+                            Delete
+                        </button>
                     @endif
                 </div>
             </div>
@@ -78,5 +79,7 @@
 </div>
 
 @endsection
+
+@include('question.helpers.modal-delete')
 
 
