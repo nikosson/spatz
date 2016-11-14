@@ -81,7 +81,15 @@
         </div>
     </nav>
 
-    @yield('content')
+    <div class="container">
+        <div class="row">
+
+            @yield('content')
+
+        </div>
+    </div>
+
+
 
     <script src="/assets/tinymce/tinymce.min.js"></script>
     <script src="/js/all.js"></script>
