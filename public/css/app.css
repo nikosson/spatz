@@ -6545,9 +6545,9 @@ select.selectpicker {
 
 .inline-list {
   padding: 0; }
-  .inline-list__item {
+  .inline-list li {
     display: inline-block; }
-    .inline-list__item--bordered {
+    .inline-list li--bordered {
       border-right: 1px solid grey;
       margin: 15px 0px; }
   .inline-list--centered {
@@ -6613,6 +6613,8 @@ select.selectpicker {
     display: inline-block;
     border-right: 1px solid grey;
     padding: 0 5px; }
+    .profile-menu li p {
+      margin: 0; }
     .profile-menu li:last-child {
       border-right: none; }
     .profile-menu li a {

@@ -33,3 +33,5 @@
         </div>
     </div>
 @endforeach
+
+{{ $questions->links() }}

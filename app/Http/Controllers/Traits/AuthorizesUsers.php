@@ -28,7 +28,7 @@ trait AuthorizesUsers
      * @param Request|null $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    protected function unauthorized(Request $request = null)
+    protected function unauthorized()
     {
         return view('errors.403');
     }

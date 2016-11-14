@@ -10,21 +10,23 @@
                     <img src="/img/kappa.png_large" alt="" class="question-avatar">
                 </a>
 
-                <p>
-                    @if(!$answer->approved)
-                        <a href="{{ route('answer_mark', ['id' => $answer->id]) }}"
-                           class="btn btn-mark_answer"
-                        >
-                            Mark as answer
-                        </a>
-                    @else
-                        <a href="{{ route('answer_mark', ['id' => $answer->id]) }}"
-                           class="btn btn-mark_answer btn-marked_answer"
-                        >
-                            Approved
-                        </a>
-                    @endif
-                </p>
+                @if(isset($ownerExists))
+                    <p>
+                        @if(!$answer->approved)
+                            <a href="{{ route('answer_mark', ['id' => $answer->id]) }}"
+                               class="btn btn-mark_answer"
+                            >
+                                Mark as answer
+                            </a>
+                        @else
+                            <a href="{{ route('answer_mark', ['id' => $answer->id]) }}"
+                               class="btn btn-mark_answer btn-marked_answer"
+                            >
+                                Approved
+                            </a>
+                        @endif
+                    </p>
+                @endif
 
         </div>
     </div>

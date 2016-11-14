@@ -37,7 +37,7 @@ class UserController extends Controller
         $questions = Question::where('user_id', $user->id)
             ->withCount('answers')
             ->orderBy('created_at', 'desc')
-            ->get();
+            ->paginate(5);
 
         return view('user.user-questions', compact('user', 'questions'));
 

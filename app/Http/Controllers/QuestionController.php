@@ -75,7 +75,7 @@ class QuestionController extends Controller
 
         $question->increment('views');
 
-        $ownerExists = $this->userCreatedQuestion($question) ? true : false;
+        $ownerExists = $this->userCreatedQuestion($question);
 
         return view('question.show', compact('question', 'ownerExists', 'answers'));
     }

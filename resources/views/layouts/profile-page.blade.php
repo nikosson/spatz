@@ -12,8 +12,8 @@
 
                     <p class="profile-block_briefly-about">Some brief information </p>
 
-                    <ul class="profile-menu">
-                        <li class="">
+                    <ul class="profile-menu mb-25">
+                        <li>
 
                             <div class="profile-menu_questions-count">
                                 {{ $user->questionsCount() }}
@@ -26,7 +26,7 @@
                             @endif
                         </li>
 
-                        <li class="">
+                        <li>
 
                             <div class="profile-menu_questions-count">
                                 {{ $user->answersCount() }}
@@ -39,7 +39,7 @@
                             @endif
                         </li>
 
-                        <li class="">
+                        <li>
 
                             <div class="profile-menu_questions-count">
                                 {{ $user->approvedAnswersCount() }}
