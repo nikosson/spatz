@@ -32,6 +32,10 @@ Route::get('profile/{username}/info', 'ProfileController@index')->name('user_inf
 Route::get('profile/{username}/answers', 'ProfileController@getAnswers')->name('user_answers');
 Route::get('profile/{username}/questions', 'ProfileController@getQuestions')->name('user_questions');
 
-
+//Settings
+Route::get('settings/info', 'SettingsController@info');
+Route::patch('settings/info', 'SettingsController@updateInfo');
+Route::get('settings/mailing', 'SettingsController@mailing');
+Route::patch('settings/mailing', 'SettingsController@updateMailing');
 
 
