@@ -87,7 +87,13 @@
     <div class="container">
         <div class="row">
 
-            @include('profile-sidebar')
+            @if(auth()->check())
+                @include('profile-sidebar')
+            @else
+                <div class="col-md-2">
+                    <!--For styling purposes-->
+                </div>
+            @endif
 
             @yield('content')
 

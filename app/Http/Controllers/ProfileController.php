@@ -17,7 +17,7 @@ class ProfileController extends Controller
     {
         $user = User::getByName($name);
 
-        return view('user.user-info', compact('user'));
+        return view('profile.info', compact('user'));
     }
 
     public function getAnswers($name)
@@ -25,7 +25,7 @@ class ProfileController extends Controller
         $user = User::getByName($name);
         $answers = $user->answers;
 
-        return view('user.user-answers', compact('user', 'answers'));
+        return view('profile.answers', compact('user', 'answers'));
     }
 
     public function getQuestions($name)
@@ -37,9 +37,7 @@ class ProfileController extends Controller
             ->orderBy('created_at', 'desc')
             ->paginate(5);
 
-        return view('user.user-questions', compact('user', 'questions'));
+        return view('profile.questions', compact('user', 'questions'));
 
     }
-
-
 }
