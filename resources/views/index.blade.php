@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-8">
 
         @if (session()->has('flash_notification.message'))
             <div class="alert alert-{{ session('flash_notification.level') }}" id="flash-alert">

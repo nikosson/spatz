@@ -1,4 +1,4 @@
-<div class="col-md-8 col-md-offset-2 mb-50">
+<div class="col-md-8 mb-50">
     <form method="POST" action="{{ url('question/', $question->id) }}">
         {{ csrf_field() }}
         {{ method_field('PATCH') }}

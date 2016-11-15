@@ -1,4 +1,4 @@
-<div class="col-md-10 col-md-offset-1 mb-150">
+<div class="col-md-8 mb-150">
     <form method="POST" action="/question/store" class="col-md-10 col-md-offset-1">
         {{ csrf_field() }}
 

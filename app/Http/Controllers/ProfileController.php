@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Answer;
 use App\Question;
 use App\User;
-use Illuminate\Http\Request;
 
-class UserController extends Controller
+class ProfileController extends Controller
 {
     public function __construct()
     {

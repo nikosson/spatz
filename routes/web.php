@@ -28,9 +28,10 @@ Route::post('question/answer', 'AnswerController@answer');
 Route::post('answer/{answer}/mark', 'AnswerController@markAnswer')->name('answer_mark');
 
 //Profile
-Route::get('user/{username}/info', 'UserController@index')->name('user_info');
-Route::get('user/{username}/answers', 'UserController@getAnswers')->name('user_answers');
-Route::get('user/{username}/questions', 'UserController@getQuestions')->name('user_questions');
+Route::get('profile/{username}/info', 'ProfileController@index')->name('user_info');
+Route::get('profile/{username}/answers', 'ProfileController@getAnswers')->name('user_answers');
+Route::get('profile/{username}/questions', 'ProfileController@getQuestions')->name('user_questions');
+
 
 
 

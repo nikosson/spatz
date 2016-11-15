@@ -63,6 +63,9 @@
 
                             <ul class="dropdown-menu" role="menu">
                                 <li>
+                                    <a href="{{ url('/logout') }}">
+                                        Logout
+                                    </a>
                                     <a href="{{ url('/logout') }}"
                                         onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
@@ -84,15 +87,16 @@
     <div class="container">
         <div class="row">
 
+            @include('profile-sidebar')
+
             @yield('content')
 
         </div>
     </div>
 
-
-
     <script src="/assets/tinymce/tinymce.min.js"></script>
     <script src="/js/all.js"></script>
+    <script src="https://use.fontawesome.com/0b347342a5.js"></script>
 
     @yield('scripts')
 
