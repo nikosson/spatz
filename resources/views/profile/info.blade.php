@@ -14,6 +14,6 @@
         </li>
     </ul>
 
-    <p>No information</p>
+    <p>{{ $user->about }}</p>
 
 @endsection

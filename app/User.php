@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Http\Requests\SettingsRequest;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -15,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'firstName', 'lastName', 'about'
     ];
 
     /**
@@ -94,5 +95,16 @@ class User extends Authenticatable
         $user = User::where('name', $username)->firstOrFail();
 
         return $user;
+    }
+
+    public function updateSettingsInfo(SettingsRequest $request)
+    {
+        $this->update([
+            'firstName' => $request->firstName,
+            'lastName'  => $request->lastName,
+            'about'     => $request->about
+        ]);
+
+        return $this;
     }
 }

@@ -570,7 +570,7 @@ this.activeTarget=b,this.clear();var c=this.selector+'[data-target="'+b+'"],'+th
           titleOption.value = '';
           element.insertBefore(titleOption, element.firstChild);
           // Check if selected or data-selected attribute is already set on an option. If not, select the titleOption option.
-          // the selected item may have been changed by user or programmatically before the bootstrap select plugin runs,
+          // the selected item may have been changed by profile or programmatically before the bootstrap select plugin runs,
           // if so, the select will have the data-selected attribute
           var $opt = $(element.options[element.selectedIndex]);
           if ($opt.attr('selected') === undefined && this.$element.data('selected') === undefined) {
@@ -1732,7 +1732,7 @@ this.activeTarget=b,this.clear();var c=this.selector+'[data-target="'+b+'"],'+th
           elem.click();
           // Bring back focus for multiselects
           elem.focus();
-          // Prevent screen from scrolling if the user hit the spacebar
+          // Prevent screen from scrolling if the profile hit the spacebar
           e.preventDefault();
           // Fixes spacebar selection of dropdown items in FF & IE
           $(document).data('spaceSelect', true);

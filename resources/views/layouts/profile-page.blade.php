@@ -10,7 +10,7 @@
 
                     <h3 class="profile-block_heading">{{ $user->name }}</h3>
 
-                    <p class="profile-block_briefly-about">Some brief information </p>
+                    <p class="profile-block_briefly-name">{{ $user->firstName . " " . $user->lastName }}</p>
 
                     <ul class="profile-menu mb-25">
                         <li>
