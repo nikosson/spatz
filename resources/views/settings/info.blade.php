@@ -12,7 +12,7 @@
             </div>
         @endif
 
-        <h1 class="mb-35">About Info</h1>
+        <h1 class="mb-35">Settings</h1>
 
         <ul class="bordered-menu">
             <li class="bordered-menu__item bordered-menu__item--active">About myself</li>

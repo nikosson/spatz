@@ -6588,6 +6588,9 @@ select.selectpicker {
     height: 50px;
     width: 50px; }
 
+.page-header {
+  margin: 0 0 22px; }
+
 .captcha {
   margin-bottom: 15px;
   margin-left: 249px; }
@@ -6634,6 +6637,47 @@ select.selectpicker {
         color: black; }
   .profile-menu_questions-count {
     font-size: 25px;
+    color: rgba(0, 0, 255, 0.32); }
+
+.channel-block {
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 15px;
+  margin-bottom: 20px; }
+  .channel-block hr {
+    margin-top: 10px;
+    margin-bottom: 10px; }
+  .channel-block__title {
+    font-size: 20px; }
+    .channel-block__title a {
+      color: inherit; }
+      .channel-block__title a:hover {
+        color: inherit; }
+  .channel-block__questionsCount {
+    font-size: 15px;
+    color: rgba(0, 0, 255, 0.32); }
+  .channel-block__subscribeButton {
+    margin: 15px 0; }
+
+.user-block {
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 15px;
+  margin-bottom: 20px; }
+  .user-block__namesWrapper {
+    min-height: 55px; }
+  .user-block hr {
+    margin-top: 10px;
+    margin-bottom: 10px; }
+  .user-block__title {
+    font-size: 20px;
+    font-weight: bold; }
+    .user-block__title a {
+      color: inherit; }
+      .user-block__title a:hover {
+        color: inherit; }
+  .user-block__publicationsCount {
+    font-size: 15px;
     color: rgba(0, 0, 255, 0.32); }
 
 /*# sourceMappingURL=app.css.map */

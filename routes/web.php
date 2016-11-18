@@ -38,4 +38,9 @@ Route::patch('settings/info', 'SettingsController@updateInfo');
 Route::get('settings/mailing', 'SettingsController@mailing');
 Route::patch('settings/mailing', 'SettingsController@updateMailing');
 
+//Sidebar
+Route::get('channels', 'SidebarController@showAllTags');
+Route::get('users', 'SidebarController@showAllUsers');
+Route::get('questions', 'SidebarController@showAllQuestions');
+
 

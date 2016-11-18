@@ -32,7 +32,7 @@
                     <li>{{ $question->views }} views &#8226</li>
                     <li>
                         Asked by
-                        <a href="{{ route('user_info', str_replace(' ', '-', $question->user->name)) }}">
+                        <a href="{{ route('user_info', $question->user->name) }}">
                             {{ $question->user->name }}
                         </a>
 

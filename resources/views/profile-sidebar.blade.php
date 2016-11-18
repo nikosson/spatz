@@ -6,19 +6,19 @@
         </div>
 
         <div class="list-group">
-            <a href="#" class="list-group-item">
+            <a href="{{ url('/') }}" class="list-group-item">
                 <i class="fa fa-newspaper-o" aria-hidden="true"></i>
                 My feed
             </a>
-            <a href="#" class="list-group-item">
+            <a href="{{ url('questions') }}" class="list-group-item">
                 <i class="fa fa-question-circle" aria-hidden="true"></i>
                 All questions
             </a>
-            <a href="#" class="list-group-item">
+            <a href="{{ url('channels') }}" class="list-group-item">
                 <i class="fa fa-tags" aria-hidden="true"></i>
-                All tags
+                All channels
             </a>
-            <a href="#" class="list-group-item">
+            <a href="{{ url('users') }}" class="list-group-item">
                 <i class="fa fa-users" aria-hidden="true"></i>
                 All users
             </a>

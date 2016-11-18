@@ -17,4 +17,14 @@ class Channel extends Model
     {
         return 'slug';
     }
+
+    /**
+     * Channel has many questions relationship
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function questions()
+    {
+        return $this->hasMany(Question::class);
+    }
 }

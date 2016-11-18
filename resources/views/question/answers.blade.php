@@ -10,7 +10,7 @@
                     <img src="/img/kappa.png_large" alt="" class="question-avatar">
                 </a>
 
-                @if(isset($ownerExists))
+                @if($ownerExists)
                     <p>
                         @if(!$answer->approved)
                             <a href="{{ route('answer_mark', ['id' => $answer->id]) }}"
