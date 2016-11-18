@@ -1,5 +1,5 @@
-<div class="col-md-8 mb-150">
-    <form method="POST" action="/question/store" class="col-md-10 col-md-offset-1">
+<div class="col-md-8 col-md-offset-2 mb-150">
+    <form method="POST" action="/question/store">
         {{ csrf_field() }}
 
         @include('errors')
