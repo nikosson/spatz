@@ -32,8 +32,7 @@
                 <label for="exampleInputEmail1">Your First Name</label>
                 <input type="text"
                        class="form-control"
-                       id="exampleInputEmail1"
-                       placeholder="Nickname"
+                       placeholder="First Name"
                        name="firstName"
                        value="{{ $user->firstName }}"
                 >
@@ -43,8 +42,7 @@
                 <label for="exampleInputEmail1">Your Last Name</label>
                 <input type="text"
                        class="form-control"
-                       id="exampleInputEmail1"
-                       placeholder="Nickname"
+                       placeholder="Last Name"
                        name="lastName"
                        value="{{ $user->lastName }}"
                 >
@@ -53,7 +51,6 @@
             <div class="form-group">
                 <label for="exampleInputEmail1">Some information about yourself</label>
                 <textarea class="form-control"
-                          id="exampleInputEmail1"
                           placeholder="About myself"
                           name="about"
                           rows="5">{{ $user->about }}</textarea>

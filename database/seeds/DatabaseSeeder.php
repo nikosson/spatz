@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         DB::statement('SET foreign_key_checks = 0;');
+        DB::table('users')->truncate();
         DB::table('questions')->truncate();
         DB::statement('SET foreign_key_checks = 1;');
 

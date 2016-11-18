@@ -28,9 +28,9 @@ Route::post('question/answer', 'AnswerController@answer');
 Route::post('answer/{answer}/mark', 'AnswerController@markAnswer')->name('answer_mark');
 
 //Profile
-Route::get('profile/{username}/info', 'ProfileController@index')->name('user_info');
-Route::get('profile/{username}/answers', 'ProfileController@getAnswers')->name('user_answers');
-Route::get('profile/{username}/questions', 'ProfileController@getQuestions')->name('user_questions');
+Route::get('profile/{user}/info', 'ProfileController@index')->name('user_info');
+Route::get('profile/{user}/answers', 'ProfileController@getAnswers')->name('user_answers');
+Route::get('profile/{user}/questions', 'ProfileController@getQuestions')->name('user_questions');
 
 //Settings
 Route::get('settings/info', 'SettingsController@info');

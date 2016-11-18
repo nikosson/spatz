@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Mailing;
+use App\User;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +15,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        User::created(function ($user) {
+            Mailing::create(['user_id' => $user->id]);
+        });
     }
 
     /**

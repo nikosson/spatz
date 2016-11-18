@@ -24,8 +24,8 @@ class SettingsRequest extends FormRequest
     public function rules()
     {
         return [
-            'firstName' => 'max:25|alpha_num',
-            'lastName' => 'max:25|alpha_num',
+            'firstName' => 'max:25|alpha',
+            'lastName' => 'max:25|alpha',
             'about' => 'max:500',
         ];
     }

@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Http\Requests\SettingsRequest;
+use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -28,6 +29,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**
+     * Route for the model
+     *
+     * @return string
+     */
     public function getRouteKeyName()
     {
         return 'name';
@@ -51,6 +57,16 @@ class User extends Authenticatable
     public function answers()
     {
         return $this->hasMany(Answer::class);
+    }
+
+    /**
+     * User has one mailing relationship
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function mailing()
+    {
+        return $this->hasOne(Mailing::class);
     }
 
     /**
@@ -84,25 +100,33 @@ class User extends Authenticatable
     }
 
     /**
-     * Get specified user by name
+     * Update info about the user in settings with a given request
      *
-     * @param $username
-     * @return mixed
+     * @param SettingsRequest $request
+     * @return $this
      */
-    public static function getByName($username)
-    {
-        $username = str_replace('-', ' ', $username);
-        $user = User::where('name', $username)->firstOrFail();
-
-        return $user;
-    }
-
     public function updateSettingsInfo(SettingsRequest $request)
     {
         $this->update([
             'firstName' => $request->firstName,
             'lastName'  => $request->lastName,
             'about'     => $request->about
+        ]);
+
+        return $this;
+    }
+
+    /**
+     * Update mailing info about the user in settings with a given request
+     *
+     * @param Request $request
+     * @return $this
+     */
+    public function updateSettingsMailing(Request $request)
+    {
+        $this->mailing->update([
+            'answer_notifications' => isset($request->answer_notifications),
+            'news_notifications'  => isset($request->news_notifications),
         ]);
 
         return $this;

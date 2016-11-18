@@ -13,31 +13,25 @@ class ProfileController extends Controller
 
     }
 
-    public function index($name)
+    public function index(User $user)
     {
-        $user = User::getByName($name);
-
         return view('profile.info', compact('user'));
     }
 
-    public function getAnswers($name)
+    public function getAnswers(User $user)
     {
-        $user = User::getByName($name);
         $answers = $user->answers;
 
         return view('profile.answers', compact('user', 'answers'));
     }
 
-    public function getQuestions($name)
+    public function getQuestions(User $user)
     {
-        $user = User::getByName($name);
-
         $questions = Question::where('user_id', $user->id)
             ->withCount('answers')
             ->orderBy('created_at', 'desc')
             ->paginate(5);
 
         return view('profile.questions', compact('user', 'questions'));
-
     }
 }

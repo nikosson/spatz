@@ -15,7 +15,7 @@ class AddToChannelsTableInfoAndUrlRows extends Migration
     {
         Schema::table('channels', function (Blueprint $table) {
             $table->string('info')->default('No information');
-            $table->string('url')->default("");
+            $table->string('url')->nullable();
         });
     }
 

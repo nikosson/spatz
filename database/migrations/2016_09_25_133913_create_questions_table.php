@@ -14,7 +14,6 @@ class CreateQuestionsTable extends Migration
     public function up()
     {
         Schema::create('questions', function (Blueprint $table) {
-            $table->engine = 'InnoDb';
             $table->increments('id');
             $table->string('title');
             $table->text('body');

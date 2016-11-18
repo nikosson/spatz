@@ -28,7 +28,9 @@ class EmailAnswerNotification
      */
     public function handle(QuestionWasAnswered $event)
     {
-        Mail::to($event->answer->getQuestionerEmail())
-            ->send(new QuestionWasAnsweredMail($event->answer));
+        if($event->answer->user->mailing->answer_notifications) {
+            Mail::to($event->answer->getQuestionerEmail())
+                ->send(new QuestionWasAnsweredMail($event->answer));
+        }
     }
 }

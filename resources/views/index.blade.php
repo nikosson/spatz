@@ -32,7 +32,7 @@
 
                                 <small>
                                     Asked {{ $question->created_at->diffForHumans() }}
-                                    by <a href="{{ route('user_info', str_replace(' ', '-', $question->user->name)) }}">
+                                    by <a href="{{ route('user_info', $question->user->name) }}">
                                         {{ $question->user->name }}
                                     </a>
                                 </small>
