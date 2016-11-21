@@ -13,19 +13,29 @@ class UserController extends Controller
 
     }
 
-    /** TODO If user doesn't authorized, it will do a useless query to DB. Fix it
+    /** TODO Maybe it's a bad practice to do smth like this. Redesign it if needed
      * Display user's feed
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
-        $questions = Question::withCount('answers')
-            ->whereIn('channel_id', auth()->user()->subscriptions()->pluck('channel_id'))
-            ->orderBy('created_at', 'desc')
-            ->paginate(10);
+        $defaultView = 'index';
 
-        return view('index', compact('questions'));
+        if(auth()->user()) {
+            $questions = Question::withCount('answers')
+                ->whereIn('channel_id', auth()->user()->subscriptions()->pluck('channel_id'))
+                ->orderBy('created_at', 'desc')
+                ->paginate(10);
+
+            $defaultView = 'user.feed';
+        } else {
+            $questions = Question::withCount('answers')
+                ->orderBy('created_at', 'desc')
+                ->paginate(10);
+        }
+
+        return view($defaultView, compact('questions'));
     }
 
     /**
