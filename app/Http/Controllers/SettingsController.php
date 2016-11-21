@@ -13,12 +13,23 @@ class SettingsController extends Controller
         $this->middleware('auth');
     }
 
-    public function info()
+    /**
+     * Show general info(name, surname, about info) about current user
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showInfo()
     {
         $user = User::findOrFail(auth()->id());
         return view('settings.info', compact('user'));
     }
 
+    /**
+     * Update general information about user
+     *
+     * @param SettingsRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function updateInfo(SettingsRequest $request)
     {
         $user = User::findOrFail(auth()->id());
@@ -29,12 +40,23 @@ class SettingsController extends Controller
         return redirect()->action('SettingsController@info');
     }
 
-    public function mailing()
+    /**
+     * Show mailing information for current user
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showMailing()
     {
         $user = User::findOrFail(auth()->id());
         return view('settings.mailing', compact('user'));
     }
 
+    /**
+     * Update mailing information for current user
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function updateMailing(Request $request)
     {
         $user = User::findOrFail(auth()->id());

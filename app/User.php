@@ -60,6 +60,16 @@ class User extends Authenticatable
     }
 
     /**
+     * User belongs to many relationship
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function subscriptions()
+    {
+        return $this->belongsToMany(Channel::class, 'channels_subscriptions');
+    }
+
+    /**
      * User has one mailing relationship
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
@@ -128,6 +138,34 @@ class User extends Authenticatable
             'answer_notifications' => isset($request->answer_notifications),
             'news_notifications'  => isset($request->news_notifications),
         ]);
+
+        return $this;
+    }
+
+    /**
+     * Determine if user is subscribed for specified channel
+     *
+     * @param Channel $channel
+     * @return boolean
+     */
+    public function subscribedFor(Channel $channel)
+    {
+        return $channel->subscriptions->contains('user_id', $this->id);
+    }
+
+    /**
+     * Toggle the subscription with a given channel for current user
+     *
+     * @param Channel $channel
+     * @return $this
+     */
+    public function toggle(Channel $channel)
+    {
+        if(!$this->subscribedFor($channel)) {
+            $this->subscriptions()->attach($channel);
+        } else {
+            $this->subscriptions()->detach($channel);
+        }
 
         return $this;
     }

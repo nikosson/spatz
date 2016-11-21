@@ -15,19 +15,8 @@ class QuestionController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth')->except('show', 'index');
+        $this->middleware('auth')->except('show');
 
-    }
-
-    /**
-     * Display all questions
-     *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function index()
-    {
-        $questions = Question::withCount('answers')->orderBy('created_at', 'desc')->paginate(10);
-        return view('index', compact('questions'));
     }
 
     /**

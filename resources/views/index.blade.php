@@ -16,9 +16,14 @@
             <h1>My Feed</h1>
         </div>
 
-        @include('question.questions')
+        @if(auth()->user()->subscriptions->count())
+            @include('question.all')
+        @else
+            <p class="h3">
+                Pick some channels, which you want to track <a href="{{ url('channels') }}">here</a>
+            </p>
+        @endif
 
-        {{ $questions->links() }}
     </div>
 @endsection
 

@@ -92,7 +92,7 @@
 
 <div class="container">
     <div class="row">
-       @include('profile-sidebar')
+       @include('sidebar')
 
         @yield('content')
 

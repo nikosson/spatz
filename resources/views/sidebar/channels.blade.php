@@ -11,19 +11,23 @@
             @foreach($channels as $channel)
                 <div class="col-md-4">
                     <div class="channel-block">
-                        <h3 class="channel-block__title">
-                            <a href="{{ url('channel', $channel->slug) }}">{{ $channel->title }}</a>
-                        </h3>
+                        <form  method="POST" action="subscribe/{{ $channel->slug }}">
+                            {{ csrf_field() }}
 
-                        <hr>
-                        <p class="channel-block__questionsCount">
-                            {{ $channel->questions->count() }} questions
-                        </p>
-                        <hr>
+                            <h3 class="channel-block__title">
+                                <a href="{{ url('channel', $channel->slug) }}">{{ $channel->title }}</a>
+                            </h3>
 
-                        <a href="" class="btn btn-default center-block channel-block__subscribeButton">
-                            Subscribe
-                        </a>
+                            <hr>
+                            <p class="channel-block__questionsCount">
+                                {{ $channel->questions->count() }} questions
+                            </p>
+                            <hr>
+
+                            <button class="btn btn-{{ auth()->user()->subscribedFor($channel) ? 'primary' : 'default' }} channel-block__subscribeButton">
+                                Subscribe
+                            </button>
+                        </form>
                     </div>
                 </div>
             @endforeach

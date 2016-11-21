@@ -27,4 +27,14 @@ class Channel extends Model
     {
         return $this->hasMany(Question::class);
     }
+
+    /**
+     * Channel has many subscriptions relationship
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function subscriptions()
+    {
+        return $this->hasMany(ChannelSubscription::class);
+    }
 }

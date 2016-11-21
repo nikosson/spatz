@@ -7,9 +7,8 @@
             <h1>All questions</h1>
         </div>
 
-        @include('question.questions')
+        @include('question.all')
 
-        {{ $questions->links() }}
     </div>
 
 @endsection

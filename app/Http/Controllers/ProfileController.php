@@ -7,25 +7,37 @@ use App\User;
 
 class ProfileController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth')->except('index');
-
-    }
-
-    public function index(User $user)
+    /**
+     * Show general information about specified user
+     *
+     * @param User $user
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showInfo(User $user)
     {
         return view('profile.info', compact('user'));
     }
 
-    public function getAnswers(User $user)
+    /**
+     * Show all answers for specified user
+     *
+     * @param User $user
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showAnswers(User $user)
     {
         $answers = $user->answers;
 
         return view('profile.answers', compact('user', 'answers'));
     }
 
-    public function getQuestions(User $user)
+    /**
+     * Show all questions for specified user
+     *
+     * @param User $user
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showQuestions(User $user)
     {
         $questions = Question::where('user_id', $user->id)
             ->withCount('answers')
