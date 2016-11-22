@@ -41,9 +41,7 @@ class QuestionController extends Controller
     {
         $question = Question::ask($request);
 
-        if ($question) {
-            flash("You've successfully asked a question!", 'success');
-        }
+        flash("You've successfully asked a question!", 'success');
 
         return redirect()->action(
             'QuestionController@show', ['id' => $question->id]
@@ -101,9 +99,7 @@ class QuestionController extends Controller
 
         $question->edit($request);
 
-        if ($question) {
-            flash("You've successfully edited your question!", 'success');
-        }
+        flash("You've successfully edited your question!", 'success');
 
         return redirect()->action(
             'QuestionController@show', ['id' => $question->id]
@@ -122,9 +118,9 @@ class QuestionController extends Controller
             return $this->unauthorized();
         }
 
-        if($question->delete()) {
-            flash("You've successfully deleted your question!", 'success');
-        }
+        $question->delete();
+
+        flash("You've successfully deleted your question!", 'success');
 
         return redirect()->action('QuestionController@index');
     }
