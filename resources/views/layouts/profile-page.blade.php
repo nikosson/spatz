@@ -6,16 +6,16 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="profile-block">
-                    <img src="/img/kappa.png_large" alt="" class="profile-block_img center-block">
+                    <img src="/img/kappa.png_large" alt="" class="profile-block__img center-block">
 
-                    <h3 class="profile-block_heading">{{ $user->name }}</h3>
+                    <h3 class="profile-block__heading">{{ $user->name }}</h3>
 
-                    <p class="profile-block_briefly-name">{{ $user->firstName . " " . $user->lastName }}</p>
+                    <p class="profile-block__briefly-name">{{ $user->firstName . " " . $user->lastName }}</p>
 
-                    <ul class="profile-menu mb-25">
-                        <li>
+                    <ul class="profile-menu">
+                        <li class="profile-menu__item">
 
-                            <div class="profile-menu_questions-count">
+                            <div class="profile-menu__contributionsCount">
                                 {{ $user->questionsCount() }}
                             </div>
 
@@ -26,9 +26,9 @@
                             @endif
                         </li>
 
-                        <li>
+                        <li class="profile-menu__item">
 
-                            <div class="profile-menu_questions-count">
+                            <div class="profile-menu__contributionsCount">
                                 {{ $user->answersCount() }}
                             </div>
 
@@ -39,9 +39,9 @@
                             @endif
                         </li>
 
-                        <li>
+                        <li class="profile-menu__item">
 
-                            <div class="profile-menu_questions-count">
+                            <div class="profile-menu__contributionsCount">
                                 {{ $user->approvedAnswersCount() }}
                             </div>
 

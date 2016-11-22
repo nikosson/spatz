@@ -2846,48 +2846,48 @@ fieldset[disabled] a.btn {
     color: #fff;
     background-color: #636b6f; }
 
-.btn-primary, .btn-mark_answer {
+.btn-primary, .btn-mark__answer {
   color: #fff;
   background-color: #3097D1;
   border-color: #2a88bd; }
-  .btn-primary:focus, .btn-mark_answer:focus, .btn-primary.focus, .focus.btn-mark_answer {
+  .btn-primary:focus, .btn-mark__answer:focus, .btn-primary.focus, .focus.btn-mark__answer {
     color: #fff;
     background-color: #2579a9;
     border-color: #133d55; }
-  .btn-primary:hover, .btn-mark_answer:hover {
+  .btn-primary:hover, .btn-mark__answer:hover {
     color: #fff;
     background-color: #2579a9;
     border-color: #1f648b; }
-  .btn-primary:active, .btn-mark_answer:active, .btn-primary.active, .active.btn-mark_answer,
+  .btn-primary:active, .btn-mark__answer:active, .btn-primary.active, .active.btn-mark__answer,
   .open > .btn-primary.dropdown-toggle,
-  .open > .dropdown-toggle.btn-mark_answer {
+  .open > .dropdown-toggle.btn-mark__answer {
     color: #fff;
     background-color: #2579a9;
     border-color: #1f648b; }
-    .btn-primary:active:hover, .btn-mark_answer:active:hover, .btn-primary:active:focus, .btn-mark_answer:active:focus, .btn-primary:active.focus, .btn-mark_answer:active.focus, .btn-primary.active:hover, .active.btn-mark_answer:hover, .btn-primary.active:focus, .active.btn-mark_answer:focus, .btn-primary.active.focus, .active.focus.btn-mark_answer,
+    .btn-primary:active:hover, .btn-mark__answer:active:hover, .btn-primary:active:focus, .btn-mark__answer:active:focus, .btn-primary:active.focus, .btn-mark__answer:active.focus, .btn-primary.active:hover, .active.btn-mark__answer:hover, .btn-primary.active:focus, .active.btn-mark__answer:focus, .btn-primary.active.focus, .active.focus.btn-mark__answer,
     .open > .btn-primary.dropdown-toggle:hover,
-    .open > .dropdown-toggle.btn-mark_answer:hover,
+    .open > .dropdown-toggle.btn-mark__answer:hover,
     .open > .btn-primary.dropdown-toggle:focus,
-    .open > .dropdown-toggle.btn-mark_answer:focus,
+    .open > .dropdown-toggle.btn-mark__answer:focus,
     .open > .btn-primary.dropdown-toggle.focus,
-    .open > .dropdown-toggle.focus.btn-mark_answer {
+    .open > .dropdown-toggle.focus.btn-mark__answer {
       color: #fff;
       background-color: #1f648b;
       border-color: #133d55; }
-  .btn-primary:active, .btn-mark_answer:active, .btn-primary.active, .active.btn-mark_answer,
+  .btn-primary:active, .btn-mark__answer:active, .btn-primary.active, .active.btn-mark__answer,
   .open > .btn-primary.dropdown-toggle,
-  .open > .dropdown-toggle.btn-mark_answer {
+  .open > .dropdown-toggle.btn-mark__answer {
     background-image: none; }
-  .btn-primary.disabled:hover, .disabled.btn-mark_answer:hover, .btn-primary.disabled:focus, .disabled.btn-mark_answer:focus, .btn-primary.disabled.focus, .disabled.focus.btn-mark_answer, .btn-primary[disabled]:hover, [disabled].btn-mark_answer:hover, .btn-primary[disabled]:focus, [disabled].btn-mark_answer:focus, .btn-primary[disabled].focus, [disabled].focus.btn-mark_answer,
+  .btn-primary.disabled:hover, .disabled.btn-mark__answer:hover, .btn-primary.disabled:focus, .disabled.btn-mark__answer:focus, .btn-primary.disabled.focus, .disabled.focus.btn-mark__answer, .btn-primary[disabled]:hover, [disabled].btn-mark__answer:hover, .btn-primary[disabled]:focus, [disabled].btn-mark__answer:focus, .btn-primary[disabled].focus, [disabled].focus.btn-mark__answer,
   fieldset[disabled] .btn-primary:hover,
-  fieldset[disabled] .btn-mark_answer:hover,
+  fieldset[disabled] .btn-mark__answer:hover,
   fieldset[disabled] .btn-primary:focus,
-  fieldset[disabled] .btn-mark_answer:focus,
+  fieldset[disabled] .btn-mark__answer:focus,
   fieldset[disabled] .btn-primary.focus,
-  fieldset[disabled] .focus.btn-mark_answer {
+  fieldset[disabled] .focus.btn-mark__answer {
     background-color: #3097D1;
     border-color: #2a88bd; }
-  .btn-primary .badge, .btn-mark_answer .badge {
+  .btn-primary .badge, .btn-mark__answer .badge {
     color: #3097D1;
     background-color: #fff; }
 
@@ -6545,18 +6545,18 @@ select.selectpicker {
 
 .inline-list {
   padding: 0; }
-  .inline-list li {
+  .inline-list__item {
     display: inline-block; }
-    .inline-list li--bordered {
+    .inline-list__item--bordered {
       border-right: 1px solid grey;
       margin: 15px 0px; }
   .inline-list--centered {
     text-align: center; }
 
-.btn-marked_answer {
+.btn-marked__answer {
   background-color: transparent;
   color: #3097D1; }
-  .btn-marked_answer:focus {
+  .btn-marked__answer:focus {
     background-color: transparent;
     color: #3097D1; }
 
@@ -6580,10 +6580,10 @@ select.selectpicker {
 
 .profile-sidebar {
   background-color: #fff; }
-  .profile-sidebar_name {
+  .profile-sidebar__name {
     font-size: 20px;
     line-height: 42px; }
-  .profile-sidebar_avatar {
+  .profile-sidebar__avatar {
     float: left;
     height: 50px;
     width: 50px; }
@@ -6599,43 +6599,41 @@ select.selectpicker {
   height: 50px;
   margin-right: 50px; }
 
-.form-inline_block {
-  display: inline-block; }
-
-.answer-block {
+.answersCount-block {
   font-size: 20px; }
 
 .profile-block {
   background-color: #fff;
   padding: 25px; }
-  .profile-block_img {
+  .profile-block__img {
     height: 100px;
     width: 100px; }
-  .profile-block_heading {
+  .profile-block__heading {
     font-size: 30px;
     text-align: center;
     margin-top: 0;
     font-weight: 700; }
-  .profile-block_briefly-name {
+  .profile-block__briefly-name {
     text-align: center; }
 
 .profile-menu {
   padding: 0;
+  margin-bottom: 25px;
   text-align: center; }
-  .profile-menu li {
+  .profile-menu__item {
     display: inline-block;
     border-right: 1px solid grey;
     padding: 0 5px; }
-    .profile-menu li p {
+    .profile-menu__item p {
       margin: 0; }
-    .profile-menu li:last-child {
+    .profile-menu__item:last-child {
       border-right: none; }
-    .profile-menu li a {
+    .profile-menu__item a {
       text-decoration: none;
       color: inherit; }
-      .profile-menu li a:hover {
+      .profile-menu__item a:hover {
         color: black; }
-  .profile-menu_questions-count {
+  .profile-menu__countributionsCount {
     font-size: 25px;
     color: rgba(0, 0, 255, 0.32); }
 

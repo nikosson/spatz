@@ -14,9 +14,9 @@ function sendAjax(e) {
             } else {
                 self.text('Mark as answer');
             }
-            self.toggleClass('btn-marked_answer');
+            self.toggleClass('btn-marked__answer');
 
         }
     });
 }
-$('.btn-mark_answer').on('click', sendAjax)
+$('.btn-mark__answer').on('click', sendAjax)

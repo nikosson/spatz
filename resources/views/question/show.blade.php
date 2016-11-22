@@ -28,9 +28,9 @@
                 <hr>
 
                 <ul class="inline-list">
-                    <li>Question asked {{ $question->created_at->diffForHumans() }} &#8226</li>
-                    <li>{{ $question->views }} views &#8226</li>
-                    <li>
+                    <li class="inline-list__item">Question asked {{ $question->created_at->diffForHumans() }} &#8226</li>
+                    <li class="inline-list__item">{{ $question->views }} views &#8226</li>
+                    <li class="inline-list__item">
                         Asked by
                         <a href="{{ route('user_info', $question->user->name) }}">
                             {{ $question->user->name }}

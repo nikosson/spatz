@@ -3,7 +3,7 @@
 .inline-list
   padding: 0
 
-  li
+  &__item
     display: inline-block
 
     &--bordered
@@ -16,10 +16,10 @@
 
 //Buttons
 
-.btn-mark_answer
+.btn-mark__answer
   @extend .btn-primary
 
-.btn-marked_answer
+.btn-marked__answer
   background-color: transparent
   color: $brand-primary
 
@@ -58,15 +58,16 @@
 .profile-sidebar
   background-color: #fff
 
-  &_name
+  &__name
     font-size: 20px
     line-height: 42px
 
-  &_avatar
+  &__avatar
     float: left
     height: 50px
     width: 50px
 
 
+// Headers
 .page-header
   margin: 0 0 22px

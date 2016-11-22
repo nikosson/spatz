@@ -1,8 +1,10 @@
 <div class="col-md-3">
     <div class="profile-sidebar">
         <div class="clearfix">
-            <img src="/img/kappa.png_large" alt="" class="profile-sidebar_avatar">
-            <p class="profile-sidebar_name">nikosson</p>
+            <img src="/img/kappa.png_large" alt="" class="profile-sidebar__avatar">
+            <p class="profile-sidebar__name">
+                <a href="{{ route('user_info', auth()->user()->name) }}">{{ auth()->user()->name }}</a>
+            </p>
         </div>
 
         <div class="list-group">

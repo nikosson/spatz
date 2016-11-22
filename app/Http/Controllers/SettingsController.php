@@ -37,7 +37,7 @@ class SettingsController extends Controller
 
         flash("You've successfully updated your information!", 'success');
 
-        return redirect()->action('SettingsController@info');
+        return redirect()->action('SettingsController@showInfo');
     }
 
     /**

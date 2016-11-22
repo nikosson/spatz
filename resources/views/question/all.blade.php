@@ -24,7 +24,7 @@
                         </small>
                     </div>
 
-                    <div class="col-md-2 answer-block mt-25">
+                    <div class="col-md-2 answersCount-block mt-25">
                         <span>{{ $question->answers_count }} answers</span>
                     </div>
                 </div>
