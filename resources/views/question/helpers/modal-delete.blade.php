@@ -11,15 +11,15 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <form action="{{ url('question', $question->id) }}" method="POST" class="form-inline_block">
+                <form action="{{ url('question', $question->id) }}" method="POST" class="form-inlineBlock">
+                    {{ method_field('DELETE') }}
+                    {{ csrf_field() }}
                     <button type="submit"
                             class="btn btn-danger"
                             data-toggle="modal"
                             data-target="#myModal">
                         Delete
                     </button>
-                    {{ method_field('DELETE') }}
-                    {{ csrf_field() }}
                 </form>
             </div>
         </div>

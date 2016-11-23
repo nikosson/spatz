@@ -6,12 +6,9 @@ use App\Answer;
 use App\Http\Requests\QuestionRequest;
 use App\Question;
 use App\Channel;
-use App\Http\Controllers\Traits\AuthorizesUsers;
 
 class QuestionController extends Controller
 {
-
-    use AuthorizesUsers;
 
     public function __construct()
     {
@@ -62,9 +59,7 @@ class QuestionController extends Controller
 
         $question->increment('views');
 
-        $ownerExists = $this->userCreatedQuestion($question);
-
-        return view('question.show', compact('question', 'ownerExists', 'answers'));
+        return view('question.show', compact('question', 'answers'));
     }
 
     /**
@@ -75,9 +70,7 @@ class QuestionController extends Controller
      */
     public function edit(Question $question)
     {
-        if(! $this->userCreatedQuestion($question)) {
-            return $this->unauthorized();
-        }
+        $this->authorize('manage-question', $question);
 
         $channelsList = Channel::all()->except($question->channel->id);
 
@@ -93,9 +86,7 @@ class QuestionController extends Controller
      */
     public function update(Question $question, QuestionRequest $request)
     {
-        if(! $this->userCreatedQuestion($question)) {
-            return $this->unauthorized($request);
-        }
+        $this->authorize('manage-question', $question);
 
         $question->edit($request);
 
@@ -114,15 +105,13 @@ class QuestionController extends Controller
      */
     public function destroy(Question $question)
     {
-        if(! $this->userCreatedQuestion($question)) {
-            return $this->unauthorized();
-        }
+        $this->authorize('manage-question', $question);
 
         $question->delete();
 
         flash("You've successfully deleted your question!", 'success');
 
-        return redirect()->action('QuestionController@index');
+        return redirect()->action('UserController@index');
     }
 
     /**

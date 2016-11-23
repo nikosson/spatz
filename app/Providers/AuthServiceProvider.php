@@ -25,6 +25,9 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('manage-question', function ($user, $question) {
+           return $user->createdQuestion($question);
+        });
+
     }
 }

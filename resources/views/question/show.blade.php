@@ -42,7 +42,7 @@
                     </li>
                 </ul>
 
-                @if($ownerExists)
+                @can('manage-question', $question)
                     <a href="{{ route('question_edit', ['id' => $question->id]) }}" class="btn btn-default">
                         Edit
                     </a>
@@ -51,7 +51,7 @@
                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
                         Delete
                     </button>
-                @endif
+                @endcan
             </div>
         </div>
 

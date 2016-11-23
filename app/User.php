@@ -80,6 +80,17 @@ class User extends Authenticatable
     }
 
     /**
+     * Check if user created question
+     *
+     * @param Question $question
+     * @return bool
+     */
+    public function createdQuestion(Question $question)
+    {
+        return $this->id == $question->user_id;
+    }
+
+    /**
      * Count the number of questions, asked by a specified user
      *
      * @return int

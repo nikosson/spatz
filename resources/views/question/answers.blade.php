@@ -11,7 +11,7 @@
                 <img src="/img/kappa.png_large" alt="" class="question-avatar">
             </a>
 
-            @if(!empty($ownerExists))
+            @can('manage-question', $question)
                 <p>
                     @if(!$answer->approved)
                         <a href="{{ route('answer_mark', ['id' => $answer->id]) }}"
@@ -27,7 +27,7 @@
                         </a>
                     @endif
                 </p>
-            @endif
+            @endcan
 
         </div>
     </div>

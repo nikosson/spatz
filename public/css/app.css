@@ -6591,6 +6591,9 @@ select.selectpicker {
 .page-header {
   margin: 0 0 22px; }
 
+.form-inlineBlock {
+  display: inline-block; }
+
 .captcha {
   margin-bottom: 15px;
   margin-left: 249px; }

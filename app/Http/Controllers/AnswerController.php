@@ -3,12 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Answer;
-use App\Http\Controllers\Traits\AuthorizesUsers;
 use App\Http\Requests\AnswerRequest;
 
 class AnswerController extends Controller
 {
-    use AuthorizesUsers;
 
     public function __construct()
     {
@@ -37,9 +35,7 @@ class AnswerController extends Controller
      */
     public function markAnswer(Answer $answer)
     {
-        if(! $this->userCreatedQuestion($answer->question)) {
-            return $this->unauthorized();
-        }
+        $this->authorize('manage-question', $answer->question);
 
         $answer->mark();
 
