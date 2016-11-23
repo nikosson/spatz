@@ -46,8 +46,9 @@ class UserController extends Controller
      */
     public function toggleSubscription(Channel $channel)
     {
-        auth()->user()->toggle($channel);
+        $user = auth()->user();
+        $user->toggle($channel);
 
-        return back();
+        return response()->json(['approved' => $user->subscribedFor($channel)]);
     }
 }

@@ -1900,31 +1900,39 @@ Prism.languages.javascript=Prism.languages.extend("clike",{keyword:/\b(as|async|
         toolbar: 'codesample insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons'
     });
 
-function sendAjax(e) {
-    e.preventDefault();
-    var self = $(this);
+(function() {
+    function markAnswerAjax(e) {
+        e.preventDefault();
 
-    $.ajax({
-        url: self.attr('href'),
-        method: 'POST',
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        success: function (data) {
+        var ajaxRequest = getAjaxRequest(function(data) {
             if(data.approved) {
-                self.text('Approved');
+                $(this).text('Approved');
             } else {
-                self.text('Mark as answer');
+                $(this).text('Mark as answer');
             }
-            self.toggleClass('btn-marked__answer');
+            $(this).toggleClass('btn-marked__answer');
+        }.bind(this));
 
-        }
-    });
-}
-$('.btn-mark__answer').on('click', sendAjax)
-
+        ajaxRequest.apply(this);
+    }
+    $('.btn-mark__answer').on('click', markAnswerAjax);
+})();
 
 $('#flash-alert').delay(3000).fadeOut(350);
 
 
+function getAjaxRequest(callback) {
+    return function () {
+        $.ajax({
+            url: $(this).data('href'),
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function (data) {
+                callback(data);
+            }
+        });
+    }
+}
 //# sourceMappingURL=all.js.map

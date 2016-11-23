@@ -24,8 +24,10 @@ elixir(mix => {
        .scripts(bowerScripts.concat([
            'libs/prism.js',
            'libs/tinymce_config.js',
-           'components/markQuestionAjax.js',
+           'components/ajaxRequest.js',
+           'components/markAnswerAjax.js',
            'components/flashMessageAlert.js',
+           'components/subscribeToChannelAjax.js',
        ]))
        .copy('./bower_components/tinymce', './public/assets/tinymce');
 });

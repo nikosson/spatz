@@ -11,23 +11,31 @@
             @foreach($channels as $channel)
                 <div class="col-md-4">
                     <div class="channel-block">
-                        <form  method="POST" action="subscribe/{{ $channel->slug }}">
-                            {{ csrf_field() }}
 
-                            <h3 class="channel-block__title">
-                                <a href="{{ url('channel', $channel->slug) }}">{{ $channel->title }}</a>
-                            </h3>
+                        <h3 class="channel-block__title">
+                            <a href="{{ url('channel', $channel->slug) }}">{{ $channel->title }}</a>
+                        </h3>
 
-                            <hr>
-                            <p class="channel-block__questionsCount">
-                                {{ $channel->questions->count() }} questions
-                            </p>
-                            <hr>
+                        <hr>
+                        <p class="channel-block__questionsCount">
+                            {{ $channel->questions->count() }} questions
+                        </p>
+                        <hr>
 
-                            <button class="btn btn-{{ auth()->user()->subscribedFor($channel) ? 'primary' : 'default' }} channel-block__subscribeButton">
+                        @if(!auth()->user()->subscribedFor($channel))
+                            <a href="javascript:;"
+                               data-href="{{ url('subscribe', $channel->slug) }}"
+                               class="btn btn-default btn-toggleSubscription">
                                 Subscribe
-                            </button>
-                        </form>
+                            </a>
+                        @else
+                            <a href="javascript:;"
+                               data-href="{{ url('subscribe', $channel->slug) }}"
+                               class="btn btn-default btn-primary btn-toggleSubscription">
+                                UnSubscribe
+                            </a>
+                        @endif
+
                     </div>
                 </div>
             @endforeach

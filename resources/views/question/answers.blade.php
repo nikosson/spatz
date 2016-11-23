@@ -14,15 +14,15 @@
             @can('manage-question', $question)
                 <p>
                     @if(!$answer->approved)
-                        <a href="{{ route('answer_mark', ['id' => $answer->id]) }}"
-                           class="btn btn-mark__answer"
-                        >
+                        <a href="javascript:;"
+                           data-href="{{ route('answer_mark', ['id' => $answer->id]) }}"
+                           class="btn btn-mark__answer">
                             Mark as answer
                         </a>
                     @else
-                        <a href="{{ route('answer_mark', ['id' => $answer->id]) }}"
-                           class="btn btn-mark__answer btn-marked__answer"
-                        >
+                        <a href="javascript:;"
+                           data-href="{{ route('answer_mark', ['id' => $answer->id]) }}"
+                           class="btn btn-mark__answer btn-marked__answer">
                             Approved
                         </a>
                     @endif
