@@ -45,3 +45,7 @@ Route::get('questions', 'SidebarController@showAllQuestions');
 //User
 Route::get('/', 'UserController@index');
 Route::post('subscribe/{channel}', 'UserController@toggleSubscription');
+
+//Oauth2
+Route::get('auth/facebook', 'Auth\SocialAuthController@redirectToProvider');
+Route::get('auth/facebook/callback', 'Auth\SocialAuthController@handleProviderCallback');

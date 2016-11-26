@@ -6023,7 +6023,7 @@ select.selectpicker {
     padding-right: 25px;
     z-index: 1; }
     .bootstrap-select > .dropdown-toggle.bs-placeholder, .bootstrap-select > .dropdown-toggle.bs-placeholder:hover, .bootstrap-select > .dropdown-toggle.bs-placeholder:focus, .bootstrap-select > .dropdown-toggle.bs-placeholder:active {
-      color: #999; }
+      color: #b1b7ba; }
   .bootstrap-select > select {
     position: absolute !important;
     bottom: 0;
@@ -6560,6 +6560,11 @@ select.selectpicker {
     background-color: transparent;
     color: #3097D1; }
 
+.btn-facebook {
+  background-color: #3b5998; }
+  .btn-facebook:hover {
+    background-color: #2d4373; }
+
 .bordered-menu {
   border-top: 1px solid grey;
   border-bottom: 1px solid grey;
@@ -6596,7 +6601,7 @@ select.selectpicker {
 
 .captcha {
   margin-bottom: 15px;
-  margin-left: 249px; }
+  margin-left: 187px; }
 
 .question-avatar {
   height: 50px;

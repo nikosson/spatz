@@ -1,5 +1,17 @@
 @extends('layouts.app-withSidebar')
 
+@section('head-scripts')
+
+    <script type="text/javascript">
+        if (window.location.hash == '#_=_'){
+            history.replaceState
+                    ? history.replaceState(null, null, window.location.href.split('#')[0])
+                    : window.location.hash = '';
+        }
+    </script>
+
+@endsection
+
 @section('content')
 
     <div class="col-md-8">

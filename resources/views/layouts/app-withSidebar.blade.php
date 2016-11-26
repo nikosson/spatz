@@ -13,14 +13,17 @@
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
 
-@yield('styles')
+    @yield('styles')
 
-<!-- Scripts -->
+    <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
                 'csrfToken' => csrf_token(),
         ]); ?>
     </script>
+
+    @yield('head-scripts')
+
 </head>
 <body>
 <nav class="navbar navbar-default navbar-static-top">
