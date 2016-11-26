@@ -1,29 +1,58 @@
-<div class="col-md-3">
-    <div class="profile-sidebar">
-        <div class="clearfix">
-            <img src="/img/kappa.png_large" alt="" class="profile-sidebar__avatar">
-            <p class="profile-sidebar__name">
-                <a href="{{ route('user_info', auth()->user()->name) }}">{{ auth()->user()->name }}</a>
-            </p>
-        </div>
+<div class="col-md-2 profile-sidebar">
 
-        <div class="list-group">
-            <a href="{{ url('/') }}" class="list-group-item">
-                <i class="fa fa-newspaper-o" aria-hidden="true"></i>
-                My feed
-            </a>
-            <a href="{{ url('questions') }}" class="list-group-item">
-                <i class="fa fa-question-circle" aria-hidden="true"></i>
-                All questions
-            </a>
-            <a href="{{ url('channels') }}" class="list-group-item">
-                <i class="fa fa-tags" aria-hidden="true"></i>
-                All channels
-            </a>
-            <a href="{{ url('users') }}" class="list-group-item">
-                <i class="fa fa-users" aria-hidden="true"></i>
-                All users
-            </a>
-        </div>
-    </div>
+        <p class="profile-sidebar__name"  data-toggle="tooltip" data-placement="top" title="Go to profile">
+            <a href="{{ route('user_info', auth()->user()->name) }}">{{ auth()->user()->name }}</a>
+        </p>
+
+        <ul class="vertical-list vertical-list--transparent">
+            <li class="vertical-list__item">
+                <a href="{{ url('/') }}" class="vertical-list__href">
+                    <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+                    My feed
+                </a>
+            </li>
+
+            <li class="vertical-list__item">
+                <a href="{{ url('questions') }}" class="vertical-list__href">
+                    <i class="fa fa-question-circle" aria-hidden="true"></i>
+                    All questions
+                </a>
+            </li>
+
+            <li class="vertical-list__item">
+                <a href="{{ url('channels') }}" class="vertical-list__href">
+                    <i class="fa fa-tags" aria-hidden="true"></i>
+                    All channels
+                </a>
+            </li>
+
+            <li class="vertical-list__item vertical-list__item--bordered">
+                <a href="{{ url('users') }}" class="vertical-list__href">
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                    All users
+                </a>
+            </li>
+
+            <li class="vertical-list__item">
+                <a href="{{ url('settings/info') }}" class="vertical-list__href">
+                    <i class="fa fa-cog" aria-hidden="true"></i>
+                    Settings
+                </a>
+            </li>
+
+            <li class="vertical-list__item">
+                <a href="{{ url('/logout') }}"
+                   class="vertical-list__href vertical-list__href--last"
+                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                >
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                    Logout
+                </a>
+
+                <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
+            </li>
+
+        </ul>
 </div>

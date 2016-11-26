@@ -106,6 +106,13 @@
 <script src="/js/all.js"></script>
 <script src="https://use.fontawesome.com/0b347342a5.js"></script>
 
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>
+
+
 @yield('scripts')
 
 </body>

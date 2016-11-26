@@ -6549,9 +6549,31 @@ select.selectpicker {
     display: inline-block; }
     .inline-list__item--bordered {
       border-right: 1px solid grey;
-      margin: 15px 0px; }
+      margin: 15px 0; }
   .inline-list--centered {
     text-align: center; }
+
+.vertical-list {
+  color: #000;
+  padding: 0; }
+  .vertical-list--transparent {
+    background-color: transparent; }
+  .vertical-list__item {
+    list-style-type: none; }
+    .vertical-list__item--bordered {
+      border-bottom: 1px solid #d3d3d3; }
+  .vertical-list__href {
+    color: #636b6f;
+    display: block;
+    padding: 7px;
+    text-decoration: none;
+    font-size: 18px; }
+    .vertical-list__href--last:hover {
+      border-bottom: 3px solid grey; }
+    .vertical-list__href:hover {
+      text-decoration: none;
+      background-color: rgba(160, 188, 207, 0.16);
+      border-left: 3px solid grey; }
 
 .btn-marked__answer {
   background-color: transparent;
@@ -6584,10 +6606,13 @@ select.selectpicker {
       font-weight: 700; }
 
 .profile-sidebar {
-  background-color: #fff; }
+  background-color: transparent;
+  color: #000; }
   .profile-sidebar__name {
-    font-size: 20px;
+    font-size: 25px;
     line-height: 42px; }
+    .profile-sidebar__name a {
+      color: #636b6f; }
   .profile-sidebar__avatar {
     float: left;
     height: 50px;
