@@ -180,4 +180,23 @@ class User extends Authenticatable
 
         return $this;
     }
+
+    /**
+     * Create a unique name, based on given name
+     * Example: if 'John-Doe' already exists, it will create 'John-Doe' + count of all 'John-Doe's
+     * 'John-Doe' => 'John-Doe1' => 'John-Doe2' => ...
+     *
+     * @param $name
+     * @return mixed|string
+     */
+    public static function createUniqueName($name)
+    {
+        $noSpacesName = str_replace(' ', '-', $name);
+
+        $userCount = User::where('name', 'like', "$noSpacesName%")->count();
+
+        if(!$userCount) return $noSpacesName;
+
+        return $noSpacesName . $userCount;
+    }
 }

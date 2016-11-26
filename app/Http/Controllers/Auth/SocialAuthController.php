@@ -37,17 +37,20 @@ class SocialAuthController extends Controller
     }
 
     /**
-     * Try to find a user with 'facebook_id' either create a new one
+     * Try to find a user with 'facebook_id' either create a new one.
+     * If user name is already in use, it will create a unique name for it.
      *
      * @param $facebookUser
      * @return mixed
      */
     public function findOrCreateFacebookUser($facebookUser)
     {
+        $userUniqueName = User::createUniqueName($facebookUser->name);
+
         return User::firstOrCreate([
             'facebook_id' => $facebookUser->id
         ], [
-            'name' => str_replace(' ', '-', $facebookUser->name),
+            'name' => $userUniqueName,
             'email' => $facebookUser->email,
             'password' => bcrypt(str_random(8))
         ]);
