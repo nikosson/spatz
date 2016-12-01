@@ -2846,48 +2846,48 @@ fieldset[disabled] a.btn {
     color: #fff;
     background-color: #636b6f; }
 
-.btn-primary, .btn-mark__answer {
+.btn-primary, .btn-markAnswer {
   color: #fff;
   background-color: #3097D1;
   border-color: #2a88bd; }
-  .btn-primary:focus, .btn-mark__answer:focus, .btn-primary.focus, .focus.btn-mark__answer {
+  .btn-primary:focus, .btn-markAnswer:focus, .btn-primary.focus, .focus.btn-markAnswer {
     color: #fff;
     background-color: #2579a9;
     border-color: #133d55; }
-  .btn-primary:hover, .btn-mark__answer:hover {
+  .btn-primary:hover, .btn-markAnswer:hover {
     color: #fff;
     background-color: #2579a9;
     border-color: #1f648b; }
-  .btn-primary:active, .btn-mark__answer:active, .btn-primary.active, .active.btn-mark__answer,
+  .btn-primary:active, .btn-markAnswer:active, .btn-primary.active, .active.btn-markAnswer,
   .open > .btn-primary.dropdown-toggle,
-  .open > .dropdown-toggle.btn-mark__answer {
+  .open > .dropdown-toggle.btn-markAnswer {
     color: #fff;
     background-color: #2579a9;
     border-color: #1f648b; }
-    .btn-primary:active:hover, .btn-mark__answer:active:hover, .btn-primary:active:focus, .btn-mark__answer:active:focus, .btn-primary:active.focus, .btn-mark__answer:active.focus, .btn-primary.active:hover, .active.btn-mark__answer:hover, .btn-primary.active:focus, .active.btn-mark__answer:focus, .btn-primary.active.focus, .active.focus.btn-mark__answer,
+    .btn-primary:active:hover, .btn-markAnswer:active:hover, .btn-primary:active:focus, .btn-markAnswer:active:focus, .btn-primary:active.focus, .btn-markAnswer:active.focus, .btn-primary.active:hover, .active.btn-markAnswer:hover, .btn-primary.active:focus, .active.btn-markAnswer:focus, .btn-primary.active.focus, .active.focus.btn-markAnswer,
     .open > .btn-primary.dropdown-toggle:hover,
-    .open > .dropdown-toggle.btn-mark__answer:hover,
+    .open > .dropdown-toggle.btn-markAnswer:hover,
     .open > .btn-primary.dropdown-toggle:focus,
-    .open > .dropdown-toggle.btn-mark__answer:focus,
+    .open > .dropdown-toggle.btn-markAnswer:focus,
     .open > .btn-primary.dropdown-toggle.focus,
-    .open > .dropdown-toggle.focus.btn-mark__answer {
+    .open > .dropdown-toggle.focus.btn-markAnswer {
       color: #fff;
       background-color: #1f648b;
       border-color: #133d55; }
-  .btn-primary:active, .btn-mark__answer:active, .btn-primary.active, .active.btn-mark__answer,
+  .btn-primary:active, .btn-markAnswer:active, .btn-primary.active, .active.btn-markAnswer,
   .open > .btn-primary.dropdown-toggle,
-  .open > .dropdown-toggle.btn-mark__answer {
+  .open > .dropdown-toggle.btn-markAnswer {
     background-image: none; }
-  .btn-primary.disabled:hover, .disabled.btn-mark__answer:hover, .btn-primary.disabled:focus, .disabled.btn-mark__answer:focus, .btn-primary.disabled.focus, .disabled.focus.btn-mark__answer, .btn-primary[disabled]:hover, [disabled].btn-mark__answer:hover, .btn-primary[disabled]:focus, [disabled].btn-mark__answer:focus, .btn-primary[disabled].focus, [disabled].focus.btn-mark__answer,
+  .btn-primary.disabled:hover, .disabled.btn-markAnswer:hover, .btn-primary.disabled:focus, .disabled.btn-markAnswer:focus, .btn-primary.disabled.focus, .disabled.focus.btn-markAnswer, .btn-primary[disabled]:hover, [disabled].btn-markAnswer:hover, .btn-primary[disabled]:focus, [disabled].btn-markAnswer:focus, .btn-primary[disabled].focus, [disabled].focus.btn-markAnswer,
   fieldset[disabled] .btn-primary:hover,
-  fieldset[disabled] .btn-mark__answer:hover,
+  fieldset[disabled] .btn-markAnswer:hover,
   fieldset[disabled] .btn-primary:focus,
-  fieldset[disabled] .btn-mark__answer:focus,
+  fieldset[disabled] .btn-markAnswer:focus,
   fieldset[disabled] .btn-primary.focus,
-  fieldset[disabled] .focus.btn-mark__answer {
+  fieldset[disabled] .focus.btn-markAnswer {
     background-color: #3097D1;
     border-color: #2a88bd; }
-  .btn-primary .badge, .btn-mark__answer .badge {
+  .btn-primary .badge, .btn-markAnswer .badge {
     color: #3097D1;
     background-color: #fff; }
 
@@ -6544,24 +6544,26 @@ select.selectpicker {
   padding-right: 150px !important; }
 
 .inline-list {
-  padding: 0; }
+  padding: 0;
+  margin: 0;
+  display: inline-block; }
   .inline-list__item {
     display: inline-block; }
     .inline-list__item--bordered {
       border-right: 1px solid grey;
       margin: 15px 0; }
-  .inline-list--centered {
-    text-align: center; }
+    .inline-list__item--centered {
+      text-align: center; }
 
 .vertical-list {
   color: #000;
   padding: 0; }
-  .vertical-list--transparent {
-    background-color: transparent; }
   .vertical-list__item {
     list-style-type: none; }
     .vertical-list__item--bordered {
       border-bottom: 1px solid #d3d3d3; }
+    .vertical-list__item--transparent {
+      background-color: transparent; }
   .vertical-list__href {
     color: #636b6f;
     display: block;
@@ -6575,10 +6577,14 @@ select.selectpicker {
       background-color: rgba(160, 188, 207, 0.16);
       border-left: 3px solid grey; }
 
-.btn-marked__answer {
+.btn-markAnswer:hover {
+  -webkit-transition: background 0.3s;
+  transition: background 0.3s; }
+
+.btn-markedAnswer {
   background-color: transparent;
   color: #3097D1; }
-  .btn-marked__answer:focus {
+  .btn-markedAnswer:focus {
     background-color: transparent;
     color: #3097D1; }
 
@@ -6605,19 +6611,6 @@ select.selectpicker {
       border-bottom: 1.5px solid #000;
       font-weight: 700; }
 
-.profile-sidebar {
-  background-color: transparent;
-  color: #000; }
-  .profile-sidebar__name {
-    font-size: 25px;
-    line-height: 42px; }
-    .profile-sidebar__name a {
-      color: #636b6f; }
-  .profile-sidebar__avatar {
-    float: left;
-    height: 50px;
-    width: 50px; }
-
 .page-header {
   margin: 0 0 22px; }
 
@@ -6628,47 +6621,8 @@ select.selectpicker {
   margin-bottom: 15px;
   margin-left: 187px; }
 
-.question-avatar {
-  height: 50px;
-  margin-right: 50px; }
-
 .answersCount-block {
   font-size: 20px; }
-
-.profile-block {
-  background-color: #fff;
-  padding: 25px; }
-  .profile-block__img {
-    height: 100px;
-    width: 100px; }
-  .profile-block__heading {
-    font-size: 30px;
-    text-align: center;
-    margin-top: 0;
-    font-weight: 700; }
-  .profile-block__briefly-name {
-    text-align: center; }
-
-.profile-menu {
-  padding: 0;
-  margin-bottom: 25px;
-  text-align: center; }
-  .profile-menu__item {
-    display: inline-block;
-    border-right: 1px solid grey;
-    padding: 0 5px; }
-    .profile-menu__item p {
-      margin: 0; }
-    .profile-menu__item:last-child {
-      border-right: none; }
-    .profile-menu__item a {
-      text-decoration: none;
-      color: inherit; }
-      .profile-menu__item a:hover {
-        color: black; }
-  .profile-menu__countributionsCount {
-    font-size: 25px;
-    color: rgba(0, 0, 255, 0.32); }
 
 .channel-block {
   background-color: #fff;
@@ -6689,6 +6643,53 @@ select.selectpicker {
     color: rgba(0, 0, 255, 0.32); }
   .channel-block__subscribeButton {
     margin: 15px 0; }
+
+.profile-block {
+  background-color: #fff;
+  padding: 25px; }
+  .profile-block__img {
+    height: 100px;
+    width: 100px; }
+  .profile-block__heading {
+    font-size: 30px;
+    text-align: center;
+    margin-top: 0;
+    font-weight: 700; }
+  .profile-block__brieflyName {
+    text-align: center; }
+
+.profile-menu {
+  padding: 0;
+  margin-bottom: 25px;
+  text-align: center; }
+  .profile-menu__item {
+    display: inline-block;
+    border-right: 1px solid grey;
+    padding: 0 5px; }
+  .profile-menu__paragraph {
+    margin: 0; }
+    .profile-menu__paragraph:last-child {
+      border-right: none; }
+  .profile-menu__countributionsCount {
+    font-size: 25px;
+    color: rgba(0, 0, 255, 0.32); }
+
+.questionAvatar {
+  height: 50px;
+  margin-right: 50px; }
+
+.profile-sidebar {
+  background-color: transparent;
+  color: #000; }
+  .profile-sidebar__name {
+    font-size: 20px;
+    line-height: 42px; }
+    .profile-sidebar__name a {
+      color: #636b6f; }
+  .profile-sidebar__avatar {
+    float: left;
+    height: 50px;
+    width: 50px; }
 
 .user-block {
   background-color: #fff;

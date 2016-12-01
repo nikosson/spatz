@@ -1,67 +1,67 @@
 @extends('layouts.app-withSidebar')
 
 @section('content')
-            <div class="col-md-8">
+    <div class="col-md-8">
 
-                <div class="jumbotron">
-                    <h1>{{ $channel->title }}</h1>
-                    <p>{{ $channel->info }}</p>
-                    <p>
-                        <a class="btn btn-primary btn-lg"
-                           href="{{ $channel->url }}"
-                           role="button"
-                           target="_blank"
-                        >
-                            Learn more
-                        </a>
-                    </p>
-                </div>
+        <div class="jumbotron">
+            <h1>{{ $channel->title }}</h1>
+            <p>{{ $channel->info }}</p>
+            <p>
+                <a class="btn btn-primary btn-lg"
+                   href="{{ $channel->url }}"
+                   role="button"
+                   target="_blank"
+                >
+                    Learn more
+                </a>
+            </p>
+        </div>
 
-                @if (session()->has('flash_notification.message'))
-                    <div class="alert alert-{{ session('flash_notification.level') }}" id="flash-alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        @if (session()->has('flash_notification.message'))
+            <div class="alert alert-{{ session('flash_notification.level') }}" id="flash-alert">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 
-                        {!! session('flash_notification.message') !!}
-                    </div>
-                @endif
+                {!! session('flash_notification.message') !!}
+            </div>
+        @endif
 
-                @foreach($questions as $question)
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <div>
-                                <div class="row">
-                                    <div class="col-md-10">
+        @foreach($questions as $question)
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div>
+                        <div class="row">
+                            <div class="col-md-10">
 
-                                        <a href="{{ url('channel', $question->channel->slug) }}"
-                                           class="label label-default"
-                                           style="background-color:{{ $question->channel->color }}"
-                                        >
-                                            {{ $question->channel->title }}
-                                        </a>
+                                <a href="{{ url('channel', $question->channel->slug) }}"
+                                   class="label label-default"
+                                   style="background-color:{{ $question->channel->color }}"
+                                >
+                                    {{ $question->channel->title }}
+                                </a>
 
-                                        <a href="{{ url('question', $question->id) }}">
-                                            <h3 class="question-view-title">{{ $question->title }}</h3>
-                                        </a>
+                                <a href="{{ url('question', $question->id) }}">
+                                    <h3 class="question-view-title">{{ $question->title }}</h3>
+                                </a>
 
-                                        <small>
-                                            Asked {{ $question->updated_at->diffForHumans() }}
-                                            by <a href="">
-                                                {{ $question->user->name }}
-                                            </a>
-                                        </small>
-                                    </div>
-
-                                    <div class="col-md-2 answer-block mt-25">
-                                        <span>{{ $question->answers_count }} answers</span>
-                                    </div>
-                                </div>
+                                <small>
+                                    Asked {{ $question->updated_at->diffForHumans() }}
+                                    by <a href="">
+                                        {{ $question->user->name }}
+                                    </a>
+                                </small>
                             </div>
 
+                            <div class="col-md-2 answer-block mt-25">
+                                <span>{{ $question->answers_count }} answers</span>
+                            </div>
                         </div>
                     </div>
-                @endforeach
 
-                {{ $questions->links() }}
+                </div>
             </div>
+        @endforeach
+
+        {{ $questions->links() }}
+    </div>
 @endsection
 

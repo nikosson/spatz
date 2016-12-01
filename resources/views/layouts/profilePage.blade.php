@@ -10,7 +10,7 @@
 
                     <h3 class="profile-block__heading">{{ $user->name }}</h3>
 
-                    <p class="profile-block__briefly-name">{{ $user->firstName . " " . $user->lastName }}</p>
+                    <p class="profile-block__brieflyName">{{ $user->firstName . " " . $user->lastName }}</p>
 
                     <ul class="profile-menu">
                         <li class="profile-menu__item">
@@ -20,9 +20,9 @@
                             </div>
 
                             @if($user->questionsCount() > 1 || $user->questionsCount() == 0 )
-                                <p>Answers</p>
+                                <p class="profile-menu__paragraph">Answers</p>
                             @else
-                                <p>Answer</p>
+                                <p class="profile-menu__paragraph">Answer</p>
                             @endif
                         </li>
 
@@ -33,9 +33,9 @@
                             </div>
 
                             @if($user->answersCount() > 1 || $user->answersCount() == 0)
-                                <p>Questions</p>
+                                <p class="profile-menu__paragraph">Questions</p>
                             @else
-                                <p>Question</p>
+                                <p class="profile-menu__paragraph">Question</p>
                             @endif
                         </li>
 

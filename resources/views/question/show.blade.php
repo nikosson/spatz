@@ -4,13 +4,7 @@
 
     <div class="col-md-8">
 
-        @if (session()->has('flash_notification.message'))
-            <div class="alert alert-{{ session('flash_notification.level') }}" id="flash-alert">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-
-                {!! session('flash_notification.message') !!}
-            </div>
-        @endif
+        @include('flashNotifications')
 
         <div class="panel panel-default">
             <div class="panel-body">
@@ -27,31 +21,42 @@
 
                 <hr>
 
-                <ul class="inline-list">
-                    <li class="inline-list__item">Question asked {{ $question->created_at->diffForHumans() }} &#8226</li>
-                    <li class="inline-list__item">{{ $question->views }} views &#8226</li>
-                    <li class="inline-list__item">
-                        Asked by
-                        <a href="{{ route('user_info', $question->user->name) }}">
-                            {{ $question->user->name }}
-                        </a>
+                <div>
+                    <ul class="inline-list">
+                        <li class="inline-list__item">Question asked {{ $question->created_at->diffForHumans() }} &#8226</li>
+                        <li class="inline-list__item">{{ $question->views }} views &#8226</li>
+                        <li class="inline-list__item">
+                            Asked by
+                            <a href="{{ route('user_info', $question->user->name) }}">
+                                {{ $question->user->name }}
+                            </a>
 
-                        <a href="#">
-                            <img src="/img/kappa.png_large" alt="" class="question-avatar">
-                        </a>
-                    </li>
-                </ul>
+                            <a href="#">
+                                <img src="/img/kappa.png_large" alt="" class="questionAvatar">
+                            </a>
+                        </li>
+                    </ul>
 
-                @can('manage-question', $question)
-                    <a href="{{ route('question_edit', ['id' => $question->id]) }}" class="btn btn-default">
-                        Edit
-                    </a>
+                    @can('manage-question', $question)
+                        <div class="btn-group pull-right" data-toggle="tooltip" data-placement="right" title="Manage question">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="{{ route('question_edit', $question->id) }}">Edit</a>
+                                </li>
+                                <li role="separator" class="divider"></li>
+                                <li>
+                                    <a href="javascript:;" data-toggle="modal" data-target="#myModal">
+                                        Delete
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    @endcan
+                </div>
 
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
-                        Delete
-                    </button>
-                @endcan
             </div>
         </div>
 
@@ -74,8 +79,9 @@
         @endif
     </div>
 
+    @include('question.helpers.modal-delete')
+
 @endsection
 
-@include('question.helpers.modal-delete')
 
 

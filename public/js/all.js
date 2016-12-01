@@ -1932,12 +1932,12 @@ function getAjaxRequest(callback) {
             } else {
                 $(this).text('Mark as answer');
             }
-            $(this).toggleClass('btn-marked__answer');
+            $(this).toggleClass('btn-markedAnswer');
         }.bind(this));
 
         ajaxRequest.apply(this);
     }
-    $('.btn-mark__answer').on('click', markAnswerAjax);
+    $('.btn-markAnswer').on('click', markAnswerAjax);
 })();
 
 $('#flash-alert').delay(3000).fadeOut(350);
