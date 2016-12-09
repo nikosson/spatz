@@ -64,6 +64,6 @@ class SettingsController extends Controller
 
         flash("You've successfully updated your mailings!", 'success');
 
-        return redirect()->action('SettingsController@mailing');
+        return redirect()->action('SettingsController@showMailing');
     }
 }

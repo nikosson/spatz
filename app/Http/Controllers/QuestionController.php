@@ -127,4 +127,16 @@ class QuestionController extends Controller
         return view('question.allByChannel', compact('questions', 'channel'));
     }
 
+    /**
+     *
+     * Display all questions
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showAll()
+    {
+        $questions = Question::withCount('answers')->orderBy('created_at', 'desc')->paginate(10);
+        return view('sidebar.allQuestions', compact('questions'));
+    }
+
 }

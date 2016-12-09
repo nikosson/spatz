@@ -13,21 +13,21 @@
             </li>
 
             <li class="vertical-list__item">
-                <a href="{{ url('questions') }}" class="vertical-list__href">
+                <a href="{{ url('question/all') }}" class="vertical-list__href">
                     <i class="fa fa-question-circle" aria-hidden="true"></i>
                     All questions
                 </a>
             </li>
 
             <li class="vertical-list__item">
-                <a href="{{ url('channels') }}" class="vertical-list__href">
+                <a href="{{ url('channel/all') }}" class="vertical-list__href">
                     <i class="fa fa-tags" aria-hidden="true"></i>
                     All channels
                 </a>
             </li>
 
             <li class="vertical-list__item vertical-list__item--bordered">
-                <a href="{{ url('users') }}" class="vertical-list__href">
+                <a href="{{ url('user/all') }}" class="vertical-list__href">
                     <i class="fa fa-users" aria-hidden="true"></i>
                     All users
                 </a>

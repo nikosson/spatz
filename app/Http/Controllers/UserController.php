@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Channel;
 use App\Question;
+use App\User;
 
 class UserController extends Controller
 {
@@ -50,5 +51,16 @@ class UserController extends Controller
         $user->toggle($channel);
 
         return response()->json(['approved' => $user->subscribedFor($channel)]);
+    }
+
+    /**
+     * Display all users
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showAll()
+    {
+        $users = User::paginate(12);
+        return view('sidebar.allUsers', compact('users'));
     }
 }

@@ -14,9 +14,10 @@
 Auth::routes();
 
 //Question
-Route::get('channel/{channel}', 'QuestionController@showByChannel');
+Route::get('question/channel/{channel}', 'QuestionController@showByChannel');
 Route::get('question/ask', 'QuestionController@askForm');
 Route::post('question/store', 'QuestionController@store');
+Route::get('question/all', 'QuestionController@showAll');
 Route::get('question/{question}', 'QuestionController@show');
 Route::get('question/{question}/edit', 'QuestionController@edit')->name('question_edit');
 Route::patch('question/{question}', 'QuestionController@update');
@@ -25,6 +26,9 @@ Route::delete('question/{question}', 'QuestionController@destroy');
 //Answer
 Route::post('question/answer', 'AnswerController@answer');
 Route::post('answer/{answer}/mark', 'AnswerController@markAnswer')->name('answer_mark');
+
+//Channel
+Route::get('channel/all', 'ChannelController@showAll');
 
 //Profile
 Route::get('profile/{user}/info', 'ProfileController@showInfo')->name('user_info');
@@ -37,14 +41,10 @@ Route::patch('settings/info', 'SettingsController@updateInfo');
 Route::get('settings/mailing', 'SettingsController@showMailing');
 Route::patch('settings/mailing', 'SettingsController@updateMailing');
 
-//Sidebar
-Route::get('channels', 'SidebarController@showAllChannels');
-Route::get('users', 'SidebarController@showAllUsers');
-Route::get('questions', 'SidebarController@showAllQuestions');
-
 //User
 Route::get('/', 'UserController@index');
 Route::post('subscribe/{channel}', 'UserController@toggleSubscription');
+Route::get('user/all', 'UserController@showAll');
 
 //Oauth2
 Route::get('auth/facebook', 'Auth\SocialAuthController@redirectToProvider');

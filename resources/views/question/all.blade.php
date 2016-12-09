@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="col-md-10">
 
-                        <a href="{{ url('channel', $question->channel->slug) }}"
+                        <a href="{{ url('question/channel', $question->channel->slug) }}"
                            class="label label-default"
                            style="background-color:{{ $question->channel->color }}"
                         >
