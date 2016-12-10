@@ -66,7 +66,7 @@ class User extends Authenticatable
      */
     public function subscriptions()
     {
-        return $this->belongsToMany(Channel::class, 'channels_subscriptions');
+        return $this->hasMany(Subscription::class);
     }
 
     /**
@@ -165,22 +165,24 @@ class User extends Authenticatable
     }
 
     /**
-     * Toggle the subscription with a given channel for current user
+     * Get channel subscriptions for user
      *
-     * @param Channel $channel
-     * @return $this
+     * @return mixed
      */
-    public function toggle(Channel $channel)
+    public function getChannelSubscriptions()
     {
-        if(!$this->subscribedFor($channel)) {
-            $this->subscriptions()->attach($channel);
-        } else {
-            $this->subscriptions()->detach($channel);
-        }
-
-        return $this;
+        return $this->subscriptions()->where('subscription_type', 'App\Channel');
     }
 
+    /**
+     * Get question subscriptions for user
+     *
+     * @return mixed
+     */
+    public function getQuestionSubscriptions()
+    {
+        return $this->subscriptions()->where('subscription_type', 'App\Question');
+    }
     /**
      * Create a unique name, based on given name
      * Example: if 'John-Doe' already exists, it will create 'John-Doe' + count of all 'John-Doe's

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateChannelsSubscriptionsTable extends Migration
+class CreateSubscriptionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateChannelsSubscriptionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('channels_subscriptions', function (Blueprint $table) {
+        Schema::create('subscriptions', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
-            $table->integer('channel_id');
+            $table->integer('subscription_id');
+            $table->string('subscription_type');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateChannelsSubscriptionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('channels_subscriptions');
+        Schema::dropIfExists('subscriptions');
     }
 }

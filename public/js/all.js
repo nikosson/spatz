@@ -1949,9 +1949,9 @@ $('#flash-alert').delay(3000).fadeOut(350);
 
         var ajaxRequest = getAjaxRequest(function(data) {
             if(data.approved) {
-                $(this).text('Subscribe');
-            } else {
                 $(this).text('UnSubscribe');
+            } else {
+                $(this).text('Subscribe');
             }
             $(this).toggleClass('btn-primary');
         }.bind(this));

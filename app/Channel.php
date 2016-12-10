@@ -35,6 +35,6 @@ class Channel extends Model
      */
     public function subscriptions()
     {
-        return $this->hasMany(ChannelSubscription::class);
+        return $this->morphMany('App\Subscription', 'subscription');
     }
 }

@@ -1,16 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| This file is where you may define all of the routes that are handled
-| by your application. Just tell Laravel the URIs it should respond
-| to using a Closure or controller method. Build something great!
-|
-*/
-
 Auth::routes();
 
 //Question
@@ -43,9 +32,12 @@ Route::patch('settings/mailing', 'SettingsController@updateMailing');
 
 //User
 Route::get('/', 'UserController@index');
-Route::post('subscribe/{channel}', 'UserController@toggleSubscription');
 Route::get('user/all', 'UserController@showAll');
 
 //Oauth2
 Route::get('auth/facebook', 'Auth\SocialAuthController@redirectToProvider');
 Route::get('auth/facebook/callback', 'Auth\SocialAuthController@handleProviderCallback');
+
+//Subscriptions
+Route::post('subscribe/channel/{channel}', 'SubscriptionController@subscribeForChannel');
+Route::post('subscribe/question/{channel}', 'SubscriptionController@subscribeForQuestion');

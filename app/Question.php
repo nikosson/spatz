@@ -40,6 +40,16 @@ class Question extends Model
     }
 
     /**
+     * Question has subscription polymorphic relationship
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
+    public function subscriptions()
+    {
+        return $this->morphMany('App\Subscription', 'subscription');
+    }
+
+    /**
      * Create a question with given request
      *
      * @param QuestionRequest $request
