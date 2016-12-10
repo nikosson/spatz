@@ -154,15 +154,29 @@ class User extends Authenticatable
     }
 
     /**
+     * TODO subscribedForChannel and subscribedForQuestion are almost same methods, redesign them later ?
      * Determine if user is subscribed for specified channel
      *
      * @param Channel $channel
      * @return boolean
      */
-    public function subscribedFor(Channel $channel)
+    public function subscribedForChannel(Channel $channel)
     {
         return $channel->subscriptions->contains('user_id', $this->id);
     }
+
+    /**
+     * TODO subscribedForQuestion and subscribedForChannel are almost same methods, redesign them later ?
+     * Determine if user is subscribed for specified question
+     *
+     * @param Question $question
+     * @return boolean
+     */
+    public function subscribedForQuestion(Question $question)
+    {
+        return $question->subscriptions->contains('user_id', $this->id);
+    }
+
 
     /**
      * Get channel subscriptions for user

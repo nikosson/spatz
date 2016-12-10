@@ -40,4 +40,4 @@ Route::get('auth/facebook/callback', 'Auth\SocialAuthController@handleProviderCa
 
 //Subscriptions
 Route::post('subscribe/channel/{channel}', 'SubscriptionController@subscribeForChannel');
-Route::post('subscribe/question/{channel}', 'SubscriptionController@subscribeForQuestion');
+Route::post('subscribe/question/{question}', 'SubscriptionController@subscribeForQuestion');

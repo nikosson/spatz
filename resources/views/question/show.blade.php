@@ -57,6 +57,20 @@
                     @endcan
                 </div>
 
+                @if(!auth()->user()->subscribedForQuestion($question))
+                    <a href="javascript:;"
+                       data-href="{{ url('subscribe/question', $question->id) }}"
+                       class="btn btn-default btn-toggleSubscription">
+                        Subscribe
+                    </a>
+                @else
+                    <a href="javascript:;"
+                       data-href="{{ url('subscribe/question', $question->id) }}"
+                       class="btn btn-default btn-primary btn-toggleSubscription">
+                        UnSubscribe
+                    </a>
+                @endif
+
             </div>
         </div>
 

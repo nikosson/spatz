@@ -12,7 +12,7 @@
             </p>
             <hr>
 
-            @if(!auth()->user()->subscribedFor($channel))
+            @if(!auth()->user()->subscribedForChannel($channel))
                 <a href="javascript:;"
                    data-href="{{ url('subscribe/channel', $channel->slug) }}"
                    class="btn btn-default btn-toggleSubscription">
