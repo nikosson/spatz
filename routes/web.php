@@ -2,6 +2,9 @@
 
 Auth::routes();
 
+//Index
+Route::get('/', 'IndexController@index');
+
 //Question
 Route::get('question/channel/{channel}', 'QuestionController@showByChannel');
 Route::get('question/ask', 'QuestionController@askForm');
@@ -31,7 +34,6 @@ Route::get('settings/mailing', 'SettingsController@showMailing');
 Route::patch('settings/mailing', 'SettingsController@updateMailing');
 
 //User
-Route::get('/', 'UserController@index');
 Route::get('user/all', 'UserController@showAll');
 
 //Oauth2
@@ -41,3 +43,7 @@ Route::get('auth/facebook/callback', 'Auth\SocialAuthController@handleProviderCa
 //Subscriptions
 Route::post('subscribe/channel/{channel}', 'SubscriptionController@subscribeForChannel');
 Route::post('subscribe/question/{question}', 'SubscriptionController@subscribeForQuestion');
+
+//Feed
+Route::get('feed/questionsWithoutAnswers', 'FeedController@showQuestionsWithoutAnswers');
+Route::get('feed/newQuestions', 'FeedController@showNewQuestions');
