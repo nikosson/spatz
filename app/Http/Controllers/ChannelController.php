@@ -19,6 +19,6 @@ class ChannelController extends Controller
     public function showAll()
     {
         $channels = Channel::paginate(12);
-        return view('sidebar.allChannels', compact('channels'));
+        return view('channel.showAll', compact('channels'));
     }
 }

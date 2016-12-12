@@ -4,10 +4,10 @@
 
     <div class="col-md-8">
         <div class="page-header">
-            <h1>All users</h1>
+            <h1>All questions</h1>
         </div>
 
-        @include('user.all')
+        @include('question.partials.all')
 
     </div>
 

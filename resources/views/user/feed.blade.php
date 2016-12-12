@@ -32,7 +32,7 @@
                 </li>
             </ul>
 
-            @include('question.all')
+            @include('question.partials.all')
         @else
             <p class="h3">
                 Pick some channels, which you want to track <a href="{{ url('channel/all') }}">here</a>

@@ -13,7 +13,6 @@ class QuestionController extends Controller
     public function __construct()
     {
         $this->middleware('auth')->except('show');
-
     }
 
     /**
@@ -124,11 +123,10 @@ class QuestionController extends Controller
     {
         $questions = Question::withCount('answers')->where('channel_id', $channel->id)->paginate(10);
 
-        return view('question.allByChannel', compact('questions', 'channel'));
+        return view('question.showAllByChannel', compact('questions', 'channel'));
     }
 
     /**
-     *
      * Display all questions
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
@@ -136,7 +134,22 @@ class QuestionController extends Controller
     public function showAll()
     {
         $questions = Question::withCount('answers')->orderBy('created_at', 'desc')->paginate(10);
-        return view('sidebar.allQuestions', compact('questions'));
+        return view('question.showAll', compact('questions'));
+    }
+
+    /**
+     * Display all questions, which are not being answered
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showQuestionsWithoutAnswers()
+    {
+        $questions = Question::withCount('answers')
+            ->has('answers', '=', 0)
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
+
+        return view('question.showAllWithoutAnswers', compact('questions'));
     }
 
 }

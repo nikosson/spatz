@@ -14,6 +14,6 @@
         </li>
     </ul>
 
-    @include('question.all')
+    @include('question.partials.all')
 
 @endsection

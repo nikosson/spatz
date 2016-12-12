@@ -8,7 +8,7 @@
             <h1>All questions</h1>
         </div>
 
-        @include('question.all')
+        @include('question.partials.all')
 
     </div>
 @endsection

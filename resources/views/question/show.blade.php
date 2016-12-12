@@ -74,7 +74,7 @@
             </div>
         </div>
 
-        @include('question.answers')
+        @include('answer.partials.all')
 
         <hr>
 
