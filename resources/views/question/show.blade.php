@@ -57,7 +57,7 @@
                     @endcan
                 </div>
 
-                @if(!auth()->user()->subscribedForQuestion($question))
+                @if(auth()->user() && !auth()->user()->subscribedForQuestion($question))
                     <a href="javascript:;"
                        data-href="{{ url('subscribe/question', $question->id) }}"
                        class="btn btn-default btn-toggleSubscription">

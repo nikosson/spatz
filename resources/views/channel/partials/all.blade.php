@@ -3,7 +3,7 @@
         <div class="channel-block">
 
             <h3 class="channel-block__title">
-                <a href="{{ url('channel', $channel->slug) }}">{{ $channel->title }}</a>
+                <a href="{{ url('question/channel', $channel->slug) }}">{{ $channel->title }}</a>
             </h3>
 
             <hr>

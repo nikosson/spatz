@@ -119,7 +119,7 @@ class QuestionController extends Controller
      * @param Channel $channel
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function showByChannel(Channel $channel)
+    public function showAllByChannel(Channel $channel)
     {
         $questions = Question::withCount('answers')->where('channel_id', $channel->id)->paginate(10);
 
@@ -127,14 +127,14 @@ class QuestionController extends Controller
     }
 
     /**
-     * Display all questions
+     * Display new questions
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function showAll()
+    public function showNew()
     {
         $questions = Question::withCount('answers')->orderBy('created_at', 'desc')->paginate(10);
-        return view('question.showAll', compact('questions'));
+        return view('question.showNew', compact('questions'));
     }
 
     /**
@@ -142,7 +142,7 @@ class QuestionController extends Controller
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function showQuestionsWithoutAnswers()
+    public function showAllWithoutAnswers()
     {
         $questions = Question::withCount('answers')
             ->has('answers', '=', 0)

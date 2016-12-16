@@ -8,13 +8,14 @@
         </div>
 
         <ul class="bordered-menu mb-25">
-            <li class="bordered-menu__item">
+            <li class="bordered-menu__item bordered-menu__item--active">
                 <a href="{{ url('question/new') }}">New</a>
             </li>
-            <li class="bordered-menu__item bordered-menu__item--active">
+            <li class="bordered-menu__item">
                 <a href="{{ url('question/withoutAnswers') }}">Without answers</a>
             </li>
         </ul>
+
         @include('question.partials.all')
 
     </div>

@@ -6,10 +6,11 @@ Auth::routes();
 Route::get('/', 'IndexController@index');
 
 //Question
-Route::get('question/channel/{channel}', 'QuestionController@showByChannel');
+Route::get('question/channel/{channel}', 'QuestionController@showAllByChannel');
+Route::get('question/withoutAnswers', 'QuestionController@showAllWithoutAnswers');
 Route::get('question/ask', 'QuestionController@askForm');
 Route::post('question/store', 'QuestionController@store');
-Route::get('question/all', 'QuestionController@showAll');
+Route::get('question/new', 'QuestionController@showNew');
 Route::get('question/{question}', 'QuestionController@show');
 Route::get('question/{question}/edit', 'QuestionController@edit')->name('question_edit');
 Route::patch('question/{question}', 'QuestionController@update');
