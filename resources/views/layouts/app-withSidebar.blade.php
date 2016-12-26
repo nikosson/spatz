@@ -96,9 +96,11 @@
 
 <div class="container">
     <div class="row">
-       @include('sidebar')
+        @include('leftSidebar')
 
         @yield('content')
+
+        @include('rightSidebar')
 
     </div>
 </div>

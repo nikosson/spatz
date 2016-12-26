@@ -1,3 +1,5 @@
+'use strict';
+
 const elixir = require('laravel-elixir');
 
 require('laravel-elixir-vue');
@@ -13,7 +15,7 @@ require('laravel-elixir-vue');
  |
  */
 
-var bowerScripts = [
+let bowerScripts = [
     './bower_components/jquery/dist/jquery.min.js',
     './bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js',
     './bower_components/bootstrap-select/js/bootstrap-select.js'

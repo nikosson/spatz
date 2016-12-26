@@ -3,11 +3,12 @@
 namespace App;
 
 use App\Http\Requests\QuestionRequest;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Question extends Model
 {
-    protected $fillable = ['title', 'body', 'channel_id'];
+    protected $fillable = ['title', 'body', 'channel_id', 'rating'];
 
     /**
      * Question belongs to user relationship
@@ -75,6 +76,12 @@ class Question extends Model
         ]);
 
         return $this;
+    }
+
+    public function scopeSinceDaysAgo($query, $quantity)
+    {
+        return $query->where('created_at', '>=', Carbon::now()->subDay($quantity))
+            ->get();
     }
 
 }

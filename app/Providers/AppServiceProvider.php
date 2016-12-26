@@ -2,10 +2,15 @@
 
 namespace App\Providers;
 
-use App\Mailing;
+use App\Answer;
+use App\Observers\SubscriptionObserver;
 use App\Question;
-use App\Subscription;
 use App\User;
+use App\Subscription;
+use App\Observers\QuestionObserver;
+use App\Observers\UserObserver;
+use App\Observers\AnswerObserver;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -17,17 +22,16 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        User::created(function ($user) {
-            Mailing::create(['user_id' => $user->id]);
-        });
+        User::observe(UserObserver::class);
+        Question::observe(QuestionObserver::class);
+        Answer::observe(AnswerObserver::class);
+        Subscription::observe(SubscriptionObserver::class);
 
-        Question::created(function ($question) {
-            Subscription::create([
-                'subscription_type' => 'App\Question',
-                'subscription_id' => $question->id,
-                'user_id' => $question->user->id,
-            ]);
-        });
+        View::share('mostInterestingWeeklyQuestions',
+            Question::sinceDaysAgo(7)
+                ->sortByDesc('rating')
+                ->take(10)
+        );
     }
 
     /**

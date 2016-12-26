@@ -31,7 +31,7 @@ class Channel extends Model
     /**
      * Channel has many subscriptions relationship
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
      */
     public function subscriptions()
     {

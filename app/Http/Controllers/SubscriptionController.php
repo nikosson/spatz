@@ -28,7 +28,9 @@ class SubscriptionController extends Controller
             'user_id' => auth()->id()
         ])->toggleSubscription();
 
-        return response()->json(['approved' => auth()->user()->subscribedForChannel($channel)]);
+        return response()->json(
+            ['approved' => auth()->user()->subscribedForChannel($channel)]
+        );
     }
 
 
@@ -50,7 +52,4 @@ class SubscriptionController extends Controller
             'approved' => auth()->user()->subscribedForQuestion($question),
         ]);
     }
-
-
-
 }
