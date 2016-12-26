@@ -14,7 +14,7 @@ class EventServiceProvider extends ServiceProvider
      */
     protected $listen = [
         'App\Events\QuestionWasAnswered' => [
-            'App\Listeners\EmailAnswerNotification',
+            'App\Listeners\EmailAddedNewAnswerNotification',
         ],
     ];
 

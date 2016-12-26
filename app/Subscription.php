@@ -54,4 +54,26 @@ class Subscription extends Model
     {
         return $this->subscription_type === Question::class;
     }
+
+    /**
+     * Get subscriber(user) from current subscription
+     *
+     * @return mixed
+     */
+    public function getSubscriber()
+    {
+        $subscriber = User::find($this->user_id);
+
+        return $subscriber;
+    }
+
+    /**
+     * Get subscriber's(user's) email from current subscription
+     *
+     * @return mixed
+     */
+    public function getSubscribersEmail()
+    {
+        return $this->getSubscriber()->email;
+    }
 }

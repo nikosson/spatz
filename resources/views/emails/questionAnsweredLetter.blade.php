@@ -297,8 +297,8 @@
                             <table border="0" cellpadding="0" cellspacing="0">
                                 <tr>
                                     <td>
-                                        <p>Hi, {{ $answer->user->name }}!</p>
-                                        <p>Your question "{{ $answer->question->title }}" was answered.</p>
+                                        <p>Hi, {{ $user->name }}!</p>
+                                        <p>Question, in which you are subscribed "{{ $answer->question->title }}" was answered.</p>
 
                                         <hr>
 

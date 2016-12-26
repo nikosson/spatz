@@ -8,7 +8,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Mail;
 
-class EmailAnswerNotification
+class EmailAddedNewAnswerNotification
 {
     /**
      * Create the event listener.
@@ -28,9 +28,12 @@ class EmailAnswerNotification
      */
     public function handle(QuestionWasAnswered $event)
     {
-        if($event->answer->user->mailing->answer_notifications) {
-            Mail::to($event->answer->getQuestionerEmail())
-                ->send(new QuestionWasAnsweredMail($event->answer));
+        $question = $event->answer->question;
+        $answer = $event->answer;
+
+        foreach($question->subscriptions as $subscription) {
+            Mail::to($subscription->getSubscribersEmail())
+                ->send(new QuestionWasAnsweredMail($answer, $subscription->getSubscriber()));
         }
     }
 }

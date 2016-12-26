@@ -3,6 +3,7 @@
 namespace App\Mail;
 
 use App\Answer;
+use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -13,15 +14,16 @@ class QuestionWasAnsweredMail extends Mailable
     use Queueable, SerializesModels;
 
     public $answer;
+    public $user;
 
     /**
      * Create a new message instance.
      *
-     * @return void
      */
-    public function __construct(Answer $answer)
+    public function __construct(Answer $answer, User $user)
     {
         $this->answer = $answer;
+        $this->user = $user;
     }
 
     /**

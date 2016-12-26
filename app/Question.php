@@ -78,6 +78,13 @@ class Question extends Model
         return $this;
     }
 
+    /**
+     * Get all questions since determined quantity of days
+     *
+     * @param $query
+     * @param $quantity
+     * @return mixed
+     */
     public function scopeSinceDaysAgo($query, $quantity)
     {
         return $query->where('created_at', '>=', Carbon::now()->subDay($quantity))
