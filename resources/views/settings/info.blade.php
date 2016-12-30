@@ -10,8 +10,13 @@
 
         <ul class="bordered-menu">
             <li class="bordered-menu__item bordered-menu__item--active">About myself</li>
+
             <li class="bordered-menu__item">
                 <a href="{{ url('settings/mailing') }}">Mailing</a>
+            </li>
+
+            <li class="bordered-menu__item">
+                <a href="{{ url('settings/subscriptions') }}">Subscriptions</a>
             </li>
         </ul>
 

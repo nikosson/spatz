@@ -17,8 +17,7 @@ class Subscription extends Model
     {
         if($this->exists) {
             $this->delete();
-        }
-        else {
+        } else {
             $this->save();
         }
 
@@ -68,7 +67,7 @@ class Subscription extends Model
     }
 
     /**
-     * Get subscriber's(user's) email from current subscription
+     * Get subscriber's(user's) email from a given subscription
      *
      * @return mixed
      */
@@ -76,4 +75,35 @@ class Subscription extends Model
     {
         return $this->getSubscriber()->email;
     }
+
+    /**
+     * Get title from a given subscription
+     *
+     * @return mixed
+     */
+    public function getQuestionsTitle()
+    {
+        return $this->subscription->title;
+    }
+
+    /**
+     * Get id from a given subscription
+     *
+     * @return mixed
+     */
+    public function getQuestionsId()
+    {
+        return $this->subscription->id;
+    }
+
+    /**
+     * Get channel from a given subscription
+     *
+     * @return mixed
+     */
+    public function getQuestionsChannel()
+    {
+        return $this->subscription->channel;
+    }
+
 }

@@ -8887,6 +8887,15 @@ select.selectpicker {
   margin-right: 50px;
 }
 
+.subscription-panel__item {
+  border-bottom: 1px solid #eeeeee;
+  padding: 10px;
+}
+
+.subscription-panel__item:last-child {
+  border-bottom: none;
+}
+
 .profile-sidebar {
   background-color: transparent;
   color: #000;

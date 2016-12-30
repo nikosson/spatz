@@ -66,4 +66,17 @@ class SettingsController extends Controller
 
         return redirect()->action('SettingsController@showMailing');
     }
+
+    /**
+     * Show subscriptions for a current user
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showSubscriptions()
+    {
+        $user = User::findOrFail(auth()->id());
+        $subscriptions = $user->getQuestionSubscriptions;
+
+        return view('settings.subscriptions', compact('subscriptions'));
+    }
 }

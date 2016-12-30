@@ -13,7 +13,12 @@
             <li class="bordered-menu__item">
                 <a href="{{ url('settings/info') }}">About myself</a>
             </li>
+
             <li class="bordered-menu__item bordered-menu__item--active">Mailing</li>
+
+            <li class="bordered-menu__item">
+                <a href="{{ url('settings/subscriptions') }}">Subscriptions</a>
+            </li>
         </ul>
 
         <form method="POST" action="{{ url('settings/mailing') }}">

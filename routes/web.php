@@ -33,6 +33,7 @@ Route::get('settings/info', 'SettingsController@showInfo');
 Route::patch('settings/info', 'SettingsController@updateInfo');
 Route::get('settings/mailing', 'SettingsController@showMailing');
 Route::patch('settings/mailing', 'SettingsController@updateMailing');
+Route::get('settings/subscriptions', 'SettingsController@showSubscriptions');
 
 //User
 Route::get('user/all', 'UserController@showAll');
