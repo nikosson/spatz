@@ -19,6 +19,10 @@
             <li class="bordered-menu__item">
                 <a href="{{ url('settings/subscriptions') }}">Subscriptions</a>
             </li>
+
+            <li class="bordered-menu__item">
+                <a href="{{ url('settings/account') }}">Account</a>
+            </li>
         </ul>
 
         <form method="POST" action="{{ url('settings/mailing') }}">

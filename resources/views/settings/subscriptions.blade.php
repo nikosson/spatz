@@ -18,6 +18,10 @@
             </li>
 
             <li class="bordered-menu__item bordered-menu__item--active">Subscriptions</li>
+
+            <li class="bordered-menu__item">
+                <a href="{{ url('settings/account') }}">Account</a>
+            </li>
         </ul>
 
         <div class="panel panel-default">

@@ -9,7 +9,9 @@
         <h1 class="mb-35">Settings</h1>
 
         <ul class="bordered-menu">
-            <li class="bordered-menu__item bordered-menu__item--active">About myself</li>
+            <li class="bordered-menu__item">
+                <a href="{{ url('settings/info') }}">About myself</a>
+            </li>
 
             <li class="bordered-menu__item">
                 <a href="{{ url('settings/mailing') }}">Mailing</a>
@@ -19,12 +21,10 @@
                 <a href="{{ url('settings/subscriptions') }}">Subscriptions</a>
             </li>
 
-            <li class="bordered-menu__item">
-                <a href="{{ url('settings/account') }}">Account</a>
-            </li>
+            <li class="bordered-menu__item bordered-menu__item--active">Account</li>
         </ul>
 
-        <form method="POST" action="{{ url('settings/info') }}">
+        <form method="POST" action="{{ url('settings/account') }}">
             {{ csrf_field() }}
             {{ method_field('PATCH') }}
 
@@ -32,31 +32,31 @@
             @include('errors')
 
             <div class="form-group">
-                <label for="exampleInputEmail1">Your First Name</label>
+                <label for="exampleInputEmail1">Your Email</label>
                 <input type="text"
                        class="form-control"
-                       placeholder="First Name"
-                       name="firstName"
-                       value="{{ $user->firstName }}"
+                       placeholder="Email"
+                       name="email"
+                       value="{{ $user->email }}"
                 >
             </div>
 
             <div class="form-group">
-                <label for="exampleInputEmail1">Your Last Name</label>
-                <input type="text"
+                <label for="exampleInputEmail1">Your New Password</label>
+                <input type="password"
                        class="form-control"
-                       placeholder="Last Name"
-                       name="lastName"
-                       value="{{ $user->lastName }}"
+                       placeholder="Your New Password"
+                       name="password"
                 >
             </div>
 
             <div class="form-group">
-                <label for="exampleInputEmail1">Some information about yourself</label>
-                <textarea class="form-control"
-                          placeholder="About myself"
-                          name="about"
-                          rows="5">{{ $user->about }}</textarea>
+                <label for="exampleInputEmail1">Confirm New Password</label>
+                <input type="password"
+                       class="form-control"
+                       placeholder="Confirm New Password"
+                       name="password_confirmation"
+                >
             </div>
 
             <button type="submit" class="btn btn-default">Submit</button>

@@ -121,33 +121,49 @@ class User extends Authenticatable
     }
 
     /**
-     * Update info about the user in settings with a given request
+     * Update user's personal info with a given data
      *
-     * @param SettingsRequest $request
+     * @param array $data
      * @return $this
      */
-    public function updateSettingsInfo(SettingsRequest $request)
+    public function updatePersonalInfo(array $data)
     {
         $this->update([
-            'firstName' => $request->firstName,
-            'lastName'  => $request->lastName,
-            'about'     => $request->about
+            'firstName' => $data['firstName'],
+            'lastName'  => $data['lastName'],
+            'about'     => $data['about']
         ]);
 
         return $this;
     }
 
     /**
-     * Update mailing info about the user in settings with a given request
+     * Update user's mailing info with a given data
      *
-     * @param Request $request
+     * @param array $data
      * @return $this
      */
-    public function updateSettingsMailing(Request $request)
+    public function updateMailingInfo(array $data)
     {
         $this->mailing->update([
-            'answer_notifications' => isset($request->answer_notifications),
-            'news_notifications'  => isset($request->news_notifications),
+            'answer_notifications' => isset($data['answer_notifications']),
+            'news_notifications'  => isset($data['news_notifications']),
+        ]);
+
+        return $this;
+    }
+
+    /**
+     * Update user's account info with a given data
+     *
+     * @param array $data
+     * @return $this
+     */
+    public function updateAccountInfo(array $data)
+    {
+        $this->update([
+            'email' => $data['email'],
+            'password' => bcrypt($data['password'])
         ]);
 
         return $this;

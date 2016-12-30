@@ -34,6 +34,9 @@ Route::patch('settings/info', 'SettingsController@updateInfo');
 Route::get('settings/mailing', 'SettingsController@showMailing');
 Route::patch('settings/mailing', 'SettingsController@updateMailing');
 Route::get('settings/subscriptions', 'SettingsController@showSubscriptions');
+Route::get('settings/account', 'SettingsController@showAccountInfo');
+Route::patch('settings/account', 'SettingsController@updateAccountInfo');
+
 
 //User
 Route::get('user/all', 'UserController@showAll');
