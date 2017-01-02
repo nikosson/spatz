@@ -4,6 +4,13 @@ use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
+    protected $tables = [
+        'users',
+        'questions',
+        'subscriptions',
+        'mailing'
+    ];
+
     /**
      * Run the database seeds.
      *
@@ -12,8 +19,11 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         DB::statement('SET foreign_key_checks = 0;');
-        DB::table('users')->truncate();
-        DB::table('questions')->truncate();
+
+        foreach($this->tables as $table) {
+            DB::table($table)->truncate();
+        }
+
         DB::statement('SET foreign_key_checks = 1;');
 
         $this->call(QuestionsTableSeeder::class);

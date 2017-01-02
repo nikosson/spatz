@@ -15,9 +15,8 @@ class AnswerObserver
     public function created(Answer $answer)
     {
         //When a new answer is created,
-        // the rating of the attached question will be increased by 0.5
+        // the rating of the attached question will be increased by 1
         $question = $answer->question;
-        $question->rating += 0.5;
-        $question->save();
+        $question->rate(1);
     }
 }

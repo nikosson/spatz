@@ -26,6 +26,8 @@ class AddToChannelsTableInfoAndUrlRows extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('channels', function ($table) {
+            $table->dropColumn(['info', 'url']);
+        });
     }
 }

@@ -13,13 +13,26 @@ class SubscriptionObserver
      */
     public function created(Subscription $subscription)
     {
-        //When a new answer is created,
-        // the rating of the attached question will be increased by 1
-        if($subscription->isQuestion())
-        {
+        //When user subscribed to a question
+        // the rating of the attached question will be increased by 2
+        if($subscription->isQuestion()) {
             $question = $subscription->subscription;
-            $question->rating += 1;
-            $question->save();
+            $question->rate(2);
+        }
+    }
+
+    /**
+     * Listen to the Subscription deleted event
+     *
+     * @param Subscription $subscription
+     */
+    public function deleted(Subscription $subscription)
+    {
+        //When user unsubscribed from a question
+        // the rating of the attached question will be decreased by 2
+        if($subscription->isQuestion()) {
+            $question = $subscription->subscription;
+            $question->rate(-2);
         }
     }
 }

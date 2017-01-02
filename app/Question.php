@@ -91,4 +91,38 @@ class Question extends Model
             ->get();
     }
 
+    /**
+     * Rate a question with a given number
+     *
+     * @param $number
+     * @return $this
+     */
+    public function rate($number)
+    {
+        $this->rating += $number;
+        $this->save();
+
+        return $this;
+    }
+
+    /**
+     * Delete attached subscriptions for a question
+     * Example: it
+     *
+     * @return mixed
+     */
+    public function deleteAttachedSubscriptions()
+    {
+        $subscriptions = $this->subscriptions;
+
+        if($subscriptions->isEmpty()) {
+            return false;
+        }
+
+        foreach ($subscriptions as $subscription) {
+            $subscription->delete();
+        }
+
+        return true;
+    }
 }
