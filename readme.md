@@ -1,27 +1,38 @@
-# Laravel PHP Framework
+# Spatz
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+**Spatz** is a simple knowledge market(ask question and get answer) resource, like [stackoverflow](http://stackoverflow.com/) or [toster](https://toster.ru/).
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+It is built on [Laravel](http://laravel.com) framework. 
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+The aim of the project is to **learn Laravel framework**, so it's better not to use it in commercial needs. 
 
-## Official Documentation
+## Installation
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+- Download or clone repository.
 
-## Contributing
+- Install composer components using command ```composer install``` in your terminal.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+- Install node components using command ```npm install``` in your terminal.
 
-## Security Vulnerabilities
+- Copy the content from ```.env.example``` file, create ```.env``` file in a root directory and paste copied content into this file.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+- Fullfill the fields in fresh ```.env``` file with your information.
 
-## License
+- Generate laravel application key using command ```php artisan key:generate``` in your terminal.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+- Run migrations using command ```php artisan migrate``` in your terminal.
+
+- Make test data using command ```php artisan db:seed``` in your terminal.
+
+- Install bower components using command ```bower install```.
+
+- Run command ```gulp``` in your terminal for compiling assets.
+
+- Enjoy! 
+ 
+### Issues
+
+If you come across any issues please [report them here](https://github.com/nikosson/Spatz/issues).
+
+You can also email me at georgebordiuh@gmail.com
+
