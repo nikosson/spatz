@@ -42,7 +42,7 @@
 
                             <div class="row">
                                 <div class="col-md-10">
-                                    <a href="{{ url('question') }}">
+                                    <a href="{{ url('question', $subscription->getQuestionsId()) }}">
                                         <h3>{{ $subscription->getQuestionsTitle() }}</h3>
                                     </a>
                                 </div>
@@ -69,9 +69,18 @@
                 @else
 
                     <p>
-                        You don't have any for a moment subscriptions.
-                        You can find questions for subscription <a href="{{ url('question/new') }}">here</a>
-                        or <a href="{{ url('/') }}">here</a> .
+                        You don't have any subscriptions for a moment.
+                        You can find questions for subscription
+                            <a href="{{ url('question/new') }}">
+                                here
+                            </a>.
+
+                        <hr>
+
+                        You can also subscribe for channels, in which you are interested
+                            <a href="{{ url('channel/all') }}">
+                                here
+                            </a>.
                     </p>
 
                 @endif

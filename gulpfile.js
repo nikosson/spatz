@@ -29,7 +29,7 @@ elixir(mix => {
            'components/ajaxRequest.js',
            'components/markAnswerAjax.js',
            'components/flashMessageAlert.js',
-           'components/subscribeToChannelAjax.js',
+           'components/subscribeToAjax.js',
        ]))
        .copy('./bower_components/tinymce', './public/assets/tinymce');
 });

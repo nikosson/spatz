@@ -15,13 +15,13 @@
             @if(!auth()->user()->subscribedForChannel($channel))
                 <a href="javascript:;"
                    data-href="{{ url('subscribe/channel', $channel->slug) }}"
-                   class="btn btn-default btn-toggleSubscription">
+                   class="btn btn-toggleSubscription">
                     Subscribe
                 </a>
             @else
                 <a href="javascript:;"
                    data-href="{{ url('subscribe/channel', $channel->slug) }}"
-                   class="btn btn-default btn-primary btn-toggleSubscription">
+                   class="btn btn-toggleSubscription btn-toggledSubscription">
                     UnSubscribe
                 </a>
             @endif

@@ -12,6 +12,7 @@ use App\Observers\UserObserver;
 use App\Observers\AnswerObserver;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Database\QueryException;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -27,11 +28,18 @@ class AppServiceProvider extends ServiceProvider
         Answer::observe(AnswerObserver::class);
         Subscription::observe(SubscriptionObserver::class);
 
-        View::share('mostInterestingWeeklyQuestions',
-            Question::sinceDaysAgo(7)
-                ->sortByDesc('rating')
-                ->take(10)
-        );
+        //Block for sharing information with views
+        try {
+            View::share('mostInterestingWeeklyQuestions',
+                Question::sinceDaysAgo(7)
+                    ->sortByDesc('rating')
+                    ->take(10)
+            );
+        }
+
+        catch (QueryException $e) {
+            //
+        }
     }
 
     /**

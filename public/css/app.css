@@ -3646,114 +3646,130 @@ fieldset[disabled] a.btn {
   pointer-events: none;
 }
 
-.btn-default {
+.btn-default, .btn-toggle, .btn-toggleSubscription, .btn-markAnswer {
   color: #636b6f;
   background-color: #fff;
   border-color: #ccc;
 }
 
-.btn-default:focus, .btn-default.focus {
+.btn-default:focus, .btn-toggle:focus, .btn-toggleSubscription:focus, .btn-markAnswer:focus, .btn-default.focus, .focus.btn-toggle, .focus.btn-toggleSubscription, .focus.btn-markAnswer {
   color: #636b6f;
   background-color: #e6e6e6;
   border-color: #8c8c8c;
 }
 
-.btn-default:hover {
+.btn-default:hover, .btn-toggle:hover, .btn-toggleSubscription:hover, .btn-markAnswer:hover {
   color: #636b6f;
   background-color: #e6e6e6;
   border-color: #adadad;
 }
 
-.btn-default:active, .btn-default.active,
-.open > .btn-default.dropdown-toggle {
+.btn-default:active, .btn-toggle:active, .btn-toggleSubscription:active, .btn-markAnswer:active, .btn-default.active, .active.btn-toggle, .active.btn-toggleSubscription, .active.btn-markAnswer,
+.open > .btn-default.dropdown-toggle,
+.open > .dropdown-toggle.btn-toggle,
+.open > .dropdown-toggle.btn-toggleSubscription,
+.open > .dropdown-toggle.btn-markAnswer {
   color: #636b6f;
   background-color: #e6e6e6;
   border-color: #adadad;
 }
 
-.btn-default:active:hover, .btn-default:active:focus, .btn-default:active.focus, .btn-default.active:hover, .btn-default.active:focus, .btn-default.active.focus,
+.btn-default:active:hover, .btn-toggle:active:hover, .btn-toggleSubscription:active:hover, .btn-markAnswer:active:hover, .btn-default:active:focus, .btn-toggle:active:focus, .btn-toggleSubscription:active:focus, .btn-markAnswer:active:focus, .btn-default:active.focus, .btn-toggle:active.focus, .btn-toggleSubscription:active.focus, .btn-markAnswer:active.focus, .btn-default.active:hover, .active.btn-toggle:hover, .active.btn-toggleSubscription:hover, .active.btn-markAnswer:hover, .btn-default.active:focus, .active.btn-toggle:focus, .active.btn-toggleSubscription:focus, .active.btn-markAnswer:focus, .btn-default.active.focus, .active.focus.btn-toggle, .active.focus.btn-toggleSubscription, .active.focus.btn-markAnswer,
 .open > .btn-default.dropdown-toggle:hover,
+.open > .dropdown-toggle.btn-toggle:hover,
+.open > .dropdown-toggle.btn-toggleSubscription:hover,
+.open > .dropdown-toggle.btn-markAnswer:hover,
 .open > .btn-default.dropdown-toggle:focus,
-.open > .btn-default.dropdown-toggle.focus {
+.open > .dropdown-toggle.btn-toggle:focus,
+.open > .dropdown-toggle.btn-toggleSubscription:focus,
+.open > .dropdown-toggle.btn-markAnswer:focus,
+.open > .btn-default.dropdown-toggle.focus,
+.open > .dropdown-toggle.focus.btn-toggle,
+.open > .dropdown-toggle.focus.btn-toggleSubscription,
+.open > .dropdown-toggle.focus.btn-markAnswer {
   color: #636b6f;
   background-color: #d4d4d4;
   border-color: #8c8c8c;
 }
 
-.btn-default:active, .btn-default.active,
-.open > .btn-default.dropdown-toggle {
+.btn-default:active, .btn-toggle:active, .btn-toggleSubscription:active, .btn-markAnswer:active, .btn-default.active, .active.btn-toggle, .active.btn-toggleSubscription, .active.btn-markAnswer,
+.open > .btn-default.dropdown-toggle,
+.open > .dropdown-toggle.btn-toggle,
+.open > .dropdown-toggle.btn-toggleSubscription,
+.open > .dropdown-toggle.btn-markAnswer {
   background-image: none;
 }
 
-.btn-default.disabled:hover, .btn-default.disabled:focus, .btn-default.disabled.focus, .btn-default[disabled]:hover, .btn-default[disabled]:focus, .btn-default[disabled].focus,
+.btn-default.disabled:hover, .disabled.btn-toggle:hover, .disabled.btn-toggleSubscription:hover, .disabled.btn-markAnswer:hover, .btn-default.disabled:focus, .disabled.btn-toggle:focus, .disabled.btn-toggleSubscription:focus, .disabled.btn-markAnswer:focus, .btn-default.disabled.focus, .disabled.focus.btn-toggle, .disabled.focus.btn-toggleSubscription, .disabled.focus.btn-markAnswer, .btn-default[disabled]:hover, [disabled].btn-toggle:hover, [disabled].btn-toggleSubscription:hover, [disabled].btn-markAnswer:hover, .btn-default[disabled]:focus, [disabled].btn-toggle:focus, [disabled].btn-toggleSubscription:focus, [disabled].btn-markAnswer:focus, .btn-default[disabled].focus, [disabled].focus.btn-toggle, [disabled].focus.btn-toggleSubscription, [disabled].focus.btn-markAnswer,
 fieldset[disabled] .btn-default:hover,
+fieldset[disabled] .btn-toggle:hover,
+fieldset[disabled] .btn-toggleSubscription:hover,
+fieldset[disabled] .btn-markAnswer:hover,
 fieldset[disabled] .btn-default:focus,
-fieldset[disabled] .btn-default.focus {
+fieldset[disabled] .btn-toggle:focus,
+fieldset[disabled] .btn-toggleSubscription:focus,
+fieldset[disabled] .btn-markAnswer:focus,
+fieldset[disabled] .btn-default.focus,
+fieldset[disabled] .focus.btn-toggle,
+fieldset[disabled] .focus.btn-toggleSubscription,
+fieldset[disabled] .focus.btn-markAnswer {
   background-color: #fff;
   border-color: #ccc;
 }
 
-.btn-default .badge {
+.btn-default .badge, .btn-toggle .badge, .btn-toggleSubscription .badge, .btn-markAnswer .badge {
   color: #fff;
   background-color: #636b6f;
 }
 
-.btn-primary, .btn-markAnswer {
+.btn-primary {
   color: #fff;
   background-color: #3097D1;
   border-color: #2a88bd;
 }
 
-.btn-primary:focus, .btn-markAnswer:focus, .btn-primary.focus, .focus.btn-markAnswer {
+.btn-primary:focus, .btn-primary.focus {
   color: #fff;
   background-color: #2579a9;
   border-color: #133d55;
 }
 
-.btn-primary:hover, .btn-markAnswer:hover {
+.btn-primary:hover {
   color: #fff;
   background-color: #2579a9;
   border-color: #1f648b;
 }
 
-.btn-primary:active, .btn-markAnswer:active, .btn-primary.active, .active.btn-markAnswer,
-.open > .btn-primary.dropdown-toggle,
-.open > .dropdown-toggle.btn-markAnswer {
+.btn-primary:active, .btn-primary.active,
+.open > .btn-primary.dropdown-toggle {
   color: #fff;
   background-color: #2579a9;
   border-color: #1f648b;
 }
 
-.btn-primary:active:hover, .btn-markAnswer:active:hover, .btn-primary:active:focus, .btn-markAnswer:active:focus, .btn-primary:active.focus, .btn-markAnswer:active.focus, .btn-primary.active:hover, .active.btn-markAnswer:hover, .btn-primary.active:focus, .active.btn-markAnswer:focus, .btn-primary.active.focus, .active.focus.btn-markAnswer,
+.btn-primary:active:hover, .btn-primary:active:focus, .btn-primary:active.focus, .btn-primary.active:hover, .btn-primary.active:focus, .btn-primary.active.focus,
 .open > .btn-primary.dropdown-toggle:hover,
-.open > .dropdown-toggle.btn-markAnswer:hover,
 .open > .btn-primary.dropdown-toggle:focus,
-.open > .dropdown-toggle.btn-markAnswer:focus,
-.open > .btn-primary.dropdown-toggle.focus,
-.open > .dropdown-toggle.focus.btn-markAnswer {
+.open > .btn-primary.dropdown-toggle.focus {
   color: #fff;
   background-color: #1f648b;
   border-color: #133d55;
 }
 
-.btn-primary:active, .btn-markAnswer:active, .btn-primary.active, .active.btn-markAnswer,
-.open > .btn-primary.dropdown-toggle,
-.open > .dropdown-toggle.btn-markAnswer {
+.btn-primary:active, .btn-primary.active,
+.open > .btn-primary.dropdown-toggle {
   background-image: none;
 }
 
-.btn-primary.disabled:hover, .disabled.btn-markAnswer:hover, .btn-primary.disabled:focus, .disabled.btn-markAnswer:focus, .btn-primary.disabled.focus, .disabled.focus.btn-markAnswer, .btn-primary[disabled]:hover, [disabled].btn-markAnswer:hover, .btn-primary[disabled]:focus, [disabled].btn-markAnswer:focus, .btn-primary[disabled].focus, [disabled].focus.btn-markAnswer,
+.btn-primary.disabled:hover, .btn-primary.disabled:focus, .btn-primary.disabled.focus, .btn-primary[disabled]:hover, .btn-primary[disabled]:focus, .btn-primary[disabled].focus,
 fieldset[disabled] .btn-primary:hover,
-fieldset[disabled] .btn-markAnswer:hover,
 fieldset[disabled] .btn-primary:focus,
-fieldset[disabled] .btn-markAnswer:focus,
-fieldset[disabled] .btn-primary.focus,
-fieldset[disabled] .focus.btn-markAnswer {
+fieldset[disabled] .btn-primary.focus {
   background-color: #3097D1;
   border-color: #2a88bd;
 }
 
-.btn-primary .badge, .btn-markAnswer .badge {
+.btn-primary .badge {
   color: #3097D1;
   background-color: #fff;
 }
@@ -8734,19 +8750,19 @@ select.selectpicker {
   border-left: 3px solid grey;
 }
 
-.btn-markAnswer:hover {
+.btn-toggle:hover, .btn-toggleSubscription:hover, .btn-markAnswer:hover {
   -webkit-transition: background 0.3s;
   transition: background 0.3s;
 }
 
-.btn-markedAnswer {
-  background-color: transparent;
-  color: #3097D1;
+.btn-toggled, .btn-toggledSubscription, .btn-markedAnswer {
+  background-color: #3097D1;
+  color: #fff;
 }
 
-.btn-markedAnswer:focus {
-  background-color: transparent;
-  color: #3097D1;
+.btn-toggled:focus, .btn-toggledSubscription:focus, .btn-markedAnswer:focus {
+  background-color: #3097D1;
+  color: #fff;
 }
 
 .btn-facebook {

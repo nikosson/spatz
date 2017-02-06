@@ -8,7 +8,8 @@ class DatabaseSeeder extends Seeder
         'users',
         'questions',
         'subscriptions',
-        'mailing'
+        'mailing',
+        'channels',
     ];
 
     /**
@@ -26,6 +27,7 @@ class DatabaseSeeder extends Seeder
 
         DB::statement('SET foreign_key_checks = 1;');
 
+        //$this->call(ChannelsTableSeeder::class);
         $this->call(QuestionsTableSeeder::class);
     }
 }

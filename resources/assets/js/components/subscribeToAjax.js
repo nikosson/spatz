@@ -1,17 +1,17 @@
 (function() {
-    function subscribeToChannel(e) {
+    function subscribeToAjax(e) {
         e.preventDefault();
 
         var ajaxRequest = getAjaxRequest(function(data) {
             if(data.approved) {
-                $(this).text('UnSubscribe');
+                $(this).text('UbSubscribe');
             } else {
                 $(this).text('Subscribe');
             }
-            $(this).toggleClass('btn-primary');
+            $(this).toggleClass('btn-toggledSubscription');
         }.bind(this));
 
         ajaxRequest.apply(this);
     }
-    $('.btn-toggleSubscription').on('click', subscribeToChannel);
+    $('.btn-toggleSubscription').on('click', subscribeToAjax);
 })();

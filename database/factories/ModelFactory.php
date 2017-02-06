@@ -26,14 +26,24 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Question::class, function (Faker\Generator $faker) {
-    static $password;
-    $channelCounter = Channel::count();
 
     return [
         'title' => $faker->sentence,
         'body' => $faker->paragraph(20),
         'user_id' => factory(User::class)->create()->id,
-        'channel_id' => mt_rand(1,$channelCounter),
+        'channel_id' => mt_rand(1,3),
         'views' => 0
     ];
 });
+
+$factory->define(App\Channel::class, function (Faker\Generator $faker) {
+
+    return [
+        'title' => $faker->word,
+        'slug' => $faker->word,
+        'color' => $faker->hexColor,
+        'info' => $faker->sentence,
+        'url' => $faker->url
+    ];
+});
+
