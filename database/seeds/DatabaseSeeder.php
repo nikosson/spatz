@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
 
         DB::statement('SET foreign_key_checks = 1;');
 
-        //$this->call(ChannelsTableSeeder::class);
+        $this->call(ChannelsTableSeeder::class);
         $this->call(QuestionsTableSeeder::class);
     }
 }
