@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Frontend;
 
-use App\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use App\Http\Controllers\Controller;
 
 class SettingsController extends Controller
 {
@@ -43,7 +44,7 @@ class SettingsController extends Controller
 
         flash("You've successfully updated your information!", 'success');
 
-        return redirect()->action('SettingsController@showInfo');
+        return redirect()->action('Frontend\SettingsController@showInfo');
     }
 
     /**
@@ -70,7 +71,7 @@ class SettingsController extends Controller
 
         flash("You've successfully updated your mailings!", 'success');
 
-        return redirect()->action('SettingsController@showMailing');
+        return redirect()->action('Frontend\SettingsController@showMailing');
     }
 
     /**
@@ -111,6 +112,6 @@ class SettingsController extends Controller
 
         flash("You've successfully updated your account information!", 'success');
 
-        return redirect()->action('SettingsController@showAccountInfo');
+        return redirect()->action('Frontend\SettingsController@showAccountInfo');
     }
 }

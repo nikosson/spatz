@@ -51,13 +51,13 @@
                                     @if(auth()->user() && !auth()->user()->subscribedForQuestion($subscription->subscription))
                                         <a href="javascript:;"
                                            data-href="{{ url('subscribe/question', $subscription->getQuestionsId()) }}"
-                                           class="btn btn-default btn-toggleSubscription">
+                                           class="btn btn-toggleSubscription">
                                             Subscribe
                                         </a>
                                     @else
                                         <a href="javascript:;"
                                            data-href="{{ url('subscribe/question', $subscription->getQuestionsId()) }}"
-                                           class="btn btn-default btn-primary btn-toggleSubscription">
+                                           class="btn btn-toggleSubscription btn-toggledSubscription">
                                             UnSubscribe
                                         </a>
                                     @endif

@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Question;
-use App\Subscription;
+use App\Models\Question;
+use App\Models\Subscription;
 
 class QuestionObserver
 {
@@ -17,7 +17,7 @@ class QuestionObserver
     {
         //When user asks question, it will be automatically subscribed for it
         Subscription::create([
-            'subscription_type' => 'App\Question',
+            'subscription_type' => 'App\Models\Question',
             'subscription_id' => $question->id,
             'user_id' => $question->user->id,
         ]);

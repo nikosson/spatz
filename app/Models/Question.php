@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use App\Http\Requests\QuestionRequest;
 use Carbon\Carbon;
@@ -47,7 +47,7 @@ class Question extends Model
      */
     public function subscriptions()
     {
-        return $this->morphMany('App\Subscription', 'subscription');
+        return $this->morphMany(Subscription::class, 'subscription');
     }
 
     /**

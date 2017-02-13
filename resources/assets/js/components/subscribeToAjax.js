@@ -1,10 +1,11 @@
 (function() {
     function subscribeToAjax(e) {
         e.preventDefault();
+        console.log('1');
 
         var ajaxRequest = getAjaxRequest(function(data) {
             if(data.approved) {
-                $(this).text('UbSubscribe');
+                $(this).text('UnSubscribe');
             } else {
                 $(this).text('Subscribe');
             }

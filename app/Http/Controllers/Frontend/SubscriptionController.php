@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Frontend;
 
-use App\Channel;
-use App\Question;
-use App\Subscription;
+use App\Models\Channel;
+use App\Models\Question;
+use App\Models\Subscription;
+use App\Http\Controllers\Controller;
 
 
 class SubscriptionController extends Controller
@@ -24,7 +25,7 @@ class SubscriptionController extends Controller
     {
         Subscription::firstOrNew([
             'subscription_id' => $channel->id,
-            'subscription_type' => 'App\Channel',
+            'subscription_type' => 'App\Models\Channel',
             'user_id' => auth()->id()
         ])->toggleSubscription();
 
@@ -44,7 +45,7 @@ class SubscriptionController extends Controller
     {
         Subscription::firstOrNew([
             'subscription_id' => $question->id,
-            'subscription_type' => 'App\Question',
+            'subscription_type' => 'App\Models\Question',
             'user_id' => auth()->id()
         ])->toggleSubscription();
 

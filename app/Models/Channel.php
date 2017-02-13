@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -35,6 +35,6 @@ class Channel extends Model
      */
     public function subscriptions()
     {
-        return $this->morphMany('App\Subscription', 'subscription');
+        return $this->morphMany(Subscription::class, 'subscription');
     }
 }

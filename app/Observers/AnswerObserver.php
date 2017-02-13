@@ -2,7 +2,7 @@
 
 namespace App\Observers;
 
-use App\Answer;
+use App\Models\Answer;
 
 class AnswerObserver
 {

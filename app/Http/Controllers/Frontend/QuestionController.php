@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Frontend;
 
-use App\Answer;
+use App\Models\Answer;
 use App\Http\Requests\QuestionRequest;
-use App\Question;
-use App\Channel;
+use App\Models\Question;
+use App\Models\Channel;
+use App\Http\Controllers\Controller;
 
 class QuestionController extends Controller
 {
@@ -40,7 +41,7 @@ class QuestionController extends Controller
         flash("You've successfully asked a question!", 'success');
 
         return redirect()->action(
-            'QuestionController@show', ['id' => $question->id]
+            'Frontend\QuestionController@show', ['id' => $question->id]
         );
     }
 
@@ -92,7 +93,7 @@ class QuestionController extends Controller
         flash("You've successfully edited your question!", 'success');
 
         return redirect()->action(
-            'QuestionController@show', ['id' => $question->id]
+            'Frontend\QuestionController@show', ['id' => $question->id]
         );
     }
 
@@ -110,7 +111,7 @@ class QuestionController extends Controller
 
         flash("You've successfully deleted your question!", 'success');
 
-        return redirect()->action('UserController@index');
+        return redirect()->action('Frontend\UserController@index');
     }
 
     /**

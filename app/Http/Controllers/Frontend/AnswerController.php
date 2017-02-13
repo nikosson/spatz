@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Frontend;    
 
-use App\Answer;
+use App\Models\Answer;
 use App\Http\Requests\AnswerRequest;
+use App\Http\Controllers\Controller;
 
 class AnswerController extends Controller
 {

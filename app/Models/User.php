@@ -1,8 +1,7 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
-use App\Http\Requests\SettingsRequest;
 use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -201,7 +200,7 @@ class User extends Authenticatable
      */
     public function getChannelSubscriptions()
     {
-        return $this->subscriptions()->where('subscription_type', 'App\Channel');
+        return $this->subscriptions()->where('subscription_type', Channel::class);
     }
 
     /**
@@ -211,7 +210,7 @@ class User extends Authenticatable
      */
     public function getQuestionSubscriptions()
     {
-        return $this->subscriptions()->where('subscription_type', 'App\Question');
+        return $this->subscriptions()->where('subscription_type', Question::class);
     }
 
     /**

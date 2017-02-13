@@ -2,7 +2,7 @@
 
 namespace App\Observers;
 
-use App\Subscription;
+use App\Models\Subscription;
 
 class SubscriptionObserver
 {

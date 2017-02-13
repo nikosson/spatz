@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Frontend;
 
-use App\Question;
+use App\Models\Question;
+use App\Http\Controllers\Controller;
 
 class FeedController extends Controller
 {

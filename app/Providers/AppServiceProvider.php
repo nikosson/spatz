@@ -2,11 +2,11 @@
 
 namespace App\Providers;
 
-use App\Answer;
+use App\Models\Answer;
 use App\Observers\SubscriptionObserver;
-use App\Question;
-use App\User;
-use App\Subscription;
+use App\Models\Question;
+use App\Models\User;
+use App\Models\Subscription;
 use App\Observers\QuestionObserver;
 use App\Observers\UserObserver;
 use App\Observers\AnswerObserver;

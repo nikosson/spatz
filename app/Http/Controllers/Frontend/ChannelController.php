@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Frontend;
 
-use App\Channel;
+use App\Models\Channel;
+use App\Http\Controllers\Controller;
 
 class ChannelController extends Controller
 {

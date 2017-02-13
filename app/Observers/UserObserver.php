@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Mailing;
-use App\User;
+use App\Models\Mailing;
+use App\Models\User;
 
 class UserObserver
 {
