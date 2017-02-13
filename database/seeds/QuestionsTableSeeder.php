@@ -8,7 +8,7 @@ class QuestionsTableSeeder extends Seeder
 
     public function run()
     {
-        factory('App\Question', 25)->create();
+        factory('App\Models\Question', 25)->create();
     }
 
 }

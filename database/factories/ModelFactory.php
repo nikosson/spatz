@@ -11,10 +11,9 @@
 |
 */
 
-use App\Channel;
-use App\User;
+use App\Models\User;
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
@@ -25,7 +24,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Question::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\Question::class, function (Faker\Generator $faker) {
 
     return [
         'title' => $faker->sentence,
@@ -36,7 +35,7 @@ $factory->define(App\Question::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Channel::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\Channel::class, function (Faker\Generator $faker) {
 
     return [
         'title' => $faker->word,
