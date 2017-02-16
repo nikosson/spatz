@@ -1,2 +1,2 @@
-@include('question.showNew')
+@include('frontend.question.showNew')
 

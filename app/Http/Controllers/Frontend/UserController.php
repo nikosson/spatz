@@ -20,6 +20,6 @@ class UserController extends Controller
     public function showAll()
     {
         $users = User::paginate(12);
-        return view('user.showAll', compact('users'));
+        return view('frontend.user.showAll', compact('users'));
     }
 }

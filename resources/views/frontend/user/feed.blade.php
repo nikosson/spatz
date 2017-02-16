@@ -1,4 +1,17 @@
 @extends('layouts.app-withSidebar')
+
+@section('head-scripts')
+
+    <script type="text/javascript">
+        if (window.location.hash == '#_=_'){
+            history.replaceState
+                    ? history.replaceState(null, null, window.location.href.split('#')[0])
+                    : window.location.hash = '';
+        }
+    </script>
+
+@endsection
+
 @section('content')
 
     <div class="col-md-8">
@@ -19,7 +32,7 @@
                 </li>
             </ul>
 
-            @include('question.partials.all')
+            @include('frontend.question.partials.all')
         @else
             <p class="h3">
                 Pick some channels, which you want to track <a href="{{ url('channel/all') }}">here</a>

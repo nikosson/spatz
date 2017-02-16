@@ -7,7 +7,7 @@
             <h1>All channels</h1>
         </div>
 
-        @include('channel.partials.all')
+        @include('frontend.channel.partials.all')
 
     </div>
 

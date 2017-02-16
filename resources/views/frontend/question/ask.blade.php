@@ -2,7 +2,6 @@
 
 @section('content')
 
-    @include('question.forms.edit-form')
+    @include('frontend.question.forms.ask-form')
 
 @endsection
-

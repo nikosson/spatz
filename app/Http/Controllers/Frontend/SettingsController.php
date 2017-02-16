@@ -22,7 +22,7 @@ class SettingsController extends Controller
     public function showInfo()
     {
         $user = User::findOrFail(auth()->id());
-        return view('settings.info', compact('user'));
+        return view('frontend.settings.info', compact('user'));
     }
 
     /**
@@ -55,7 +55,7 @@ class SettingsController extends Controller
     public function showMailing()
     {
         $user = User::findOrFail(auth()->id());
-        return view('settings.mailing', compact('user'));
+        return view('frontend.settings.mailing', compact('user'));
     }
 
     /**
@@ -84,14 +84,14 @@ class SettingsController extends Controller
         $user = User::findOrFail(auth()->id());
         $subscriptions = $user->getQuestionSubscriptions;
 
-        return view('settings.subscriptions', compact('subscriptions'));
+        return view('frontend.settings.subscriptions', compact('subscriptions'));
     }
 
     public function showAccountInfo()
     {
         $user = User::findOrFail(auth()->id());
 
-        return view('settings.account', compact('user'));
+        return view('frontend.settings.account', compact('user'));
     }
 
     public function updateAccountInfo(Request $request)

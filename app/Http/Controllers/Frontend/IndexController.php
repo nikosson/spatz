@@ -23,7 +23,7 @@ class IndexController extends Controller
                 ->orderBy('created_at', 'desc')
                 ->paginate(10);
 
-            $defaultView = 'user.feed';
+            $defaultView = 'frontend.user.feed';
         } else {
             $questions = Question::withCount('answers')
                 ->orderBy('created_at', 'desc')

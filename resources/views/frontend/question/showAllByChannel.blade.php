@@ -19,7 +19,7 @@
 
         @include('flashNotifications')
 
-        @include('question.partials.all')
+        @include('frontend.question.partials.all')
 
     </div>
 @endsection

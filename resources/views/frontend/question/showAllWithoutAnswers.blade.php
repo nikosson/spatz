@@ -15,7 +15,7 @@
                 <a href="{{ url('question/withoutAnswers') }}">Without answers</a>
             </li>
         </ul>
-        @include('question.partials.all')
+        @include('frontend.question.partials.all')
 
     </div>
 

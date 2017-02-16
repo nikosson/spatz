@@ -80,13 +80,13 @@
             </div>
         </div>
 
-        @include('answer.partials.all')
+        @include('frontend.answer.partials.all')
 
         <hr>
 
         @if(auth()->check())
 
-            @include('question.forms.answer-form')
+            @include('frontend.question.forms.answer-form')
 
         @else
 
@@ -99,7 +99,7 @@
         @endif
     </div>
 
-    @include('question.helpers.modal-delete')
+    @include('frontend.question.helpers.modal-delete')
 
 @endsection
 

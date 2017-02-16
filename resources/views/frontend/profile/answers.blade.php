@@ -14,5 +14,5 @@
         </li>
     </ul>
 
-    @include('answer.partials.all')
+    @include('frontend.answer.partials.all')
 @endsection

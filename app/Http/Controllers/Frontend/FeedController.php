@@ -24,7 +24,7 @@ class FeedController extends Controller
             ->orderBy('created_at', 'desc')
             ->paginate(10);
 
-        return view('feed.showNewQuestions', compact('questions'));
+        return view('frontend.feed.showNewQuestions', compact('questions'));
     }
 
     /**
@@ -40,6 +40,6 @@ class FeedController extends Controller
             ->orderBy('created_at', 'desc')
             ->paginate(10);
 
-        return view('feed.showQuestionsWithoutAnswers', compact('questions'));
+        return view('frontend.feed.showQuestionsWithoutAnswers', compact('questions'));
     }
 }

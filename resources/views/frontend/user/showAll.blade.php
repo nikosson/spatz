@@ -7,7 +7,7 @@
             <h1>All users</h1>
         </div>
 
-        @include('user.partials.all')
+        @include('frontend.user.partials.all')
 
     </div>
 

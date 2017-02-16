@@ -25,7 +25,7 @@ class QuestionController extends Controller
     {
         $channelsList = Channel::all();
 
-        return view('question.ask', compact('channelsList'));
+        return view('frontend.question.ask', compact('channelsList'));
     }
 
     /**
@@ -59,7 +59,7 @@ class QuestionController extends Controller
 
         $question->increment('views');
 
-        return view('question.show', compact('question', 'answers'));
+        return view('frontend.question.show', compact('question', 'answers'));
     }
 
     /**
@@ -74,7 +74,7 @@ class QuestionController extends Controller
 
         $channelsList = Channel::all()->except($question->channel->id);
 
-        return view('question.edit', compact('question', 'channelsList'));
+        return view('frontend.question.edit', compact('question', 'channelsList'));
     }
 
     /**
@@ -124,7 +124,7 @@ class QuestionController extends Controller
     {
         $questions = Question::withCount('answers')->where('channel_id', $channel->id)->paginate(10);
 
-        return view('question.showAllByChannel', compact('questions', 'channel'));
+        return view('frontend.question.showAllByChannel', compact('questions', 'channel'));
     }
 
     /**
@@ -135,7 +135,8 @@ class QuestionController extends Controller
     public function showNew()
     {
         $questions = Question::withCount('answers')->orderBy('created_at', 'desc')->paginate(10);
-        return view('question.showNew', compact('questions'));
+        
+        return view('frontend.question.showNew', compact('questions'));
     }
 
     /**
@@ -150,7 +151,7 @@ class QuestionController extends Controller
             ->orderBy('created_at', 'desc')
             ->paginate(10);
 
-        return view('question.showAllWithoutAnswers', compact('questions'));
+        return view('frontend.question.showAllWithoutAnswers', compact('questions'));
     }
 
 }

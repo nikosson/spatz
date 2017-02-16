@@ -21,7 +21,7 @@ class ProfileController extends Controller
      */
     public function showInfo(User $user)
     {
-        return view('profile.info', compact('user'));
+        return view('frontend.profile.info', compact('user'));
     }
 
     /**
@@ -34,7 +34,7 @@ class ProfileController extends Controller
     {
         $answers = $user->answers;
 
-        return view('profile.answers', compact('user', 'answers'));
+        return view('frontend.profile.answers', compact('user', 'answers'));
     }
 
     /**
@@ -50,6 +50,6 @@ class ProfileController extends Controller
             ->orderBy('created_at', 'desc')
             ->paginate(5);
 
-        return view('profile.questions', compact('user', 'questions'));
+        return view('frontend.profile.questions', compact('user', 'questions'));
     }
 }
