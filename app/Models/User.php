@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Models\Access\Role;
 
 class User extends Authenticatable
 {
@@ -76,6 +77,16 @@ class User extends Authenticatable
     public function mailing()
     {
         return $this->hasOne(Mailing::class);
+    }
+
+    /**
+     * Us
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
     }
 
     /**
@@ -231,5 +242,31 @@ class User extends Authenticatable
         if(!$userCount) return $noSpacesName;
 
         return $noSpacesName . $userCount;
+    }
+
+    /**
+     * Assigns user with a specified role
+     *
+     * @param Role $role
+     * @return \Illuminate\Database\Eloquent\Model
+     */
+    public function assignRole(Role $role)
+    {
+        return $this->roles()->save($role);
+    }
+
+    /**
+     * Check if user has specified role
+     *
+     * @param $role
+     * @return bool
+     */
+    public function hasRole($role)
+    {
+        if(is_string($role)) {
+            return $this->roles->contains('name', $role);
+        }
+
+        return !! $role->intersect($this->roles)->count();
     }
 }
