@@ -61,6 +61,10 @@ Route::group(['namespace' => 'Frontend'], function () {
 //Backend routes(routes for a staff users)
 Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'middleware' => ['auth', 'checkRole:admin']], function () {
 
+    //Dashboard
     Route::get('/', 'DashboardController@index');
+    
+    //Actions with user
+    Route::get('user/showAll/{showType?}', 'UserController@showAll');
 
 });

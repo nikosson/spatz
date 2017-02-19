@@ -26,22 +26,16 @@
 </head>
 <body>
 
-    @include('backend.dashboard.navbar')
+    @include('backend.dashboard.components.navbar')
 
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-3 col-md-2 sidebar">
-                <ul class="nav nav-sidebar">
-                    <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-                    <li><a href="#">Users</a></li>
-                    <li><a href="#">Channels</a></li>
-                    <li><a href="#">Questions</a></li>
-                </ul>
+                @yield('sidebar')
             </div>
+
             <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                <h1 class="page-header">Dashboard</h1>
-                    @include('backend.dashboard.labels')
-                </div>
+                @yield('content')
             </div>
         </div>
     </div>

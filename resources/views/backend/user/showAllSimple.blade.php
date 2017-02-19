@@ -3,11 +3,11 @@
 @section('sidebar')
 
     <ul class="nav nav-sidebar">
-        <li class="active">
-            <a href="#">Overview</a>
+        <li>
+            <a href="{{ url('admin/') }}">Overview</a>
         </li>
 
-        <li>
+        <li class="active">
             <a href="#" data-toggle="collapse" data-target="#toggleButtons-users">
                 Users
                 <i class="fa fa-chevron-down" aria-hidden="true"></i>
@@ -15,7 +15,7 @@
             </a>
 
             <ul class="nav nav-subbar collapse" id="toggleButtons-users">
-                <li><a href="{{ url('admin/user/showAll') }}">Show all</a></li>
+                <li><a href="#">Show all</a></li>
                 <li><a href="#">Create new</a></li>
                 <li><a href="#">Ban list</a></li>
             </ul>
@@ -52,7 +52,38 @@
 
 @section('content')
 
-    <h1 class="page-header">Overview</h1>
-    @include('backend.dashboard.components.labels')
+    <h1 class="page-header">All users</h1>
+
+    <div class="btn-group" role="group" aria-label="...">
+        <a class="btn btn-default" href="{{ url('admin/user/showAll/simple') }}">Simple view</a>
+        <a class="btn btn-default" href="{{ url('admin/user/showAll/complex') }}">Complex view</a>
+    </div>
+
+    <table class="table table-striped table-hover">
+        <thead>
+
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Created at</th>
+            </tr>
+
+        </thead>
+        <tbody>
+
+            @foreach($users as $user)
+                <tr>
+                    <td>{{ $user->id }}</td>
+                    <td>{{ $user->name }}</td>
+                    <td>{{ $user->email }}</td>
+                    <td>{{ $user->created_at }}</td>
+                </tr>
+            @endforeach
+
+        </tbody>
+    </table>
+
+    {{ $users->links() }}
 
 @endsection
