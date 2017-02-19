@@ -23,6 +23,9 @@ let bowerScripts = [
 
 elixir(mix => {
     mix.sass('app.sass')
+       .sass([
+           'dashboard.sass'
+       ], './public/css/dashboard.css')
        .scripts(bowerScripts.concat([
            'libs/prism.js',
            'libs/tinymce_config.js',

@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name') }}</title>
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
@@ -64,6 +64,16 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
+
+                                @can('use_dashboard')
+                                    <li>
+                                        <a href="{{ url('admin') }}">
+                                            <i class="fa fa-dashboard" aria-hidden="true"></i>
+                                            Dashboard
+                                        </a>
+                                    </li>
+                                @endcan
+
                                 <li>
                                     <a href="{{ url('settings/info') }}">
                                         <i class="fa fa-cog" aria-hidden="true"></i>
