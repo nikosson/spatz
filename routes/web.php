@@ -66,5 +66,8 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'middleware' => ['a
     
     //Actions with user
     Route::get('user/showAll/{showType?}', 'UserController@showAll');
-
+    Route::get('user/create', 'UserController@createForm');
+    Route::post('user/store', 'UserController@store');
+    
+    
 });

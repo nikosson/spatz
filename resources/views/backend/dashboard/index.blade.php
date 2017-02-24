@@ -16,7 +16,7 @@
 
             <ul class="nav nav-subbar collapse" id="toggleButtons-users">
                 <li><a href="{{ url('admin/user/showAll') }}">Show all</a></li>
-                <li><a href="#">Create new</a></li>
+                <li><a href="{{ url('admin/user/create') }}">Create new</a></li>
                 <li><a href="#">Ban list</a></li>
             </ul>
         </li>
