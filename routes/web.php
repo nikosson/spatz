@@ -68,6 +68,11 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'middleware' => ['a
     Route::get('user/showAll/{showType?}', 'UserController@showAll');
     Route::get('user/create', 'UserController@createForm');
     Route::post('user/store', 'UserController@store');
+
+    //Actions with channels
+    Route::get('channel/showAll', 'ChannelController@showAll');
+    Route::get('channel/create', 'ChannelController@createForm');
+    Route::post('channel/store', 'ChannelController@store');
     
     
 });
