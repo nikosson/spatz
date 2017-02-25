@@ -3,7 +3,7 @@
         <a href="{{ url('admin/') }}">Overview</a>
     </li>
 
-    <li class="active">
+    <li>
         <a href="javascript:;" data-toggle="collapse" data-target="#toggleButtons-users">
             Users
             <i class="fa fa-chevron-down" aria-hidden="true"></i>
@@ -30,7 +30,7 @@
         </ul>
     </li>
 
-    <li>
+    <li class="active">
         <a href="#" data-toggle="collapse" data-target="#toggleButtons-questions">
             Questions
             <i class="fa fa-chevron-down" aria-hidden="true"></i>

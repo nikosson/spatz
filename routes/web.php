@@ -74,5 +74,8 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'middleware' => ['a
     Route::get('channel/create', 'ChannelController@createForm');
     Route::post('channel/store', 'ChannelController@store');
     
+    //Actions with questions
+    Route::get('question/showAll', 'QuestionController@showAll');
+    
     
 });

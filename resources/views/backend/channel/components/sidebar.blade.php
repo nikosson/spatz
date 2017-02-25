@@ -38,7 +38,7 @@
         </a>
 
         <ul class="nav nav-subbar collapse" id="toggleButtons-questions">
-            <li><a href="#">Show all</a></li>
+            <li><a href="{{ url('admin/question/showAll') }}">Show all</a></li>
         </ul>
     </li>
 
