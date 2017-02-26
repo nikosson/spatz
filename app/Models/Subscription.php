@@ -41,7 +41,11 @@ class Subscription extends Model
      */
     public function isChannel()
     {
-        return $this->subscription_type === Channel::class;
+        if(!is_null($this->subscription)) {
+            return $this->subscription_type === Channel::class;
+        }
+        
+        return false;
     }
 
     /**
@@ -51,7 +55,11 @@ class Subscription extends Model
      */
     public function isQuestion()
     {
-        return $this->subscription_type === Question::class;
+        if(!is_null($this->subscription)) {
+            return $this->subscription_type === Question::class;
+        }
+        
+        return false;
     }
 
     /**

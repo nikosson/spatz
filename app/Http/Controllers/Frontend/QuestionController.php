@@ -111,7 +111,7 @@ class QuestionController extends Controller
 
         flash("You've successfully deleted your question!", 'success');
 
-        return redirect()->action('Frontend\UserController@index');
+        return redirect()->action('Frontend\IndexController@index');
     }
 
     /**
