@@ -33,6 +33,7 @@ elixir(mix => {
            'components/markAnswerAjax.js',
            'components/flashMessageAlert.js',
            'components/subscribeToAjax.js',
+           'components/dashboardSidebar.js'
        ]))
        .copy('./bower_components/tinymce', './public/assets/tinymce');
 });

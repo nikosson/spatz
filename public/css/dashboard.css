@@ -8926,4 +8926,9 @@ body {
   border-radius: 50%;
 }
 
+.dropdown-toggle {
+  background-color: transparent;
+  border: none;
+}
+
 /*# sourceMappingURL=dashboard.css.map */

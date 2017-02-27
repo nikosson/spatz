@@ -1,11 +1,5 @@
 @extends('layouts.dashboard')
 
-@section('sidebar')
-
-    @include('backend.user.components.sidebar')
-
-@endsection
-
 @section('content')
 
     <h1 class="page-header">All users</h1>

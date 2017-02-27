@@ -9,6 +9,8 @@ Homestead.yaml
 
 /public/css/app.css
 /public/css/app.css.map
+/public/css/dashboard.css
+/public/css/dashboard.css.map
 /public/js/all.js
 /public/js/all.js.map
 /public/assets/tinymce

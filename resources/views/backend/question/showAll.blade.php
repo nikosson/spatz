@@ -1,11 +1,5 @@
 @extends('layouts.dashboard')
 
-@section('sidebar')
-
-    @include('backend.question.components.sidebar')
-
-@endsection
-
 @section('content')
 
     <h1 class="page-header">All questions</h1>

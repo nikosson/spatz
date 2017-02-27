@@ -1,7 +1,8 @@
-<h1 class="page-header">Create new channel</h1>
+<h1 class="page-header">Update channel</h1>
 
-<form class="form-horizontal" role="form" method="POST" action="{{ url('admin/channel/store') }}">
+<form class="form-horizontal" role="form" method="POST" action="{{ url('admin/channel', $channel->slug) }}">
     {{ csrf_field() }}
+    {{ method_field('PATCH') }}
 
     <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
 
@@ -11,7 +12,7 @@
                    type="text"
                    class="form-control"
                    name="title"
-                   value="{{ old('title') }}"
+                   value="{{ $channel->title }}"
                    autofocus
                    required>
 
@@ -31,7 +32,7 @@
                    type="text"
                    class="form-control"
                    name="slug"
-                   value="{{ old('slug') }}"
+                   value="{{ $channel->slug }}"
                    required>
 
             @if ($errors->has('slug'))
@@ -50,7 +51,7 @@
                    type="color"
                    class="form-control"
                    name="color"
-                   value="{{ old('color') }}"
+                   value="{{ $channel->color }}"
                    required>
 
             @if ($errors->has('color'))
@@ -69,7 +70,7 @@
                       name="info"
                       placeholder="A bit of information about the channel"
                       id="info"
-                      required>{{ old('info') }}</textarea>
+                      required>{{ $channel->info }}</textarea>
 
             @if ($errors->has('info'))
                 <span class="help-block">
@@ -87,7 +88,7 @@
                    type="text"
                    class="form-control"
                    name="url"
-                   value="{{ old('url') }}"
+                   value="{{ $channel->url }}"
                    required>
 
             @if ($errors->has('url'))
@@ -103,7 +104,7 @@
     <div class="form-group">
         <div class="col-md-6">
             <button type="submit" class="btn btn-primary">
-                Create
+                Update
             </button>
         </div>
     </div>

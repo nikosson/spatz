@@ -73,6 +73,9 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'middleware' => ['a
     Route::get('channel/showAll', 'ChannelController@showAll');
     Route::get('channel/create', 'ChannelController@createForm');
     Route::post('channel/store', 'ChannelController@store');
+    Route::get('channel/edit/{channel}', 'ChannelController@edit');
+    Route::patch('channel/{channel}', 'ChannelController@update');
+    Route::delete('channel/{channel}', 'ChannelController@destroy');
     
     //Actions with questions
     Route::get('question/showAll', 'QuestionController@showAll');

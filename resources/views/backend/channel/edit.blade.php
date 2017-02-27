@@ -2,6 +2,6 @@
 
 @section('content')
 
-    @include('backend.channel.components.createForm')
+    @include('backend.channel.components.editForm')
 
 @endsection
