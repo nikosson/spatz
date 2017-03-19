@@ -38,7 +38,7 @@
                 <td>{{ $channel->created_at }}</td>
                 <td>
                     <div class="btn-group pull-right" data-toggle="tooltip" data-placement="right">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button type="button" class="btn btn-default manage-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
                         </button>
                         <ul class="dropdown-menu">

@@ -43,3 +43,18 @@
     </li>
 
 </ul>
+
+<ul class="nav nav-sidebar">
+    <li class="dashboard-active">
+        <a href="#" data-toggle="collapse" data-target="#toggleButtons-roles">
+            Roles
+            <i class="fa fa-chevron-down" aria-hidden="true"></i>
+
+        </a>
+
+        <ul class="nav nav-subbar collapse" id="toggleButtons-roles">
+            <li><a href="{{ url('admin/role/showAll') }}">Show all</a></li>
+            <li><a href="{{ url('admin/role/create') }}">Create</a></li>
+        </ul>
+    </li>
+</ul>

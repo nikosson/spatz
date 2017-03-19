@@ -79,6 +79,13 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'middleware' => ['a
     
     //Actions with questions
     Route::get('question/showAll', 'QuestionController@showAll');
-    
+
+    //Actions with roles
+    Route::get('role/showAll', 'RoleController@showAll');
+    Route::get('role/create', 'RoleController@createForm');
+    Route::post('role/store', 'RoleController@store');
+    Route::get('role/edit/{role}', 'RoleController@edit');
+    Route::patch('role/{role}', 'RoleController@update');
+    Route::delete('role/{role}', 'RoleController@destroy');
     
 });
